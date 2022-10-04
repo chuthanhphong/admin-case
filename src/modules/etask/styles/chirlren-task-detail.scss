@@ -1,0 +1,89 @@
+.detail-task-chirldren{
+
+  .v-input__icon.v-input__icon--clear{
+    padding-top: 2px;
+  }
+  &.time-label{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #22242C;
+    min-width: 79px!important;
+  }
+  & .title-picker-task{
+    width: 112px;
+    height: 20px;
+    top: auto;
+
+    /* Paragraph/body 2 */
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    text-transform: capitalize;
+
+    /* tertiary (neutral)/500 (chủ đạo) */
+
+    color: #22242C;
+  }
+  & .label-chip-status-task{
+    .v-chip__content{
+      min-width: 115px!important;
+      padding-left: 4px;
+    }
+       input{
+        display: none!important;
+      }
+
+  }
+  .v-chip.v-chip--no-color.theme--light.-size--default{
+    margin-bottom: 105px!important;
+  }
+  v-chip.v-chip--clickable.v-chip--no-color.v-chip--removable.theme--light.v-size--default{
+    width: auto!important;
+  }
+  .v-input__control{
+    max-height: unset!important;
+  }
+
+  .v-chip__content{
+    width: auto!important;
+  }
+
+  .v-menu__content.theme--light.v-autocomplete__content{
+    left : -84px!important;
+  }
+
+  .v-chip.v-chip--clickable.v-chip--no-color.v-chip--removable.theme--light.v-size--default{
+    margin-top: 22px!important;
+  }
+
+  .v-chip.v-chip--clickable.v-chip--no-color.v-chip--removable.theme--light.v-size--default{
+    margin-bottom: 20px!important;
+  }
+
+  .v-messages__message{
+    margin-top: 7px!important;
+  }
+
+  .v-chip.v-chip--clickable.v-chip--no-color.v-chip--removable.theme--light.v-size--default{
+    width: 120px!important;
+    height: 35px!important;
+  }
+
+
+  & .clear-display{
+    .v-text-field__details{
+      display:  none!important;
+    }
+  }
+
+
+}
+
+

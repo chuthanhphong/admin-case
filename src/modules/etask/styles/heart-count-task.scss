@@ -1,0 +1,10 @@
+.heart-task{
+  & .heart--selected{
+    width: 13px!important;
+    height: 12px !important;
+  }
+  .v-image__image--cover{
+    background-size: unset!important;
+  }
+}
+

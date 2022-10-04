@@ -1,0 +1,122 @@
+/*TABLE*/
+.calendar-content-list {
+  #virtual-scroll-table-group {
+    overflow-y: auto;
+  }
+  #virtual-scroll-table-approve {
+    overflow-y: auto;
+  }
+  #virtual-scroll-table-participant {
+    overflow-y: auto;
+  }
+  #virtual-scroll-table-creator {
+    overflow-y: auto;
+  }
+  .v-data-table__wrapper {
+    table {
+      thead {
+        th {
+          color: #9fa2b4 !important;
+          background: #e7ecf1 !important;
+          height: 44px !important;
+          box-shadow: none !important;
+          &.stt {
+            width: 4%;
+          }
+          &.document-name {
+            width: 14%;
+          }
+          &.textForm {
+            width: 8%;
+          }
+          &.urgency {
+            width: 8%;
+          }
+          &.signer {
+            width: 12%;
+          }
+          &.textStatus {
+            width: 12%;
+          }
+          &.processingProgress {
+            width: 13%;
+          }
+          &.processStatus {
+            width: 10%;
+          }
+          &.dateCreated {
+            width: 8%;
+          }
+          &.action {
+            width: 11%;
+          }
+        }
+      }
+    }
+  }
+}
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > td:not(.v-data-table__mobile-row),
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > th:not(.v-data-table__mobile-row) {
+  border-bottom: thin solid rgba(0, 0, 0, 0.04) !important;
+}
+.calendar-content-list {
+  .v-data-table > .v-data-table__wrapper {
+    max-height: calc(100vh - 330px) !important;
+    height: initial !important;
+    min-height: 65vh;
+    overflow-y: initial;
+  }
+  .v-data-table--fixed-header > .v-data-table__wrapper {
+    overflow-x: initial;
+    overflow-y: initial;
+  }
+  .wrap-empty-list {
+    min-height: 75vh !important;
+  }
+}
+.content-list-dashboard {
+  .tb-wait-sign.v-data-table > .v-data-table__wrapper {
+    height: calc(100vh - 560px) !important;
+    min-height: 40vh;
+  }
+}
+.item-action {
+  max-width: auto;
+  span {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+/*PAGING*/
+.info-paging {
+  font-size: 14px;
+}
+.control-paging {
+  span {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+.current-page {
+  background: #0fafe4;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+.v-data-table__wrapper {
+  .header-table {
+    .th-document-name {
+      padding-left: 10px !important;
+    }
+  }
+}

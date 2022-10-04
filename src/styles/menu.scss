@@ -1,0 +1,262 @@
+#core-navigation-drawer {
+  &.v-navigation-drawer--mini-variant {
+    width: 78px !important;
+  }
+  &.v-navigation-drawer--open {
+    z-index: 99;
+  }
+  .v-navigation-drawer__border {
+    background-color: #e7ecf1 !important;
+  }
+  .header-logo {
+    padding-top: 10px !important;
+    .v-avatar {
+      border-radius: 0 !important;
+    }
+  }
+  .v-list-group--active {
+    div.v-list-item--active {
+      .icon-contract::before {
+        content: '';
+        background: url(../assets/icons/menu/kydt/main.png) no-repeat;
+        width: 50px;
+        height: 46px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      div > .v-list-item__title {
+        color: #0fafe4 !important;
+      }
+    }
+  }
+  .v-list--nav {
+    padding: 0;
+  }
+  .v-list:not(.header-logo) {
+    .active {
+      .v-list-item__title {
+        color: #00c3f9;
+      }
+    }
+    .v-list-item__title {
+      color: #8e8ea1;
+    }
+  }
+  .icon-menu {
+    width: 50px;
+    height: 46px;
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon-home-document::before {
+    content: '';
+    background: url(../assets/icons/menu/home/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-home::before {
+    content: '';
+    background: url(../assets/icons/menu/home/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-contract::before {
+    content: '';
+    background: url(../assets/icons/menu/kydt/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-contract-create::before {
+    content: '';
+    background: url(../assets/icons/menu/toitao/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-contract-process::before {
+    content: '';
+    background: url(../assets/icons/menu/choxl/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-contract-coordination::before {
+    content: '';
+    background: url(../assets/icons/menu/dieuphoi/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-contract-manager::before {
+    content: '';
+    background: url(../assets/icons/menu/wrench/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-contract-brief::before {
+    content: '';
+    background: url(../assets/icons/menu/folder/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-flow::before {
+    content: '';
+    background: url(../assets/icons/menu/luongmau/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-report::before {
+    content: '';
+    background: url(../assets/icons/menu/baocao/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-users::before {
+    content: '';
+    background: url(../assets/icons/menu/nguoidung/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-groups::before {
+    content: '';
+    background: url(../assets/icons/menu/donvi/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-proclaim::before {
+    content: '';
+    background: url(../assets/icons/menu/banhanh/Inactive.png) no-repeat;
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+
+  .active {
+    .icon-home-document::before {
+      background: url(../assets/icons/menu/home/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-home::before {
+      background: url(../assets/icons/menu/home/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-contract::before {
+      content: '';
+      background: url(../assets/icons/menu/kydt/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-contract-create::before {
+      content: '';
+      background: url(../assets/icons/menu/toitao/Active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-contract-process::before {
+      content: '';
+      background: url(../assets/icons/menu/choxl/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-contract-coordination::before {
+      content: '';
+      background: url(../assets/icons/menu/dieuphoi/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-contract-manager::before {
+      content: '';
+      background: url(../assets/icons/menu/wrench/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-contract-brief::before {
+      content: '';
+      background: url(../assets/icons/menu/folder/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-flow::before {
+      content: '';
+      background: url(../assets/icons/menu/luongmau/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-report::before {
+      content: '';
+      background: url(../assets/icons/menu/baocao/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-proclaim::before {
+      content: '';
+      background: url(../assets/icons/menu/banhanh/Inactive.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-users::before {
+      content: '';
+      background: url(../assets/icons/menu/nguoidung/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-groups::before {
+      content: '';
+      background: url(../assets/icons/menu/donvi/active.png) no-repeat;
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+  }
+}

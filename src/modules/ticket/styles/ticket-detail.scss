@@ -1,0 +1,207 @@
+@import '@/styles/colors';
+
+.container-ticket {
+  .ticket-detail-content {
+    .v-expansion-panel-header__icon {
+      position: initial
+    }
+
+    .v-expansion-panels.no-z-index {
+      z-index: initial !important;
+    }
+    .v-text-field--outlined {
+      &.no-border {
+        fieldset {
+          border: none !important;
+        }
+      }
+    }
+
+    .v-input--is-disabled {
+      .v-input__slot {
+        background-color: #F6F8FB !important;
+        border-style: hidden !important;
+      }
+    }
+    .theme--light.v-select .v-select__selection--disabled {
+      color: #22242c !important;
+      border-style: hidden !important;
+    }
+    .v-input--is-disabled input {
+      color: #22242c !important;
+      border-style: hidden !important;
+    }
+    .scroll-expand-detail-ticket-info {
+      max-height: calc(100vh - 520px);
+    }
+
+    .scroll-expand-task-detail-ticket {
+      max-height: calc(100vh - 480px);
+      margin-top: 10px;
+    }
+    .expand-detail {
+      max-height: calc(100vh - 150px);
+    }
+
+    .border-est-duaration {
+      border: 1px solid $primary;
+      border-radius: 20px;
+    }
+    .short{
+      width:fit-content;
+    }
+    .v-list-item-group .v-list-item--active {
+      color: white !important;
+    }
+    .v-input--selection-controls .v-input__slot > .v-label, .v-input--selection-controls .v-radio > .v-label {
+      background: white !important;
+      color: #22242C !important;
+    }
+    .v-list-item--link {
+      cursor: default;
+    }
+    .v-input--selection-controls .v-input__slot > .v-label {
+      cursor: default;
+    }
+    .v-input--selection-controls__ripple {
+      cursor: default;
+    }
+
+    // .short span{
+    //   white-space: nowrap;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    // }
+  }
+
+  .footer-actions-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .pos-rel {
+    position: relative;
+  }
+
+  .tag-ticket {
+    border: 1px dashed #7A7C80;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+  .btn-icon {
+    border: 0.5px dashed
+  }
+  .btn-choose{
+    border: 1px dashed #7A7C80;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  & .label-detail-ticket {
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
+    text-transform: capitalize !important;
+  }
+
+  & .selected-status {
+    height: 40px;
+    left: 0px;
+    top: 40px;
+    border-radius: 8px !important;
+  }
+  & .item-status{
+    width: 120px!important;
+    font-style: SemiBold !important;
+    font-size: 12px !important;
+    line-height: 15px !important;
+  }
+  & .select--status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 10px;
+    border-radius: 8px !important;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+  & .urgency-ticket {
+    background: #fff;
+    border: 1px 2px 12px rgb(0 0 0 / 15%);
+    border-radius: 150px;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+  }
+  & .urgency-high {
+    background: #FFDBDD;
+    color: #FF4A55;
+  }
+  & .urgency-normal {
+    background: #FFE7D7;
+    color: #FD8538;
+  }
+  & .urgency-low {
+    background: #7A7C80;
+    color: #D3D3D5;
+  }
+  & .label-parent-work{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    display: flex;
+    align-items: center;
+
+    /* b1 */
+
+    color: #22242C;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  & .body-dialog-select-source-task{
+    max-height: calc(80vh - 210px) !important;
+    overflow-y: auto !important;
+  }
+  & .item-link-ticket{
+    border: 1px solid #22242C;
+    border-radius: 8px;
+  }
+  & .task-name-hover:hover  {
+    color: #0fafe4;
+    text-decoration: underline;
+  }
+  & .text-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+  }
+  b:active {
+    user-select: text;
+    background-color: #0fafe4;
+    color: #FFFFFF;
+  }
+}

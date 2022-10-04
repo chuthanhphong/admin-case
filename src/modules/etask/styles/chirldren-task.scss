@@ -1,0 +1,143 @@
+.children-task {
+
+  .v-input__icon.v-input__icon--clear{
+    padding-top: 2px;
+  }
+  & .title-picker-task {
+    width: 112px;
+    height: 20px;
+    top: auto;
+
+    /* Paragraph/body 2 */
+
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    text-transform: capitalize;
+
+    /* tertiary (neutral)/500 (chủ đạo) */
+
+    color: #22242c;
+  }
+  .v-text-field__slot{
+    margin-top: 22px!important;
+  }
+  .v-list-item.v-list-item--link.theme--light{
+    width: 225px!important;
+  }
+  .v-messages__message{
+    margin-top: 7px!important;
+  }
+
+  .v-input__slot {
+    width: 200px!important;
+  }
+
+  .v-input__icon.v-input__icon--append{
+    display: none!important;
+  }
+}
+.select-date-task {
+  width: 550px !important;
+  height: 400px !important;
+  & .date-picker--task {
+    width: 550px;
+    height: auto;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+  & .title-picker-task {
+    width: 112px;
+    height: 20px;
+    top: auto;
+
+    /* Paragraph/body 2 */
+
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    text-transform: capitalize;
+
+    /* tertiary (neutral)/500 (chủ đạo) */
+
+    color: #22242c;
+  }
+  & .img-title {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 20px;
+
+    /* tertiary (neutral)/300 */
+  }
+  & .v-application .mt-4 {
+    margin-top: 0 !important;
+  }
+  .time-picker--complete-task {
+    box-sizing: border-box;
+    left: 0%;
+    right: 0%;
+    top: 47.17%;
+    width: 174px;
+    height: 28px;
+    /* tertiary (neutral)/200 */
+
+    border: 0.5px solid #a7a7ab;
+    border-radius: 8px;
+  }
+
+  .text--body-5 {
+    border: 0.5px solid #a7a7ab !important;
+    border-radius: 8px !important;
+    height: 28px !important;
+  }
+  .v-text-field > .v-input__control > .v-input__slot:before,
+  .v-text-field > .v-input__control > .v-input__slot:after {
+    width: 0 !important;
+  }
+
+  .icon-dropdown {
+    padding-top: 10px !important;
+    padding-right: 7px !important;
+  }
+
+  .v-text-field__slot {
+    text-align: center !important;
+  }
+
+  .v-input--checkbox {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }
+
+  .v-messages.theme--light.error--text {
+    & .v-messages__wrapper {
+      & .v-messages__message {
+        font-size: 8px !important;
+      }
+    }
+  }
+
+  & .icon-date {
+    width: 16px !important;
+    height: 17px !important;
+  }
+
+  .v-text-field__slot {
+    margin-bottom: 4px !important;
+    margin-left: 3px !important;
+  }
+
+  .v-input__append-inner {
+    margin-right: 5px;
+  }
+}
+

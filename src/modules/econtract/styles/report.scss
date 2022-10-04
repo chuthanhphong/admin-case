@@ -1,0 +1,163 @@
+@import "@/styles/colors";
+.reportYear {
+  margin-top: 40px;
+}
+.wrap-pie-chart {
+  width: 300px;
+  @media (max-width: 1336px) {
+    width: 250px;
+  }
+  @media (max-width: 960px) {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+.main-chart {
+  .apexcharts-toolbar {
+    display: none;
+  }
+  .warp-count {
+    display: flex;
+    align-items: center;
+    .count-text {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .percent-text {
+      font-weight: 400;
+      font-size: 12px;
+      margin-left: 2px;
+    }
+  }
+  .label-tooltip {
+    font-size: 14px;
+    color: #0a093d;
+  }
+  .piechart-content {
+    position: relative;
+    &::before {
+      content: "";
+      background: url("../assets/bg-report-pie.svg") no-repeat;
+      width: 300px;
+      height: 145px;
+      position: absolute;
+      background-size: 100% 100%;
+      bottom: -25px;
+      left: -5px;
+      opacity: 0.3;
+    }
+    &::after {
+      content: "";
+      background: url("../assets/bg-report-pie-right.svg") no-repeat;
+      width: 300px;
+      height: 145px;
+      position: absolute;
+      background-size: 100% 100%;
+      bottom: -25px;
+      right: -5px;
+      opacity: 0.3;
+    }
+  }
+  .chart-item {
+    padding: 20px;
+    border-radius: 20px;
+    .v-btn {
+      height: 40px;
+      border-radius: 8px;
+    }
+    .v-text-field--outlined,
+    .v-text-field--solo {
+      border-radius: 8px !important;
+      fieldset {
+        border: 1px solid #8e8ea1 !important;
+      }
+    }
+    .v-input input,
+    .v-input .v-select__selection {
+      color: #22242c;
+      font-weight: 400;
+    }
+  }
+  .v-select__selections {
+    .v-chip--select {
+      margin: 4px;
+    }
+  }
+  .title-chart {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    color: #22242c;
+  }
+  .barchart {
+    .apexcharts-text {
+      font-size: 14px;
+      title,
+      tspan {
+        color: #a7a7ab !important;
+      }
+    }
+    .apexcharts-datalabel {
+      color: #15cbe6 !important;
+      font-size: 16px !important;
+      @media (max-width: 1336px) {
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+.v-autocomplete__content.v-menu__content {
+  border-radius: 8px;
+}
+.title-page {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.legend-chart-info {
+  margin-top: 50px;
+  .total-contract {
+    font-size: 25px;
+    span {
+      font-size: 30px;
+    }
+  }
+  .legend-chart {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    li {
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-right: 15px;
+      color: #8e8ea1;
+      font-weight: 700;
+      margin-bottom: 30px;
+      .count {
+        display: inline-block;
+        margin-left: 26px;
+        color: #22242c;
+      }
+      .percent-text {
+        width: 80px;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        width: 160px;
+      }
+      .card-icon {
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "names": {
+    "parentName": "Parent Name",
+    "group": "Group",
+    "groupName": "Group Name",
+    "groupCode": "Group Code",
+    "userName": "User name",
+    "fullName": "Full name",
+    "email": "Email",
+    "mobile": "Phone",
+    "dateOfBirth": "Date of birth",
+    "address": "Address",
+    "groupNameOrType": "Group name",
+    "roleId": "Role",
+    "position": "Position",
+    "supplier": "Supplier",
+    "pin": "Pin",
+    "password": "Password",
+
+    "fileAttachs": "File Attachs",
+    "fileAttachsFile": "File Attachments",
+    "fileSign": "File Sign",
+    "fileZipContract": "File compress contract",
+    "fileListContract": "File list contract",
+    "contractSigned": "Contract Signed",
+    "contractType": "Contract Type",
+    "contractName": "Contract Name",
+    "contractNo": "Contract No",
+    "myRepresent": "myRepresent",
+    "oldPassword": "Old password",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "effectiveDate": "Effective Date",
+    "expiredDate": "Expired Date",
+    "companyName": "Company Name",
+    "customerRepresentative": "Customer Representative",
+    "ticketTypeName": "Ticket type name",
+    "ticketGroupId": "Execution unit",
+    "formulaType": "Formula type",
+    "managementName": "Document name",
+    "documentName": "Document name",
+    "documentType": "Document type",
+    "promulgateGroup": "Promulgate group",
+    "datePromulgate": "Promulgate date",
+    "noteOfGroup": "Note belonging to the unit",
+    "documentNumber": "Document number",
+    "numberContineu": "Next number",
+    "symbolDocument": "Number, symbol document",
+    "density": "Density",
+    "urgency": "Urgency",
+    "receiveSave": "Receive save",
+    "receiveDoc": "Receive document",
+    "signerName": "Signer name",
+    "label": "Data name",
+    "select": "Option",
+    "ticketName": "Ticket name",
+    "ticketType": "Ticket type",
+    "attributeValue": "Thông tin này",
+    "constructionGroup": "Đơn vị xây dựng",
+    "scopeUse": "Phạm vi sử dụng",
+    "typeTaskName": "Type task name",
+    "taskReason": "Reason",
+    "unitHandle": "Unit handle",
+    "participantName": "Người tham gia",
+    "participantEmail": "email",
+    "meetingTitle": "Tên lịch họp",
+    "roomMeeting": "Phòng họp",
+    "pointOfContact": "Đầu mối liên hệ",
+    "reason": "Lý do",
+    "chairManName": "Bắt buộc phải chọn 1 thành viên chủ trì"
+  },
+  "targets": {
+    "newPassword": "New password"
+  },
+  "message": {
+    "dateBefore": "{_field_} cannot be greater than the current date",
+    "checkFormatDate": "{_field_} invalid",
+    "validatePassword": "{_field_} must contain uppercase, lowercase, numbers and special characters",
+    "specialCharacter": "{_field_} not containt special character"
+  },
+  "fields": {
+    "partnerGroupName": {
+      "regex": "{_field_} not containt special character"
+    },
+    "partnerGroupCode": {
+      "regex": "{_field_} not containt special character"
+    },
+    "groupName": {
+      "regex": "{_field_} not containt special character"
+    },
+    "groupCode": {
+      "regex": "{_field_} not containt special character"
+    },
+    "fullName": {
+      "regex": "{_field_} not containt special character"
+    },
+    "userName": {
+      "regex": "{_field_} not containt special character"
+    },
+    "position": {
+      "regex": "{_field_} not containt special character"
+    },
+    "label": {
+      "excluded": "{_field_} of this type already exist"
+    },
+    "select": {
+      "required": "Please enter options",
+      "excluded": "This option already exists"
+    },
+    "participantName": {
+      "regex": "Không được chứa ký tự đặc biệt"
+    },
+    "participantEmail": {
+      "regex": "Không đúng định dạng"
+    }
+  }
+}

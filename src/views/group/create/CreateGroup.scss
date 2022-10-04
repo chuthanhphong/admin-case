@@ -1,0 +1,49 @@
+@import '@/styles/colors';
+.title-page {
+  font-size: 18px;
+  font-weight: 800;
+}
+.groups-actions {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+}
+.wrap-content-group {
+  height: calc(100vh - 75px);
+  min-height: 700px;
+}
+.v-radio {
+  .v-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: $dark-gray;
+    padding-right: 5px;
+  }
+}
+.form-group {
+  label {
+    margin-bottom: 5px;
+    display: inline-block;
+    color: $dark-gray;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+.color-require {
+  color: red;
+}
+
+.partner-parent-group .v-input__slot,
+.v-input--is-disabled .v-input__slot {
+  background-color: #e7e9ef !important;
+}
+
+.wrap--group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bg-none > .v-input__control > .v-input__slot {
+  background: none !important;
+}

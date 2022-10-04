@@ -1,0 +1,93 @@
+@import "@/styles/colors.scss";
+
+.container-ticket {
+  .theme--light.v-data-table {
+    background: transparent;
+  }
+
+  .theme--light.v-data-table.table-card
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > td:not(.v-data-table__mobile-row),
+  .theme--light.v-data-table.table-card
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > th:not(.v-data-table__mobile-row) {
+    border-bottom: none !important;
+  }
+
+  .table-card {
+    thead, .cell-ticket-id {
+      display: none;
+    }
+    table {
+      border-spacing: 0px 10px !important;
+    }
+    tbody {
+      .customer-avatar {
+        width: 50px;
+        height: 50px;
+      }
+      tr {
+        padding: 20px 0;
+        td {
+          border-bottom: none !important;
+          background: #F9F9F9;
+          &.cell-check-box {
+            width: 24px;
+            .v-input--selection-controls__input {
+              margin: 0;
+              padding: 0;
+            }
+          }
+          &.cell-create-user {
+            width: 50px;
+          }
+          .box-ticket-name {
+            padding: 10px 0;
+            width: 300px;
+          }
+        }
+
+        td:first-child {
+          border-top-left-radius: 20px !important;
+          border-bottom-left-radius: 20px !important;
+        }
+
+        td:last-child {
+          border-top-right-radius: 20px !important;
+          border-bottom-right-radius: 20px !important;
+        }
+      }
+    }
+  }
+  .box-list-content-tickets {
+    .v-data-table > .v-data-table__wrapper {
+      height: initial !important;
+      max-height: calc(100vh - 175px);
+    }
+    .v-data-table--fixed-header > .v-data-table__wrapper {
+      overflow-x: initial;
+      overflow-y: initial;
+    }
+    .v-data-table {
+      &.simple-body-set-size > .v-data-table__wrapper {
+        max-height: initial !important;
+      }
+    } 
+    #virtual-scroll-table {
+      overflow-y: auto;
+    }
+    .link:hover > b {
+      color: $primary;
+      cursor: pointer;
+    }
+    .scroll-table-ticket-group {
+      max-height: calc(100vh - 275px);
+    }
+  }
+}

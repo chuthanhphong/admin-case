@@ -1,0 +1,193 @@
+.wrap-contract-detail {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background: #00c3f9;
+  height: 100%;
+  z-index: 9;
+  border-radius: 20px;
+  .contract-detail-content {
+    border-right: 1px dashed #8e8ea1;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    .list-files {
+      max-height: 120px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .wrap-list-customer {
+      max-height: 220px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .text-capitalize {
+      padding-bottom: 20px;
+    }
+  }
+  .dialog-contract-detail {
+    border-radius: 20px !important;
+    .state-contract {
+      font-size: 100%;
+    }
+  }
+  .dialog-title {
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  .close-dialog {
+    color: #fff !important;
+    position: absolute !important;
+    right: 15px;
+    top: 15px;
+  }
+  .v-timeline--dense .v-timeline-item__body {
+    max-width: calc(100% - 40px);
+  }
+  .v-timeline-item__divider {
+    position: relative;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .v-timeline--align-top .v-timeline-item__dot {
+    margin-top: 20px;
+  }
+  .v-timeline--dense:not(.v-timeline--reverse):before {
+    left: calc(19px - 1px) !important;
+    right: initial;
+    top: 50px;
+  }
+  .v-timeline:before {
+    background: #323f4b !important;
+    width: 1px;
+  }
+  .dot-border {
+    .v-timeline-item__inner-dot {
+      border: 2px solid #6b7280 !important;
+    }
+  }
+  .v-expansion-panel-header {
+    padding: 5px;
+  }
+  .v-expansion-panel-header--active {
+    border-bottom: 1px dashed #ccc;
+    .icon-expand {
+      transform: rotate(-180deg);
+    }
+  }
+  .header-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+    color: #8e8ea1;
+  }
+  .v-timeline {
+    padding-top: 0;
+  }
+}
+.history-item {
+  .history-action {
+    align-self: flex-start;
+    margin-top: 12px;
+    min-width: 30px;
+  }
+  .content-history-item {
+    .v-item-group {
+      border: 1px solid #dfe0eb;
+      box-sizing: border-box;
+      border-radius: 8px;
+      .v-sheet.v-list:not(.v-sheet--outlined) {
+        box-shadow: none;
+      }
+      .v-expansion-panel::before {
+        box-shadow: none;
+      }
+      .v-list-item__subtitle {
+        font-size: 14px;
+        color: #9fa2b4 !important;
+        @media (max-width: 1336px) {
+          font-size: 12px;
+        }
+      }
+      .v-list-item__title {
+        color: #252733 !important;
+      }
+    }
+    .history-item-detail {
+      color: #9fa2b4;
+      .history-content {
+        color: #252733;
+      }
+    }
+    .v-expansion-panels,
+    .v-expansion-panel {
+      border-radius: 8px !important;
+    }
+    .icon-expand {
+      margin-top: 15px;
+    }
+    .text-signer {
+      color: #252733;
+      font-size: 12px;
+      font-family: 'Mulish';
+      align-self: flex-start;
+      padding-top: 20px;
+    }
+    .v-expansion-panel--disabled b.text-signer {
+      padding-right: 35px !important;
+    }
+    .v-expansion-panel-header__icon {
+      margin-left: auto;
+      align-self: flex-start;
+      padding-top: 26px;
+      position: relative;
+    }
+    .history-items {
+      .history-content {
+        width: 100%;
+        padding-right: 20px;
+      }
+      .history-item-detail {
+        padding-bottom: 5px;
+        position: relative;
+      }
+      .tooltip-note {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  }
+  .v-timeline-item__body .v-card {
+    background: #ffffff;
+    border: 1px solid #7b8794;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  .v-avatar {
+    border-radius: 50%;
+    background-color: #0fafe4;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Mulish';
+    font-size: 14px;
+    margin-right: 5px !important;
+    align-self: flex-start;
+    justify-content: center;
+  }
+  .v-list .v-list-item {
+    border: none;
+    padding: 0;
+  }
+}
+.list-files {
+  list-style: none;
+}
+.no-border {
+  border: none !important;
+}

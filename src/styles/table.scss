@@ -1,0 +1,172 @@
+/*TABLE*/
+.v-data-table__wrapper {
+  table {
+    thead {
+      th {
+        color: #9fa2b4 !important;
+        background: #e7ecf1 !important;
+        height: 44px !important;
+        box-shadow: none !important;
+        font-weight: bold !important;
+        // font-size: 12px !important;
+        &.contract-name {
+          width: 315px;
+        }
+        &.stt {
+          width: 45px;
+        }
+        &.customer {
+          width: 210px;
+        }
+        &.contract-status {
+          width: 100px;
+        }
+        &.contract-no {
+          width: 150px;
+        }
+        &.time {
+          min-width: 88px;
+        }
+        &.action {
+          width: 70px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:hover {
+          background: #eeeeee75 !important;
+        }
+        td {
+          height: 60px !important;
+          font-weight: 400;
+          // font-size: 12px !important;
+          button {
+            position: relative;
+            .icon-sign {
+              position: absolute;
+              right: -20px;
+            }
+          }
+        }
+        .caption {
+          color: #8e8ea1 !important;
+          font-family: 'Mulish' !important;
+        }
+      }
+      .customer-avatar {
+        width: 32px;
+        height: 32px;
+        background: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        &.customer-state-in-process {
+          background: #ffaf2e;
+        }
+        &.customer-state-cancel {
+          background: #f028a0;
+        }
+        &.customer-state-complete {
+          background: #0fafe4;
+        }
+        &.customer-state-draft {
+          background: #4a50e2;
+        }
+        &.customer-state-reject {
+          background: #ff4a55;
+        }
+      }
+    }
+    .btn {
+      display: inline-block;
+    }
+    .maxline2 {
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > td:not(.v-data-table__mobile-row),
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > th:not(.v-data-table__mobile-row) {
+  border-bottom: thin solid rgba(0, 0, 0, 0.04) !important;
+}
+.wrap-tooltip {
+  line-height: 15px;
+}
+.v-data-table > .v-data-table__wrapper,
+.wrap-empty-list,
+.content-list-contract {
+  height: calc(100vh - 300px) !important;
+  min-height: 50vh;
+  overflow-y: auto;
+}
+.tb-wait-sign.v-data-table > .v-data-table__wrapper {
+  height: calc(100vh - 510px) !important;
+  min-height: 40vh;
+}
+.item-action {
+  max-width: auto;
+  span {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+/*PAGING*/
+.info-paging {
+  font-size: 14px;
+}
+.control-paging {
+  span {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+.current-page {
+  background: #0fafe4;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+.v-data-table__wrapper {
+  .header-table {
+    .th-contract-name {
+      padding-left: 10px !important;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .v-data-table__wrapper {
+    table {
+      width: 150% !important;
+      overflow-x: auto;
+    }
+  }
+}
+@media (max-width: 960px) {
+  .v-data-table__wrapper {
+    table {
+      width: 200% !important;
+      overflow-x: auto;
+    }
+  }
+}

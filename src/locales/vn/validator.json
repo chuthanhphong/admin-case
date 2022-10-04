@@ -1,0 +1,135 @@
+{
+  "names": {
+    "parentName": "Tên đơn vị cha",
+    "group": "Đơn vị",
+    "groupName": "Tên đơn vị",
+    "groupCode": "Mã đơn vị",
+    "partnerGroupCode": "Mã đối tác",
+    "partnerGroupName": "Tên đối tác",
+    "orderNo": "Thứ tự sắp xếp",
+    "userName": "Tên đăng nhập",
+    "fullName": "Tên người dùng",
+    "email": "Email",
+    "mobile": "Di động",
+    "dateOfBirth": "Ngày sinh",
+    "address": "Đia chỉ liên hệ",
+    "groupNameOrType": "Đơn vị/ phòng ban",
+    "roleId": "Vai trò",
+    "position": "Chức danh",
+    "supplier": "Nhà cung cấp",
+    "pin": "Mã pin",
+    "password": "Mật khẩu",
+    "fileAttachs": "Tài liệu đính kèm",
+    "fileAttachsFile": "File đính kèm",
+    "fileSign": "File ký",
+    "fileZipContract": "File nén hợp đồng",
+    "fileListContract": "File Danh sách hợp đồng",
+    "contractSigned": "Hợp đồng ký kết",
+    "contractType": "Loại hợp đồng",
+    "contractName": "Tên hợp đồng",
+    "contractNo": "Số/Ký hiệu hợp đồng",
+    "myRepresent": "Đại diện",
+    "oldPassword": "Mật khẩu cũ",
+    "newPassword": "Mật khẩu mới",
+    "confirmNewPassword": "Mật khẩu xác nhận",
+    "effectiveDate": "Ngày hiệu lực",
+    "expiredDate": "Ngày hết hiệu lực",
+    "companyName": "Tên công ty",
+    "customerRepresentative": "Đại diện khách hàng",
+    "ticketTypeName": "Tên loại yêu cầu",
+    "ticketGroupId": "Đơn vị thực hiện",
+    "formulaType": "Hình thức văn bản",
+    "managementName": "Tên văn bản",
+    "documentName": "Tên văn bản",
+    "documentType": "Loại văn bản",
+    "promulgateGroup": "Đơn vị ban hành",
+    "datePromulgate": "Ngày ban hành",
+    "noteOfGroup": "Sổ thuộc đơn vị",
+    "documentNumber": "Số văn bản",
+    "numberContineu": "Số tiếp theo",
+    "symbolDocument": "Số, ký hiệu văn bản",
+    "density": "Độ mật",
+    "urgency": "Độ khẩn",
+    "receiveSave": "Nơi nhận bản lưu",
+    "receiveDoc": "Nơi nhận văn bản",
+    "signerName": "Tên người ký",
+    "label": "Tên dữ liệu",
+    "select": "Tùy chọn",
+    "ticketName": "Tên yêu cầu",
+    "ticketType": "Loại yêu cầu",
+    "attributeValue": "Thông tin này",
+    "constructionGroup": "Đơn vị xây dựng",
+    "scopeUse": "Phạm vi sử dụng",
+    "documentSigned": "File ký",
+    "issueGroup": "Đơn vị ban hành",
+    "signUserType": "Loại ký",
+    "unit": "Đơn vị",
+    "numDoc": "Số văn bản",
+    "symbolDoc": "Số, ký hiệu văn bản",
+    "branch": "Ngành",
+    "serial": "Serial",
+    "inputPin": "Mã pin",
+    "groupUse": "Đơn vị sử dụng",
+    "provider": "Nhà cung cấp",
+    "typeTaskName": "Tên loại công việc",
+    "taskReason": "Lý do",
+    "unitHandle": "Đơn vị xử lý",
+    "participantName": "Người tham gia",
+    "participantEmail": "email",
+    "meetingTitle": "Tên lịch họp",
+    "roomMeeting": "Phòng họp",
+    "pointOfContact": "Đầu mối liên hệ",
+    "reason": "Lý do",
+    "chairManName": "Bắt buộc phải chọn 1 thành viên chủ trì"
+  },
+  "targets": {
+    "newPassword": "Mật khẩu mới"
+  },
+  "message": {
+    "dateBefore": "{_field_} không được lớn hơn ngày hiện tại",
+    "checkMatch": "{_field_} đang bị trùng",
+    "checkFormatDate": "{_field_} có định dạng không đúng",
+    "ext": "{_field_} không đúng định dạng",
+    "validatePassword": "{_field_} phải chứa ký tự hoa, thường, số và ký tự đặc biệt",
+    "specialCharacter": "{_field_} không được chứa ký tự đặc biệt"
+  },
+  "fields": {
+    "groupName": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "partnerGroupName": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "partnerGroupCode": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "groupCode": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "fullName": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "userName": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "position": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "label": {
+      "excluded": "{_field_} thuộc kiểu này đã tồn tại"
+    },
+    "select": {
+      "required": "Vui lòng nhập lựa chọn",
+      "excluded": "Lựa chọn này đã tồn tại"
+    },
+    "signerName": {
+      "regex": "{_field_} không được chứa ký tự đặc biệt"
+    },
+    "participantName": {
+      "regex": "Không được chứa ký tự đặc biệt"
+    },
+    "participantEmail": {
+      "regex": "Không đúng định dạng"
+    }
+  }
+}

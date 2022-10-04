@@ -1,0 +1,392 @@
+export default {
+  ROOT_PATH:
+    process.env.VUE_APP_ENV === 'production' ? '/home/' : '/econtract/',
+  ECONTRACT_DASHBOARD_PATH: 'econtract/dashboard',
+  DASHBOARD_HOME_PATH: 'home',
+  TASK_DASHBOARD_PATH: 'dashboard-task',
+  ECONTRACT_PATH: 'econtract/',
+  EDOCUMENT_PATH: 'edocument/',
+  SIGNATURE_PATH: 'signature/',
+  TASK_PATH: 'task/',
+  TICKET_PATH: 'ticket/',
+  CALENDAR_PATH: 'calendar/',
+  BOOKING_PATH: 'booking/',
+  TOKEN: 'TOKEN',
+  CONTRACT_ID: 'CONTRACT_ID',
+  CONTRACT_UPDATE_ID: 'CONTRACT_UPDATE_ID',
+  COORDINATION_ID: 'COORDINATION_ID',
+  TOKEN_EXP: 'TOKEN_EXP',
+  FORMAT_DATE: 'DD-MM-YYYY hh:ss',
+  CURRENT_USER: 'CURRENT_USER',
+  REFRESH_TOKEN: 'REFRESH_TOKEN',
+  LANGUAGE: 'LANGUAGE',
+  USER_INFO: 'USER_INFO',
+  USER_ID: 'USER_ID',
+  AVATAR: 'AVATAR',
+  AVATAR_NOTIFICATIONS: 'AVATAR_NOTIFICATIONS',
+  X_GROUP_ID: 'vpswebdev',
+  GROUP_ID: 'GROUP_ID',
+  LOGIN_TYPE: 'LOGIN_TYPE',
+  LIST_CONTRACT_ROOT: 'created',
+  EXTERNAL_GROUP_COUNT: 'EXTERNAL_GROUP_COUNT',
+  HIDE_POPUP_CHANGE_PASSWORD: 'HIDE_POPUP_CHANGE_PASSWORD',
+  ESIGNATURE_DOCUMNET_DETAIL: 'ESIGNATURE_DOCUMNET_DETAIL',
+  MANAGEMENT_DOC_DETAIL: 'MANAGEMENT_DOC_DETAIL',
+  ALL: 'ALL',
+  ACTIVE_TYPE: {
+    LOCK: 'LOCK',
+    UN_LOCK: 'UNLOCK'
+  },
+  GROUPS: {
+    EXTERNAL: 'EXTERNAL',
+    INTERNAL: 'INTERNAL',
+    GROUP: 'GROUP',
+    PERSONAL: 'PERSONAL',
+    ORGANIZATION: 'ORGANIZATION'
+  },
+  POSITIONS_CONTRACT: {
+    CREATOR: 'CREATOR',
+    RECEIVER: 'RECEIVER',
+    EXPIRED: 'EXPIRED',
+    DELETED: 'DELETED',
+    ORGANIZATIONS: 'ORGANIZATIONS'
+  },
+  USER_ROLE: {
+    MAIN: 'MAIN',
+    CONCURRENTLY: 'CONCURRENTLY',
+    OTHER: 'OTHER',
+    HDDT: 'HDDT',
+    NV: 'NV',
+    ROLE_ADMIN: 'ROLE_ADMIN',
+    LD: 'LD',
+    VT: 'VT',
+    GD: 'GD',
+    TICKET: 'TICKET'
+  },
+  GENDER: {
+    MALE: 'MALE',
+    FEMALE: 'FEMALE'
+  },
+  STATUS: {
+    ACTIVE: 'ACTIVE',
+    INACTIVE: 'INACTIVE',
+    DELETE: 'DELETE'
+  },
+  FILE_TYPES: {
+    FILE_MAIN: 'FILE_MAIN',
+    FILE_EXTRA: 'FILE_EXTRA',
+    FILE_TEMPLATE: 'FILE_TEMPLATE',
+    FILE_EXTERNAL: 'FILE_EXTERNAL',
+    FILE_IMAGE_SIGNATURE: 'FILE_IMAGE_SIGNATURE',
+    FILE_IMAGE_AVATAR: 'FILE_IMAGE_AVATAR'
+  },
+  OPTIONS_COPY_SIGNATURE: {
+    ALL_PAGE: 'ALL_PAGE',
+    SELECT_PAGE: 'SELECT_PAGE'
+  },
+  SIGN_METHODS: {
+    NORMAL_SIGN: 'NORMAL_SIGN', // Ky thuong
+    IMAGE_SIGN: 'IMAGE_SIGN', // Ky anh
+    DIGITAL_SIGN: 'DIGITAL_SIGN', // Ky so
+    IMAGE_N_DIGITAL: 'IMAGE_N_DIGITAL', // Ky anh so
+    ALL: 'ALL'
+  },
+  SIGN_TYPES: {
+    CA: 'CA', // Ky CA
+    IMAGE: 'IMAGE', // Ky anh
+    TEXT: 'TEXT' // Viet tay
+  },
+  DOC_STATES: {
+    DRAFT: 'DRAFT', // Luu nhap
+    IN_PROGRESS: 'IN_PROGRESS', // Luu hop dong
+    TEMP: 'TEMP', // Mau hop dong
+    COMPLETE: 'COMPLETE', // Hoan thanh
+    REJECT: 'REJECT', // Hoan thanh
+    CANCEL: 'CANCEL', // Huy
+    EX: 'EX',
+    REJECTED: 'REJECT',
+    PROCLAIM: 'PROCLAIM', // Ban hanh
+    UNPROCLAIM: 'UNPROCLAIM', // Huy ban hanh
+    PROMULGATE: 'PROMULGATE',
+    PROMULGATE_CANCEL: 'PROMULGATE_CANCEL',
+    DEFAULT: 'DEFAULT' // cong bo
+  },
+  SIGN_USER_TYPE: {
+    MAIN: 'MAIN', // Ky chinh
+    FLASHES: 'FLASHES', // Ky nhay
+    REVIEWER: 'REVIEWER', // Xem xet
+    COORDINATOR: 'COORDINATOR', // Dieu phoi
+    CREATOR: 'CREATOR', // Nguoi tao
+    PROCLAIM: 'PROCLAIM' // Ban hanh
+  },
+  SIGN_PROCCESS_STATUS: {
+    UNPROCESSED: 'UNPROCESSED',
+    PROCESSED: 'PROCESSED',
+    REJECTED: 'REJECTED'
+  },
+  SIGNATURE_METHODS: {
+    MAIN: 'MAIN',
+    INITIAL: 'INITIAL'
+  },
+  IMAGE_TYPES: {
+    MAIN: 'MAIN',
+    INITIAL: 'INITIAL',
+    DRAW: 'DRAW',
+    CA: 'CA'
+  },
+  HISTORY_ACTIONS: {
+    CHANGE_MAIN: 'CHANGE_MAIN',
+    CHANGE_REVIEW: 'CHANGE_REVIEW',
+    CHANGE_COORDINATOR: 'CHANGE_COORDINATOR',
+    CHANGE_FLASH: 'CHANGE_FLASH'
+  },
+  SIGN_ACTIONS: {
+    ADD_MAIN_SIGNER: 'ADD_MAIN_SIGNER', // Them ky chinh
+    ADD_FLASHES_SIGNER: 'ADD_FLASHES_SIGNER', //  Them ky nhay
+    ADD_REVIEWER: 'ADD_REVIEWER', // Them xem xet
+    ADD_COORDINATOR: 'ADD_COORDINATOR', // Them dieu phoi
+    APPROVE_MAIN_SIGN: 'APPROVE_MAIN_SIGN', // Xac nhan ky chinh
+    APPROVE_FLASHES_SIGN: 'APPROVE_FLASHES_SIGN', // Xac nhan ky nhay
+    APPROVE_REVIEW: 'APPROVE_REVIEW', // Xac nhan xem xet
+    APPROVE_COORDINATE: 'APPROVE_COORDINATE', // Xac nhan dieu phoi
+    CHANGE_MAIN_SIGNER: 'CHANGE_MAIN_SIGNER', // Doi ky chinh
+    CHANGE_FLASHES_SIGNER: 'CHANGE_FLASHES_SIGNER', // Doi ky nhay
+    CHANGE_REVIEWER: 'CHANGE_REVIEWER', // Doi xem xet
+    CHANGE_COORDINATOR: 'CHANGE_COORDINATOR', // Doi nguoi dieu phoi
+    CANCEL: 'CANCEL', // Huy hop dong
+    SAVE_AS_DRAFT: 'SAVE_AS_DRAFT', // Luu nhap
+    SEND: 'SEND', // Gui hop dong
+    DELETE: 'DELETE', // Xoa hop dong
+    COMMENT: 'COMMENT' // Nhan xet,
+  },
+  LIST_ACTIONS_DETAIL: {
+    EDIT: 'EDIT',
+    DELETE: 'DELETE',
+    SEND: 'SEND',
+    TEMPLATE: 'TEMPLATE',
+    DELETE_TEMPLATE: 'DELETE_TEMPLATE',
+    CANCEL: 'CANCEL',
+    DOWNLOAD: 'DOWNLOAD',
+    SIGN: 'SIGN',
+    COORDINATE: 'COORDINATE',
+    TRANSFER: 'TRANSFER',
+    COPY: 'COPY',
+    SUBMIT: 'SUBMIT',
+    PROCLAIM: 'PROCLAIM',
+    UNPROCLAIM: 'UNPROCLAIM',
+    PROMULGATE: 'PROMULGATE',
+    PROMULGATE_CANCEL: 'PROMULGATE_CANCEL',
+    CHANGE_PROMULGATE_GROUP: 'CHANGE_PROMULGATE_GROUP',
+    SAVE_LIBRARY: 'SAVE_LIBRARY',
+    EDIT_LIBRARY: 'EDIT_LIBRARY',
+    DELETE_LIBRARY: 'DELETE_LIBRARY',
+    APPROVE: 'APPROVE',
+    REJECT: 'REJECT',
+    JOIN_ONLINE_MEETING: 'JOIN_ONLINE_MEETING',
+    ADD_PARTICIPANT: 'ADD_PARTICIPANT',
+    ADD_FOLLOWER: 'ADD_FOLLOWER',
+    RESEND_NOTIFY: 'RESEND_NOTIFY',
+    ADD_MEETING_MINUTE: 'ADD_MEETING_MINUTE',
+    PARTICIPATE: 'PARTICIPATE',
+    NOT_PARTICIPATE: 'NOT_PARTICIPATE'
+  },
+  CONTRACT_MANAGER_ACTIONS: {
+    ADD_TO_BRIEF: 'ADD_TO_BRIEF',
+    DOWNLOAD: 'DOWNLOAD',
+    TRANSFER: 'TRANSFER',
+    DELETE: 'DELETE',
+    EDIT: 'EDIT',
+    VIEW: 'VIEW'
+  },
+  SEARCH_TYPE_CONTRACT: {
+    PROCESS_CONTRACT: 'PROCESS_CONTRACT',
+    CREATED_CONTRACT: 'CREATED_CONTRACT',
+    COORDINATOR_CONTRACT: 'COORDINATOR_CONTRACT'
+  },
+  SIGN_PROVIDERS: {
+    VIETTEL: 'VIETTEL',
+    EASY_SIGN: 'EASY_SIGN',
+    IMAGE: 'IMAGE'
+  },
+  NOTIFY_TYPE: {
+    SUCCESS: 'success',
+    ERROR: 'error'
+  },
+  MAXIMUM_EX_TEXT: 200,
+  MAXIMUM_SMALL_TEXT: 500,
+  MAXIMUM_LARGE_TEXT: 2000,
+  MAXIMUN_HOUR_NUMBER: 5,
+  FORM_TYPE_VALUES: {
+    SELECT: 4,
+    MULTIPLE_SELECT: 5
+  },
+  CLOSE_DURATION_TYPES: {
+    MANUAL: -1,
+    AUTO: 1,
+    HOUR: 2
+  },
+  OBJECT_TYPE: {
+    USER: 'USER',
+    GROUP: 'GROUP'
+  },
+  PATICIPATION: {
+    ASSIGNER: 'ASSIGNER',
+    MONITOR: 'MONITOR',
+    EXECUTOR: 'EXECUTOR',
+    COMBINATOR: 'COMBINATOR'
+  },
+  STATUS_TASK: {
+    IN_PROGRESS: 'INPROGRESS',
+    FINISH: 'FINISH'
+  },
+  PRIORITY: {
+    LOW: 'LOW',
+    MEDIUM: 'MEDIUM',
+    HIGH: 'HIGH'
+  },
+  TICKET_TYPE_ACTION: {
+    SAVE_ACTIVED: 1,
+    CANCEL: 2,
+    SAVE_DRAFT: 3,
+    INACTIVE: 4
+  },
+  TIME_OUT: 2000,
+  MAXIMUM_OPTION: 20,
+  EDOCUMENT: {
+    GROUP_TREE: 'GROUP_TREE', // don vi
+    USER: 'USER', // ca nhan
+    GROUP_USER: 'GROUP_USER' // nhom ca nhan
+  },
+  FORMAT_DATE_TICKET: 'DD/MM/YYYY',
+  DOC_TYPE: {
+    SEND: 'SEND',
+    RECEIVE: 'RECEIVE'
+  },
+  FORMAT_DATE_ISO: 'YYYY-MM-DD',
+  SEARCH_TYPE_DOCUMENT: {
+    EDOCUMENT_RECEIVE: 'EDOCUMENT_RECEIVE', // toi nhan
+    EDOCUMENT_GROUP: 'EDOCUMENT_GROUP', // thuoc don vi
+    EDOCUMENT_EXPIRE: 'EDOCUMENT_EXPIRE', // het hieu luc
+    EDOCUMENT_CREATE: 'EDOCUMENT_CREATE', // toi tao
+
+    SEARCH_TYPE_DOC: 'SEARCH_TYPE_DOC',
+    MANAGEMENT_DOC_DETAIL: 'MANAGEMENT_DOC_DETAIL', // quan ly van ban
+    EDOCUMENT_BOOK_GO: 'EDOCUMENT_BOOK_GO', // so van ban di
+    EDOCUMENT_BOOK_ARRIVAL: 'EDOCUMENT_BOOK_ARRIVAL', // so van ban den
+    EDOCUMENT_LIBRARY: 'EDOCUMENT_LIBRARY', // thu vien ban ban
+    SIGNING: 'SIGNING',
+    PROCESS_DOCUMENT: 'PROCESS_DOCUMENT',
+    CREATED_DOCUMENT: 'CREATED_DOCUMENT'
+  },
+  SEARCH_TYPE_DOC: {
+    CREATED_DOC: 'CREATED_DOC',
+    PROCESS_DOC_ALL: 'PROCESS_DOC_ALL',
+    PROCESS_DOC_SIGN: 'PROCESS_DOC_SIGN',
+    PROCESS_DOC_FLASH: 'PROCESS_DOC_FLASH',
+    PROCESS_DOC_REVIEW: 'PROCESS_DOC_REVIEW',
+    PROCESSED_DOC_PROMULGATE: 'PROCESS_DOC_PROMULGATED',
+    TEMPLATE: 'TEMPLATE'
+  },
+  PROCESS_TYPE: {
+    VB_KY: 'VB_KY',
+    VB_TEMPLATE: 'VB_TEMPLATE'
+  },
+  MODULE_ROLES: {
+    CORE: ['vn.bssd.digitalworkspace.core', 'vn.bssd.digitalworkspace.common'],
+    ECONTRACT: ['vn.bssd.digitalworkspace.econtract'],
+    EDOCUMENT: ['vn.bssd.digitalworkspace.edocument'],
+    SIGNAGTURE: ['vn.bssd.digitalworkspace.signature'],
+    TASK: ['vn.bssd.digitalworkspace.task'],
+    WORKFLOW: ['vn.bssd.digitalworkspace.workflow'],
+    TICKET: ['vn.bssd.digitalworkspace.ticket'],
+    CALENDAR: ['vn.bssd.digitalworkspace.calendar'],
+    VEHICLE: ['vn.bssd.digitalworkspace.vehicle'],
+    MODULES: {
+      "vn.bssd.digitalworkspace.econtract": "HDDT",
+      "vn.bssd.digitalworkspace.edocument": "QLVB",
+      "vn.bssd.digitalworkspace.signature": "KDT",
+      "vn.bssd.digitalworkspace.task": "QLCV",
+      "vn.bssd.digitalworkspace.ticket": "QLYC"
+      // "vn.bssd.digitalworkspace.calendar": "QLLH",
+      // "vn.bssd.digitalworkspace.vehicle": "QLX"
+    }
+  },
+  PAGE_CODE_NOTIFICATIONS: {
+    TASK: [
+      {
+        PAGE_CODE: 'TASK_01',
+        NAME: 'I_CREATE',
+      },
+      {
+        PAGE_CODE: 'TASK_02',
+        NAME: 'I_ASSIGN',
+      },
+      {
+        PAGE_CODE: 'TASK_03',
+        NAME: 'I_PERFORM',
+      },
+      {
+        PAGE_CODE: 'TASK_04',
+        NAME: 'I_FOLLOW',
+      },
+      {
+        PAGE_CODE: 'TASK_05_01',
+        NAME: 'I_ROOM_WORK',
+      },
+      {
+        PAGE_CODE: 'TASK_05_02',
+        NAME: 'I_ROOM_WORK',
+      }
+    ],
+    TICKET: [
+      {
+        PAGE_CODE: 'TICKET_DETAIL_PAGE',
+        NAME: 'DETAIL_TICKET',
+      }
+    ]
+  },
+  ALL_USER_OF_DOMAIN: 'ALL_USER_OF_DOMAIN',
+  ALL_GROUP: 'ALL_GROUP',
+  PRIORITY_TICKET: 'PRIORITY_TICKET',
+  CALENDAR_STATUS: {
+    DELETED: 'DELETED',
+    DRAFT: 'DRAFT',
+    PENDING: 'PENDING',
+    APPROVED: 'APPROVED',
+    REJECTED: 'REJECTED',
+    CANCELED: 'CANCELED',
+    EXPIRED: 'EXPIRED'
+  },
+  TIME_OUT_MESSAGE_FIRE_BASE: "10000",
+  FREQUENCY: {
+    ONCE: 'ONCE',
+    DAILY: 'DAILY',
+    WEEKLY: 'WEEKLY',
+    MONTHLY: 'MONTHLY',
+    QUARTERLY: 'QUARTERLY'
+  },
+  CALENDAR_ACTION: {
+    VIEW: 'VIEW',
+    EDIT: 'EDIT',
+    SEND: 'SEND',
+    APPROVE: 'APPROVE',
+    REJECT: 'REJECT',
+    JOIN_ONLINE_MEETING: 'JOIN_ONLINE_MEETING',
+    ADD_PARTICIPANT: 'ADD_PARTICIPANT',
+    ADD_FOLLOWER: 'ADD_FOLLOWER',
+    COPY: 'COPY',
+    RESEND_NOTIFY: 'RESEND_NOTIFY',
+    ADD_MEETING_MINUTE: 'ADD_MEETING_MINUTE',
+    PARTICIPATE: 'PARTICIPATE',
+    NOT_PARTICIPATE: 'NOT_PARTICIPATE',
+    CANCEL: 'CANCEL',
+    DELETE: 'DELETE'
+  },
+  CALENDAR_TAB_LIST: {
+    NAME: 'CALENDAR_TAB_LIST',
+    ZERO: 0,
+    ONE: 1,
+    TWO: 2,
+    THREE: 3
+  }
+}

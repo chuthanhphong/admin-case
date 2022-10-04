@@ -1,0 +1,68 @@
+.wrap-create-document {
+  .remove-attach {
+    i {
+      color: #ff4a55 !important;
+      cursor: pointer;
+    }
+  }
+  margin-left: 3px;
+  border-top-left-radius: 20px;
+  height: 100%;
+  padding-top: 15px;
+  background-color: #00c3f9;
+
+  .wrap--content {
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin: 14px 20px 0px 20px;
+    padding: 28px 60px;
+    height: calc(100vh - 208px);
+    overflow-y: auto;
+  }
+
+  .wrap--btn {
+    background-color: white;
+    margin: 0px 20px;
+    box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.15);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .text--label {
+    text-transform: uppercase;
+    color: #22242c;
+  }
+
+  .theme--light.v-select .v-select__selection--disabled {
+    color: #22242c !important;
+  }
+
+  .btn-cancel {
+    height: 42px !important;
+    width: 140px;
+  }
+
+  .btn-save {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    color: #fff;
+  }
+
+  .group-item-search {
+    position: relative;
+    .wrap-list-search-group {
+      border-radius: 8px !important;
+      position: absolute !important;
+      border: 1px solid #c4c4c4 !important;
+      z-index: 9 !important;
+      width: 95% !important;
+      top: 70px !important;
+      max-height: 220px !important;
+      overflow-y: auto !important;
+      .v-list-item {
+        min-height: 45px !important;
+        padding: 5px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@import './colors.scss';
+.text-danger {
+  color: $danger !important;
+}
+.text-info {
+  color: $info !important;
+}
+.text-warning {
+  color: $warning !important;
+}
+.text-succes {
+  color: $primary !important;
+}
+.text-primary {
+  color: $primary !important;
+}
+.bg-completed {
+  background: $color-completed !important;
+}
+.bg-process {
+  background: $color-process !important;
+}
+.bg-seconds {
+  background: linear-gradient(0deg, #f6f6f6, #f6f6f6), #00c3f9;
+}
+.bg-reject {
+  background: $color-reject !important;
+}
+.bg-danger {
+  background: $danger !important;
+}
+.bg-info {
+  background: $info !important;
+}
+.bg-warning {
+  background: $warning !important;
+}
+.bg-succes {
+  background: $success !important;
+}
+.bg-primary {
+  background: $primary !important;
+}
+.bg-light-blue {
+  background: #e8fbff !important;
+  border-radius: 8px;
+}
+.bg-light-purple {
+  background: #f9f5ff !important;
+  border-radius: 8px;
+}
+.bg-transparent {
+  background: transparent !important;
+}
+.bg-white {
+  background: #fff !important;
+}
+.bg-signer-main {
+  background: #f9f5ff !important;
+}
+.bg-signer-flash {
+  background: rgba(234, 164, 124, 0.5) !important;
+}
+.v-application .v-btn.accent {
+  background-color: #0fafe4 !important;
+  border-color: #2196f3 !important;
+}
+.v-application .v-btn.accent--text {
+  color: #0fafe4 !important;
+  caret-color: #2196f3 !important;
+}
+
+.v-application {
+  .container-ticket {
+    .greya7--text {
+      color: $color-gray-4 !important;
+      caret-color: $color-gray-4 !important;
+    }
+    .row-disabled {
+      opacity: 0.48;
+    }
+
+    // color text by status
+    .blue-1c--text {
+      color: $color-blue !important;
+      caret-color: $color-blue !important;
+    }
+    .blue-4a--text {
+      color: $blue-4a !important;
+      caret-color: $blue-4a !important;
+    }
+    .organe-fd--text {
+      color: $organe-fd !important;
+      caret-color: $organe-fd !important;
+    }
+    .danger--text {
+      color: $danger !important;
+      caret-color: $danger !important;
+    }
+    .yellow-ff--text {
+      color: $yellow-ff !important;
+      caret-color: $yellow-ff !important;
+    }
+    .pink-f0--text {
+      color: $pink-f0 !important;
+      caret-color: $pink-f0 !important;
+    }
+  }
+}

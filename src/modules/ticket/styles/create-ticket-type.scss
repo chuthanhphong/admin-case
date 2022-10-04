@@ -1,0 +1,353 @@
+.list-type {
+  ul {
+    padding: 0 !important;
+    list-style: none;
+
+    li {
+      margin-bottom: 20px;
+
+      .v-btn {
+        width: 140px;
+        letter-spacing: 0;
+        color: #0fafe4;
+        border: 1px solid #0fafe4;
+        background-color: #fff !important;
+        height: 34px !important;
+        border-radius: 8px !important;
+        font-family: 'Mulish';
+
+        .v-btn__content {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        &.active {
+          color: #fff;
+          background-color: #0fafe4 !important;
+
+          .type-icon {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrap-type-options {
+  max-height: calc(100vh - 275px);
+  min-height: calc(100vh - 275px);
+  overflow-y: auto;
+  padding-right: 20px;
+
+  .type-option {
+    background: #fff;
+  }
+
+  .input-option {
+    flex: 0 0 85%;
+    .v-btn {
+      text-transform: none;
+    }
+    .v-text-field .v-input__append-inner {
+      align-self: center;
+    }
+    .v-input--is-disabled {
+      &.white {
+        .v-input__slot {
+          background-color: white !important;
+        }
+      }
+    }
+  }
+
+  .action-option {
+    flex: 0 0 15%;
+    .v-btn:before {
+      background-color: transparent;
+    }
+  }
+
+  .message-option {
+    min-height: 15px;
+    display: inline-block;
+  }
+}
+
+.type-item-group {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border-bottom: 1px dashed #c1c9d2;
+  padding-bottom: 20px;
+
+  .required-check {
+    position: absolute;
+    bottom: -4px;
+    right: 2px;
+
+    .v-input--selection-controls__input {
+      margin-right: 36px;
+    }
+  }
+
+  .select-option-fluid {
+    width: 100%;
+  }
+}
+
+.icon-move {
+  background: url(../assets/icons/ticket-type/grip-vertical.svg);
+  background-size: 100% 100%;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  cursor: move;
+}
+
+.v-application .type-ticket-px-2 {
+  padding-right: 9.6px !important;
+  padding-left: 9.6px !important;
+}
+
+.v-application .type-ticket-py-1 {
+  padding-top: 3.5px !important;
+  padding-bottom: 3.5px !important;
+}
+
+.v-application .ticket-types {
+  border-right: 1px solid #c1c9d2;
+}
+
+// style icon action
+.type-actions {
+  .type-icon {
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    background-color: $black;
+    display: inline-block;
+  }
+
+  .icon-approved {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-approved.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-approved.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  .icon-duration {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-calendar.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-calendar.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  .icon-assigned-to {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-assign.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-assign.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  .icon-permission-view {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-view.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-view.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  .icon-source {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-source.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-source.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  .icon-link {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-link.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-link.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  .icon-attach {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-attach.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-attach.svg);
+    width: 32px;
+    height: 31px;
+  }
+
+  &.active {
+    color: #fff !important;
+    background-color: #fff !important;
+
+    .type-icon {
+      background-color: #4A50E2;
+    }
+  }
+
+  &.v-btn--disabled {
+    .type-icon {
+      background-color: rgba(0,0,0,.38);
+    }
+  }
+  &.v-btn:before {
+    background-color: transparent;
+  }
+}
+
+.unset-mr-check .v-input--selection-controls__input {
+  margin-right: 0px !important;
+}
+
+.wrap-ticket-types {
+  .type-icon {
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    display: inline-block;
+  }
+  .icon-param {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-param.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-param.svg);
+    width: 24px;
+    height: 14px;
+  }
+  .icon-alpha {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-alpha.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-alpha.svg);
+    width: 28px;
+    height: 9px;
+  }
+  .icon-number {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-number.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-number.svg);
+    width: 30px;
+    height: 9px;
+  }
+  .icon-selectbox {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-selectbox.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-selectbox.svg);
+    width: 18px;
+    height: 18px;
+  }
+  .icon-check {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-check.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-check.svg);
+    width: 18px;
+    height: 18px;
+  }
+  .icon-calendar {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-calendar.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-calendar.svg);
+    width: 18px;
+    height: 18px;
+  }
+  .icon-clock {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-clock.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-clock.svg);
+    width: 18px;
+    height: 18px;
+  }
+  .icon-upload {
+    -webkit-mask-image: url(../assets/icons/ticket-type/icon-upload.svg);
+    mask-image: url(../assets/icons/ticket-type/icon-upload.svg);
+    width: 18px;
+    height: 18px;
+  }
+  .v-btn {
+    .type-icon {
+      background-color: $black;
+    }
+  }
+  .layout {
+    .type-icon {
+      background-color: #A7A7AB;
+    }
+  }
+  &.active {
+    color: #fff;
+    background-color: #0fafe4 !important;
+    .type-icon {
+      background-color: #fff;
+    }
+  }
+}
+
+.v-input__icon {
+  .form-group {
+    .text--label-2 {
+      margin-bottom: 0px;
+    }
+  }
+  .text--normal {
+    text-transform: none;
+  }
+  .v-btn:before {
+    background-color: transparent;
+  }
+}
+
+.unset-mb-error .v-text-field__details {
+  margin-bottom: 0px !important;
+}
+
+.fixed-botton-actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.treeview-scroll-content {
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
+}
+.border-file-upload {
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 6px;
+  padding: 6px 8px;
+  .type-icon {
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    background-color: $black;
+    display: inline-block;
+  }
+  .icon-file-upload {
+    -webkit-mask-image: url(../assets/icons/ticket-type/ic-file-upload.svg);
+    mask-image: url(../assets/icons/ticket-type/ic-file-upload.svg);
+    width: 14px;
+    height: 17px;
+  }
+}
+.border-file-upload.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default{
+  min-width: 42px;
+}
+.preview-detail {
+  .tag-inactive {
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    background-color: #D60505;
+    display: inline-block;
+    -webkit-mask-image: url(../assets/icons/ticket-type/tag-inactive.png);
+    mask-image: url(../assets/icons/ticket-type/tag-inactive.png);
+    width: 94px;
+    height: 77px;
+    position: absolute;
+    top: 20px;
+    right: 60px
+  }
+} 
+.container-ticket {
+  .form-group {
+    label {
+      margin-bottom: 0;
+    }
+  }
+}

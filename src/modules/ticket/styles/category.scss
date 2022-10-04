@@ -1,0 +1,326 @@
+.wrap-category-ticket {
+  position: relative;
+}
+
+.img-inactive {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 90px;
+}
+
+.form-filter {
+  border: 1px solid #ffffff;
+  border-left: 0;
+  border-right: 0;
+  margin: 0 15px 15px;
+  width: 270px;
+  @media (max-width: 1336px) {
+    width: 240px
+  }
+
+  font-size: 12px !important;
+
+  .v-input--selection-controls {
+    margin: 0;
+    padding: 0;
+  }
+
+  .v-input__slot {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .v-icon {
+      font-size: 18px;
+      color: #ffffff;
+    }
+  }
+}
+.text--small {
+  font-weight: 400;
+  font-size: 12px 
+}
+.card-ticket {
+  height: calc(100vh - 80px);
+  min-height: 600px;
+  border-radius: 20px !important;
+  overflow-y: clip;
+
+  .v-card__title {
+    padding-bottom: 10px;
+    width: 300px;
+    @media (max-width: 1336px) {
+      width: 260px;
+    }
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .list-card-ticket {
+    width: 280px;
+    padding-left: 20px;
+
+
+    .v-list-item__title {
+      text-transform: capitalize;
+      padding-left: 20px;
+      max-width: 160px;
+      text-overflow: ellipsis;
+    }
+
+    .btn-fav {
+      button {
+        padding: 0 !important;
+      }
+
+      .icon {
+        width: 12px;
+        height: 12px;
+
+        &.icon-star {
+          background: url(../assets/icons/star.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+        }
+
+        &.icon-star-active {
+          background: url(../assets/icons/star-active.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+        }
+      }
+    }
+    .v-icon-chevron {
+      // position: absolute;
+      Width: 24.3px;
+      Height: 23px;
+    }
+
+    @media (max-width: 1336px) {
+      width: 240px;
+    }
+    height: calc(100% - 80px);
+    overflow-y: auto;
+
+    .v-sheet {
+      background: transparent;
+
+      .v-list-item {
+        &.editing {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          margin: 0 !important;
+
+          &::before,
+          &::after {
+            content: none;
+          }
+
+          .v-list-item {
+            &::before,
+            &::after {
+              content: none;
+            }
+          }
+        }
+
+        background: #fff;
+        margin-bottom: 10px !important;
+        border-radius: 8px;
+        box-shadow: 0px 7px 14px rgba(50, 50, 93, 0.1),
+        0px 3px 6px rgba(0, 0, 0, 0.08);
+
+        &:before {
+          border-radius: 8px !important;
+        }
+
+        &.v-item--active {
+          background: #666CF5;
+          color: #fff;
+          border-color: #4A50E2;
+        }
+
+        &.v-item--inactive {
+          background: #E7ECF1;
+        }
+      }
+    }
+  }
+
+  &.card-type-ticket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 280px);
+  }
+
+  &.card-category-detail {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    @media (max-width: 1336px) {
+      left: 260px;
+      width: calc(100% - 260px);
+    }
+
+    .v-card__title {
+      padding-bottom: 10px;
+      width: 100%;
+      display: flex;
+      // justify-content: space-between;
+    }
+  }
+}
+.card-detail {
+  height: calc(100vh - 80px);
+  min-height: 600px;
+  border-radius: 20px !important;
+  overflow-y: auto;
+
+  .list-card-ticket {
+    width: 280px;
+    padding-left: 20px;
+
+
+    .v-list-item__title {
+      text-transform: capitalize;
+      padding-left: 20px;
+      max-width: 160px;
+      text-overflow: ellipsis;
+    }
+
+    .btn-fav {
+      button {
+        padding: 0 !important;
+      }
+
+      .icon {
+        width: 12px;
+        height: 12px;
+
+        &.icon-star {
+          background: url(../assets/icons/star.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+        }
+
+        &.icon-star-active {
+          background: url(../assets/icons/star-active.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+        }
+      }
+    }
+
+    @media (max-width: 1336px) {
+      width: 240px;
+    }
+    height: calc(100% - 80px);
+    overflow-y: auto;
+
+    .v-sheet {
+      background: transparent;
+
+      .v-list-item {
+        &.editing {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          margin: 0 !important;
+
+          &::before,
+          &::after {
+            content: none;
+          }
+
+          .v-list-item {
+            &::before,
+            &::after {
+              content: none;
+            }
+          }
+        }
+
+        background: #fff;
+        margin-bottom: 10px !important;
+        border-radius: 8px;
+        box-shadow: 0px 7px 14px rgba(50, 50, 93, 0.1),
+        0px 3px 6px rgba(0, 0, 0, 0.08);
+
+        &:before {
+          border-radius: 8px !important;
+        }
+
+        &.v-item--active {
+          background: #666CF5;
+          color: #fff;
+          border-color: #4A50E2;
+        }
+      }
+    }
+  }
+
+  &.card-type-ticket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 280px);
+  }
+
+  &.card-category-detail {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    @media (max-width: 1336px) {
+      left: 260px;
+      width: calc(100% - 260px);
+    }
+
+    .v-card__title {
+      padding-bottom: 10px;
+      width: 100%;
+      display: flex;
+      // justify-content: space-between;
+    }
+  }
+  .font-button {
+    border-radius: 40px
+  }
+}
+
+
+.wrap-ticket-detail {
+  width: 70%;
+  margin: 0 auto;
+  @media (max-width: 1336px) {
+    width: 95%;
+  }
+
+  .ticket-detail-top {
+    background: #E7ECF140;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .v-text-field__slot {
+    margin-bottom: 4px !important;
+    margin-left: 3px !important;
+  }
+  .v-text-field__space {
+    max-width: 700;
+  }
+  .v-expansion-panel-header__icon {
+    position: inherit;
+  }
+  .v-btn--disabled {
+    background-color: #ffffff !important;
+  }
+}
+.v-icon-active {
+  background-color: #ffffff;
+}
+.card-info-detail {
+  width: max-content;
+}

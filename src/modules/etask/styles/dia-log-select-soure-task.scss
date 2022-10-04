@@ -1,0 +1,250 @@
+.dia-log-select-source-task{
+
+  & .clear-display{
+    .v-text-field__details{
+      display:  none!important;
+    }
+  }
+  .theme--light.v-chip:not(.v-chip--active){
+    background-color: #CCF3FE!important;
+  }
+  /* white */
+  & .label-radio-select-object{
+    width: 100%;
+    background-color: #E7ECF1!important;
+  }
+
+  .v-text-field > .v-input__control > .v-input__slot:before{
+     border-color: unset !important;
+   border-style: unset !important;
+ border-width: unset !important;
+    border-radius: unset!important;
+  }
+
+  .v-text-field.v-input--dense:not(.v-text-field--outlined) input {
+    margin-left: 8px!important;
+  }
+
+  & .body-dialog-select-link-to{
+    overflow-x: auto!important;
+    height: calc(53vh - 12px);
+
+    & .border-left{
+      border-left: solid 0.5px #7A7C80;
+    }
+
+    .v-list-item.v-list-item--link.theme--light{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .v-item-group.theme--light.v-list-item-group{
+      background-color: #FFFFFF!important;
+    }
+     & .title-list-link-to{
+       box-shadow: 0px -6px 8px rgba(0, 0, 0, 0.15);
+       border-radius: 0px 0px 8px 8px;
+       order: 5;
+       gap: 10px;
+     }
+  }
+
+
+  & .span-text-title{
+    color: #8E8EA1!important;
+  }
+  background: #FFFFFF;
+    & .body-dialog-select-source-task{
+      height: calc(45vh - 12px);
+      overflow-y: auto !important;
+    }
+
+  .header-title{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    /* identical to box height, or 140% */
+
+    /* b1 */
+
+    color: #22242C;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+
+  .text--body-4{
+    border-radius: 8px !important;
+  }
+  & .user-list-item{
+    width: 100%;
+    height: 55px;
+  }
+
+  & .title-email-user{
+    position: absolute;
+    width: 100px;
+    height: 16px;
+    left: 87px;
+    top: 31px;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    /* gray-medium */
+
+    color: #8E8EA1;
+
+  }
+
+  & .img-avatar-user{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 20px;
+    top: 0px;
+
+    /* Neutral color/100 */
+
+    border: 3px solid #D3D3D5;
+  }
+
+  & .list-seleted-title{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #22242C;
+
+  }
+
+  & .label-parent-work{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    // display: flex;
+    align-items: center;
+
+    /* b1 */
+
+    color: #22242C;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  &.group-action-step{
+    height: 88px !important;
+    box-shadow: -4px -4px 12px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px 8px 0px 0px !important;
+  }
+
+  & .label-selected-ob{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 22px !important;
+    /* identical to box height, or 138% */
+
+    display: flex;
+    align-items: center;
+
+    /* b1 */
+
+    color: #22242C;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  & .title-selected-user{
+    background: #E7ECF1;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 6;
+  }
+
+  & .title-select-all{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    display: flex;
+    align-items: center;
+
+    /* medium */
+
+    color: #8E8EA1;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  & .group-button{
+    height: 78px!important;
+    background: #FFFFFF;
+    box-shadow: -4px -4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+  }
+
+  & .text-name-hover:hover  {
+    color: #0fafe4;
+    text-decoration: underline;
+  }
+
+  & .height-50 {
+    height: 50px;
+
+    & .v-input--selection-controls__input {
+      margin-left: 8px;
+    }
+  }
+
+  & .text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 300px;
+    display: block;
+  }
+}

@@ -1,0 +1,93 @@
+/* eslint-disable key-spacing */
+export default {
+  CategoryApis: {
+    GET_ALL_TICKET_GROUP                  : 'ticket/category/getAllTicketGroup',
+    GET_TICKET_CATEGORY_BY_TICKET_GROUP   : 'ticket/category/getTicketCategoryByTicketGroup',
+    GET_ALL_LIMIT_TYPE                    : 'ticket/category/public/getAllLimitType',
+    GET_ALL_VALUE_TYPE                    : 'ticket/category/public/getAllValueType',
+    CREATE_CATEGORY                       : 'ticket/category/create',
+    DELETE_CATEGORY                       : 'ticket/category/delete',
+    EDIT_CATEGORY                         : 'ticket/category/edit',
+    INACTIVE_CATEGORY                     : 'ticket/category/inactive',
+    ACTIVE_CATEGORY                       : 'ticket/category/active',
+    FIND_TICKET_CATEGORY                  : 'ticket/category/findTicketCategory',
+    FIND_TICKET_CATEGORY_ACTIVE           : 'ticket/category/findTicketCategoryActive',
+    GET_CATEGORY_DETAIL                   : 'ticket/category/detail',
+    GET_CLOSE_DURATION_TYPE               : 'ticket/category/public/getCloseDurationType'
+  },
+  TicketApis: {
+    CREATE                                : 'ticket/create',
+    EDIT                                  : 'ticket/edit',
+    ACCEPTED                              : 'ticket/acceptedTicket',
+    DETAIL                                : 'ticket/detail',
+    SEND                                  : 'ticket/sendTicket',
+    APPOVED_SENDING                       : 'ticket/approvedSendingTicket',
+    REJECT_SENDING                        : 'ticket/rejectedSendingTicket',
+    REJECT                                : 'ticket/rejectTicket',
+    CANCEL                                : 'ticket/cancelTicket',
+    CLOSE                                 : 'ticket/closeTicket',
+    DELETE                                : 'ticket/delete',
+    COMPLETE                              : 'ticket/completeTicket',
+    REJECT_FINISH                         : 'ticket/rejectFinishTicket',
+    APPROVE_FINISH                        : 'ticket/approveFinishTicket',
+    SEARCH                                : 'ticket/search',
+    FIND_TICKET_BY_REQUEST                : 'ticket/findTicketByRequest',
+    FORWARD_TICKET_GROUP                  : 'ticket/forwardTicketGroup',
+    DENY_FORWARD_GROUP                    : 'ticket/denyForwardGroup',
+    ACCEPT_FORWARD_GROUP                  : 'ticket/acceptForwardGroup',
+    FORWARD_TICKET_USER                   : 'ticket/forwardTicketUser',
+    FIND_CREATE_TICKET                    : 'ticket/findCreateTicket',
+    FIND_TICKET_EMPLOY                    : 'ticket/findTicketEmploy',
+    UPDATE_PROGRESS_TICKET                : 'ticket/updateProgressTicket',
+    UPDATE_PROGRESS_TICKET_COMPLETE       : 'ticket/updateProgressTicketStep2',
+    FIND_PERFORM_TICKET                   : 'ticket/findPerformTicket',
+    FIND_TICKET_REQUIRE_OF_GROUP          : 'ticket/findTicketRequireOfGroup',
+    UPDATE_MONITOR_USER_OF_TICKET         : 'ticket/updateMonitorUserOfTicket',
+    FIND_MONITOR_TICKET                   : 'ticket/findMonitorTicket',
+    FIND_APPROVE_TICKET                   : 'ticket/findApproveOfTicketLD',
+    FIND_TICKETS_OF_GROUP_PERFORM         : 'ticket/findTicketsOfUserBelongGroup',
+    FIND_TICKETS_OF_GROUP_CREATED         : 'ticket/findTicketsOfUserBelongCreateGroup',
+    FIND_DETAIL_TICKETS_OF_USER           : 'ticket/findDetailTicketsOfUser',
+    GET_LIST_COMPLETE_TIME                : 'ticket/public/getCompleteTime',
+    MY_PERFORM_ADVANCE_SEARCH             : 'ticket/findPerformTicketAdvance',
+    MY_REQUEST_ADVANCE_SEARCH             : 'ticket/findCreateTicketAdvance',
+    MY_FOLLOW_ADVANCE_SEARCH              : 'ticket/findMonitorTicketAdvance',
+    MY_APPROVE_ADVANCE_SEARCH             : 'ticket/findApproveOfTicketLDAdvance',
+    TASK_CENTER_ADVANCE_SEARCH            : 'ticket/findTicketEmployAdvance',
+    BELONG_GROUP_ADVANCE_SEARCH           : 'ticket/findTicketsOfUserBelongGroupAdvance',
+    BELONG_CREATE_GROUP_ADVANCE_SEARCH    : 'ticket/findTicketsOfUserBelongCreateGroupAdvance',
+    GET_LIST_JOBS                         : 'ticket/findTicketEmploy',
+  },
+  GroupApis: {
+    GET_ALL_GROUP                         : 'ticket/group/getAllDepartment',
+    GET_ROOT_GROUP                        : 'ticket/group/getRootGroupOfUser',
+    GET_DETAIL_GROUP_BY_ID                : 'ticket/group/detailGroup',
+    GET_GROUPS_BY_USER_ID                 : 'ticket/group/getGroupsByUserId',
+    GET_GROUPS_BY_ROLE_OF_USER            : 'ticket/group/getGroupsByRoleOfUser',
+    GET_GROUPS_BY_APPROVE_USER            : 'ticket/group/getGroupsApproveOfUser',
+  },
+  PublicApis: {
+    TICKET_STATUS                         : 'ticket/public/status',
+    GET_PRIORITY                          : 'ticket/public/getPriority',
+    GET_SOURCE_TYPE                       : 'ticket/public/getSourceType',
+    GET_REFER_TYPE                        : 'ticket/public/getReferType',
+  },
+  FileApis: {
+    UPLOAD_FILE                           : 'ticket/file/upload',
+    UPLOAD_MULTIPLE_FILE                  : 'ticket/file/upload-multiple',
+    DOWNLOAD                              : 'ticket/file/download'
+  },
+  UserApis: {
+    GET_USER_BY_GROUP_ID                  : 'ticket/user/getUsersByGroupId',
+    GET_DETAIL_USER_BY_ID                 : 'ticket/user/getDetailUser',
+    GET_USERS_FROM_GROUP_ID               : 'ticket/user/getUsersFromGroupId',
+    GET_ALL_USER_OF_DOMAIN                : 'ticket/user/getAllUserOfDomain'
+  },
+  DashboardApis: {
+    GET_LIST_UNIT                         : 'ticket/dashboard/getDashboard',
+    GET_TICKET_DASHBOARD                  : 'ticket/dashboard/getDashboardTicketOfMDO'
+  },
+  AssociationApis: {
+    GET_ASSOCIATIONS                      : 'core/association/private/get-associations'
+  }
+}

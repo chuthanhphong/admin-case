@@ -1,0 +1,112 @@
+label {
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #4b506d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1,
+.roleUser {
+  color: #54c5eb;
+  font-weight: 700;
+}
+
+h3 {
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #4b506d;
+  font-weight: 700;
+}
+
+v-dialog,
+p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.col {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.create-user {
+  padding: 0.5%;
+  background-color: #29afe4;
+  border-radius: 20px;
+}
+
+.form-create {
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.info-user {
+  border: 0.5px solid #7b8794;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 97%;
+  padding: 10% 0;
+}
+
+.avatar {
+  position: relative;
+}
+
+.update-avatar {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.theme--light.v-breadcrumbs li {
+  a {
+    h3 {
+      color: #8cd7f0;
+    }
+  }
+  .active {
+    h3 {
+      color: #fff !important;
+    }
+  }
+}
+
+.color-require {
+  color: red;
+}
+
+.btn-cancel {
+  border: 1px solid #29afe4;
+  background-color: #fff !important;
+  color: #29afe4;
+}
+
+.title-dialog p {
+  color: #000;
+  font-weight: 700;
+  font-size: 19px;
+  font-family: "Mulish";
+}
+.v-btn__content {
+  font-family: "Mulish" !important;
+}
+
+.dialog-contract-detail {
+  .detail-content {
+  background: #e9f8f9;
+  border-radius: 8px;
+  padding: 10px 15px;
+  min-height: 50px;
+  }
+  label {
+  font-size: 12px;
+  font-weight: bold;
+  }
+}
+
+.text--link {
+  color: #000 !important;
+}

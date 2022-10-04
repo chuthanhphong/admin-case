@@ -1,0 +1,51 @@
+#org-tree {
+  height: calc(100vh - 180px);
+  overflow-y: auto;
+  min-height: 580px;
+}
+.wrap-action-org {
+  position: relative;
+  width: 56px;
+  margin: 0 auto;
+  .v-speed-dial {
+    right: unset;
+    bottom: unset;
+  }
+  .v-speed-dial {
+    &.v-speed-dial--is-active {
+      .v-speed-dial__list {
+        &::after {
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid #000000ba;
+          position: absolute;
+          right: -10px;
+        }
+      }
+    }
+    .v-speed-dial__list {
+      background: #000000ba;
+      border-radius: 10px;
+      padding: 0;
+    }
+  }
+}
+.top-org {
+  .v-input__control {
+    .v-input__slot {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+th {
+  font-size: 14px !important;
+}
+.content-org {
+  font-weight: 600;
+  // .v-data-table__wrapper {
+  //   overflow-y: auto !important;
+  // }
+}

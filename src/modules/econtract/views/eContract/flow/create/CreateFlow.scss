@@ -1,0 +1,242 @@
+@import "@/styles/colors";
+.content-page {
+  min-height: 80vh;
+  padding: 15px;
+}
+// Tool PDF
+.tool {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100% - 50px);
+  .v-tabs-slider-wrapper {
+    width: 50% !important;
+  }
+  .tool__preview {
+    width: 188px;
+    background: #fff;
+    border: 1px solid #e8e9eb;
+    border-radius: 5px;
+    height: 100%;
+    padding-top: 0;
+    margin-left: 2px;
+    overflow-y: auto;
+    .pdf-viewer > .page {
+      margin-top: 20px;
+    }
+    @media (max-width: 1336px) {
+      width: 130px !important;
+    }
+  }
+
+  .tool__workarea {
+    text-align: center;
+    height: 100%;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    border-radius: 5px;
+    margin: 0 10px;
+
+    .pdf-viewer > .page {
+      margin-top: 20px;
+    }
+  }
+}
+.sign-item-added {
+  background: #fffbdc;
+  border-radius: 8px;
+  border: 1px solid #0fafe4;
+  padding: 10px 5px;
+  width: 150px;
+  min-height: 80px;
+  position: absolute;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  .text-sign i {
+    color: #0fafe4;
+    top: 10px;
+    left: 10px;
+    h5 {
+      font-weight: normal !important;
+    }
+  }
+  .sign-item-remove {
+    position: absolute !important;
+    top: -5px;
+    right: -5px;
+    color: #ff5252 !important;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .sign-item-more {
+    position: absolute !important;
+    top: -10px;
+    right: -5px;
+    color: #0fafe4 !important;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #0fafe4;
+  }
+  .note-sign {
+    font-size: 14px;
+    border-top: 1px solid #7b8794;
+    margin-top: 15px;
+    padding-top: 5px;
+  }
+  .wrap-edit-signer {
+    &.active {
+      display: block;
+    }
+    display: none;
+    position: absolute;
+    background: #252733;
+    color: #fff;
+    width: 100%;
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    padding: 5px 0;
+    &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #252733;
+      position: absolute;
+      top: -5px;
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+      width: 100%;
+      li {
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          color: #fff;
+          font-size: 20px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+.tool__header {
+  display: flex;
+  align-items: center;
+  padding: 10px 7px;
+  .file-name {
+    border: 0.5px solid #7b8794;
+    background: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 175px;
+    max-width: 450px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .tool__nav {
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .input-page {
+    background: #0fafe4;
+    width: 40px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+.tool__sidebar {
+  width: 230px;
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0;
+  margin-right: 2px;
+  .note-select-signature {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: #8e8ea1;
+    margin-top: 5px;
+    @media (max-width: 1336px) {
+      font-size: 10px;
+    }
+  }
+  .v-tab {
+    flex: 1 !important;
+    text-transform: capitalize;
+    font-size: 13px;
+    color: #22242c;
+    font-weight: 600;
+  }
+  .sign-item {
+    border: 1px solid #0fafe4;
+    border-radius: 5px;
+    position: relative;
+    margin: 10px;
+    margin-top: 35px;
+    padding: 15px 10px;
+    cursor: pointer;
+    .text-sign {
+      color: #22242c;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .note-sign {
+      font-size: 14px;
+      border-top: 1px solid #7b8794;
+      margin-top: 5px;
+      padding-top: 5px;
+    }
+    .add-sign-item {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -35px;
+    }
+    .count-sign {
+      position: absolute;
+      top: -10px;
+      right: -5px;
+      border: 1px solid #0fafe4;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      color: #0fafe4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
+  }
+}
+
+.message-transition-move {
+  transition: none !important;
+}

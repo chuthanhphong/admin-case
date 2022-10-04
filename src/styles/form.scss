@@ -1,0 +1,115 @@
+.form-group {
+  label {
+    text-transform: uppercase;
+    color: #4b506d;
+  }
+}
+.file-disabled {
+  background: #e7e9ef;
+  padding: 5px 15px;
+  border-radius: 8px;
+  color: rgba(0, 0, 0, 0.38);
+}
+.contract-manager-create {
+  .v-input--is-disabled .v-file-input__text {
+    padding-left: 10px;
+  }
+}
+
+.btn-upload {
+  width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #252733 !important;
+}
+.no-border {
+  .v-input__slot {
+    &::after,
+    &::before {
+      content: none !important;
+    }
+  }
+}
+.input-file {
+  .v-icon.v-icon {
+    color: $success !important;
+  }
+  .v-input__icon--clear {
+    .v-icon {
+      color: #ff4a55 !important;
+    }
+  }
+}
+.btn {
+  cursor: pointer;
+}
+.wrap-users-list {
+  position: relative;
+  .wrap-users {
+    position: absolute;
+    width: 96%;
+    height: 320px;
+    overflow-y: auto;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 2px;
+    z-index: 99;
+    background: #fff;
+  }
+}
+
+.list-files {
+  list-style: none;
+  padding: 0 !important;
+  margin-top: 5px;
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+  .icon-file {
+    color: #35c28e;
+    padding-right: 10px;
+  }
+  .remove-attach {
+    i {
+      color: #0a093d;
+      cursor: pointer;
+      padding-left: 5px;
+    }
+  }
+}
+hr {
+  border-top: 1px solid #c1c9d2;
+  height: 1px;
+  border-bottom: 0;
+}
+.group-action-step {
+  border-top: 1px solid #c1c9d2;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  width: 100%;
+  padding-right: 25px;
+  z-index: 9;
+}
+.option-select-coordinator {
+  border-bottom: 1px dashed #c1c9d2;
+  padding-bottom: 5px;
+}
+.btn-remove-all-signature {
+  .v-btn__content {
+    font-size: 12px;
+  }
+}
+.wrap-page-sign-footer {
+  background: #cef3ff;
+  border-radius: 0px 0px 8px 8px;
+  position: relative;
+  width: 100%;
+  padding: 8px 15px;
+}

@@ -1,0 +1,189 @@
+.v-toolbar {
+  flex: unset !important;
+}
+.v-navigation-drawer--open {
+  .v-list-item > .v-list-item__icon {
+    margin-right: 10px !important;
+  }
+}
+.v-navigation-drawer--mini-variant {
+  .v-list-item > .v-list-item__icon {
+    margin-right: 0 !important;
+  }
+}
+.v-navigation-drawer--open {
+  &.v-navigation-drawer--mini-variant {
+    .v-list-group__items {
+      padding-left: 0;
+    }
+  }
+  .v-list-group__items {
+    padding-left: 10px;
+  }
+}
+.v-menu__content .v-select-list .v-list-item:last-child {
+  border-bottom: none;
+}
+.v-navigation-drawer__content {
+  .v-list-group--active {
+    .v-list-item__content {
+      color: #000 !important;
+    }
+    .v-list-group__header__prepend-icon {
+      .v-btn--icon {
+        .v-btn__content {
+          margin: 8px 0;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $primary;
+          border: 1px solid $primary;
+        }
+      }
+    }
+    .v-list-item__icon {
+      &.v-list-group__header__append-icon {
+        .v-btn__content {
+          margin: 8px 0;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $primary;
+          border: 1px solid $primary;
+        }
+        i {
+          color: $primary !important;
+        }
+      }
+    }
+  }
+  .v-list {
+    .v-list-item--active {
+      .v-icon,
+      .v-btn__content {
+        color: #fff !important;
+      }
+    }
+    .v-list-item--link:before {
+      background: transparent;
+    }
+    .v-list-item__icon {
+      width: 35px;
+      height: 35px;
+      margin: 8px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.v-date-picker-header__value button {
+  text-transform: capitalize;
+}
+.v-breadcrumbs {
+  padding: 5px 15px !important;
+}
+.v-breadcrumbs .disabled .v-breadcrumbs__item {
+  color: #fff;
+}
+
+.v-list-item--dense.v-list-item--two-line,
+.v-list--dense .v-list-item.v-list-item--two-line {
+  min-height: 45px;
+}
+// .theme--light.v-list-item:before,
+// .theme--light.v-list-item:hover:before,
+// .theme--light.v-list-item:focus:before {
+//   opacity: 0 !important;
+// }
+.v-breadcrumbs__item.active h3 {
+  max-width: 450px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.v-tooltip__content {
+  background: #252733 !important;
+  max-width: 50%;
+  overflow-wrap: break-word;
+  border-radius: 8px !important;
+}
+.v-avatar {
+  background: #fff;
+}
+// Dialog
+.v-dialog {
+  position: relative;
+  border-radius: 8px !important;
+  h4 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #0a093d;
+    font-family: 'Mulish';
+  }
+  .close-dialog {
+    position: absolute !important;
+    right: 20px;
+    top: 15px;
+  }
+}
+
+.v-list {
+  .v-list-item {
+    border-bottom: 1px solid #eee;
+    padding: 5px 15px;
+    .title-item {
+      color: #252733;
+      font-weight: 600;
+      font-size: 14px;
+      @media (max-width: 1336px) {
+        font-size: 13px;
+      }
+    }
+    .desc-item {
+      color: #9fa2b4;
+      font-weight: 400;
+      font-size: 12px;
+      @media (max-width: 1336px) {
+        font-size: 10px;
+      }
+    }
+  }
+}
+.v-input--is-disabled .v-input__slot {
+  background-color: #e7e9ef !important;
+}
+.v-input {
+  font-size: 14px !important;
+}
+.v-text-field--solo {
+  .v-input__slot {
+    box-shadow: none !important;
+  }
+}
+.v-application {
+  .v-main__wrap {
+    .text-caption {
+      font-family: 'Mulish' !important;
+    }
+  }
+}
+.theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th {
+  padding: 0 5px !important;
+}
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr
+  > th.th-contract-name {
+  padding: 0 5px !important;
+  padding-left: 40px !important;
+}
+.v-data-table > .v-data-table__wrapper > table > tbody > tr > td {
+  padding: 0 5px !important;
+  color: #22242c;
+}

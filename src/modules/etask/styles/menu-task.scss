@@ -1,0 +1,140 @@
+#core-navigation-drawer {
+  .v-list-group--active {
+    div.v-list-item--active {
+      .icon-task-manager::before {
+        content: '';
+        background: url(../assets/icons/menu/task-manager/Active.png) no-repeat;
+        width: 50px;
+        height: 46px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      div > .v-list-item__title {
+        color: #0fafe4 !important;
+      }
+    }
+  }
+  .active {
+    .icon-task-create::before {
+      background: url(../assets/icons/menu/toitao/Active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-task-assign::before {
+      background: url(../assets/icons/menu/toigiao/Active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-task-perform::before {
+      background: url(../assets/icons/menu/toithuchien/Active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-task-follow::before {
+      background: url(../assets/icons/menu/toitheodoi/Active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-task-room-work::before {
+      background: url(../assets/icons/menu/viecphong/Active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-setting::before {
+      background: url(../assets/icons/menu/setting/Active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .icon-task-report::before {
+      background: url(../assets/icons/menu/baocao/active.png) no-repeat;
+      content: "";
+      width: 50px;
+      height: 46px;
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+  }
+  .icon-task-manager::before {
+    background: url(../assets/icons/menu/task-manager/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-task-create::before {
+    background: url(../assets/icons/menu/toitao/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-task-assign::before {
+    background: url(../assets/icons/menu/toigiao/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-task-perform::before {
+    background: url(../assets/icons/menu/toithuchien/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-task-follow::before {
+    background: url(../assets/icons/menu/toitheodoi/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-task-room-work::before {
+    background: url(../assets/icons/menu/viecphong/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-setting::before {
+    background: url(../assets/icons/menu/setting/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-task-report::before {
+    background: url(../assets/icons/menu/baocao/Inactive.png) no-repeat;
+    content: "";
+    width: 50px;
+    height: 46px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+}
+  

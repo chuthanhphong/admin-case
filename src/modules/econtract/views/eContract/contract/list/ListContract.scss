@@ -1,0 +1,122 @@
+.contracts-page {
+  .btn-show-advance {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: unset !important;
+    margin: 0 10px;
+    border-radius: 8px;
+  }
+  .wrap-search {
+    .v-text-field.v-text-field--enclosed .v-text-field__details {
+      padding: 0;
+    }
+    .form-group {
+      margin-left: 10px;
+    }
+    label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #4b506d;
+      text-align: left;
+    }
+  }
+  .wrap-advance-search {
+    .v-input__control {
+      .v-input__slot {
+        width: 270px;
+      }
+    }
+    .last-input {
+      display: none;
+    }
+    @media (max-width: 1336px) {
+      .v-input__control {
+        .v-input__slot {
+          width: 270px;
+        }
+      }
+      .form-group {
+        flex-direction: column;
+        align-items: flex-start !important;
+        margin-left: 15px;
+        label {
+          padding-bottom: 5px !important;
+          text-align: left !important;
+        }
+      }
+    }
+    @media (max-width: 1301px) {
+      .last-input {
+        display: block !important;
+      }
+      .v-input__control {
+        .v-input__slot {
+          width: 260px !important;
+        }
+      }
+    }
+    @media (max-width: 1000px) {
+      .form-group {
+        margin-left: 0 !important;
+      }
+    }
+  }
+  .link-hover {
+    &:hover {
+      color: #0fafe4;
+      cursor: pointer;
+    }
+  }
+  .text-link {
+    cursor: pointer;
+  }
+}
+.state-contract {
+  border-radius: 150px;
+  width: 110px;
+  height: 28px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  &:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: #97f7fc;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  &.state-in-process {
+    color: #ffaf2e;
+    &:before {
+      background: #ffaf2e;
+    }
+  }
+  &.state-complete {
+    color: #0fafe4;
+    &:before {
+      background: #0fafe4;
+    }
+  }
+  &.state-draft {
+    color: #4a50e2;
+    &:before {
+      background: #4a50e2;
+    }
+  }
+  &.state-reject {
+    color: #ff4a55;
+    &:before {
+      background: #ff4a55;
+    }
+  }
+  &.state-cancel {
+    color: #f028a0;
+    &:before {
+      background: #f028a0;
+    }
+  }
+}

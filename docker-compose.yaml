@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  mdo2-econtract-web:
+    image: tienthanh1008/bo:mdo2-econtract-web
+    container_name: mdo2-econtract-web
+    ports:
+    - "6688:6688"
+    volumes:
+        - ./logs:/logs

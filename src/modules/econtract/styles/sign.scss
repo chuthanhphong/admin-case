@@ -1,0 +1,69 @@
+.contract-history {
+  .icon {
+    border: 1px solid #000 !important;
+  }
+  &.v-list .v-list-item {
+    padding: 0 !important;
+  }
+  box-shadow: none !important;
+  .v-list-item__title,
+  .v-list-item__subtitle {
+    font-size: 12px !important;
+    @media (max-width: 1336px) {
+      font-size: 10px !important;
+    }
+  }
+  .btn-history {
+    transform: scale(0.8);
+  }
+  .text-wrap {
+    word-break: break-word !important;
+    text-align: left;
+    font-size: 13px;
+  }
+  .btn-history i {
+    font-size: 16px !important;
+  }
+  .btn-unprocess {
+    background-color: #ffaf2e;
+    border-color: #ffaf2e;
+    color: #fff;
+  }
+  .btn-process {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+  }
+  .btn-reject {
+    background-color: #ff4a55;
+    border-color: #ff4a55;
+    color: #fff;
+  }
+  .btn-remove {
+    background-color: #c4c4c4;
+    border-color: #c4c4c4;
+    color: #fff;
+  }
+}
+.v-list-item__title {
+  &.sign-user-type-flashes {
+    color: #4a50e2;
+    font-weight: 400 !important;
+  }
+  &.sign-user-type-reviewer {
+    color: #0fafe4;
+    font-weight: 400 !important;
+  }
+}
+.icon-hourglass {
+  background: url(../assets/icons/hourglass.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+}
+.dialog-form-note {
+  border: 0.5px solid #000;
+  border-radius: 8px;
+  font-size: 12px;
+  margin: 0 5px;
+}

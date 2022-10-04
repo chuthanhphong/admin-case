@@ -1,0 +1,137 @@
+@import '@/styles/colors';
+
+.container-booking, .container-booking-detail {
+  .active-status {
+    border: 1px solid#00C3F9 !important;
+    box-shadow: none !important;
+    background-color: #E6F9FE !important;
+  }
+
+  .border-blue {
+    border: 1px solid#00C3F9 !important;
+    box-shadow: none !important;
+  }
+
+  .text-transform-none {
+    text-transform: none !important;
+  }
+
+  .h-50 {
+    height: 50px;
+  }
+
+  .gap-10 {
+    gap: 10px;
+  }
+
+  .fs-12 {
+    font-size: 12px;
+  }
+
+  .fs-14 {
+    font-size: 14px;
+  }
+
+  .fw-600 {
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  .v-input {
+    .v-text-field__details {
+      padding-bottom: 6px !important;
+    }
+  }
+
+    // STATUS
+  .blue-1c {
+    background-color: $color-blue !important;
+    border-color: $color-blue !important;
+  }
+  .blue-4a {
+    background-color: $blue-4a !important;
+    border-color: $blue-4a !important;
+  }
+  .organe-fd {
+    background-color: $organe-fd !important;
+    border-color: $organe-fd !important;
+  }
+  .danger {
+    background-color: $danger !important;
+    border-color: $danger !important;
+  }
+  .yellow-ff {
+    background-color: $yellow-ff !important;
+    border-color: $yellow-ff !important;
+  }
+  .pink-f0 {
+    background-color: $pink-f0 !important;
+    border-color: $pink-f0 !important;
+  }
+  .overlay {
+    background-color: $overlay !important;
+    border-color: $overlay !important;
+  }
+  .gray-light {
+    background-color: $gray-light !important;
+    border-color: $gray-light !important;
+  }
+  .pink-ff {
+    background-color: $pink-ff !important;
+    border-color: $pink-ff !important;
+  }
+  .organe-ff {
+    background-color: $organe-ff !important;
+    border-color: $organe-ff !important;
+  }
+  .gray-d3 {
+    background-color: $gray-d3 !important;
+    border-color: $gray-d3 !important;
+  }
+  .gray-f3 {
+    background-color: $gray-f3 !important;
+    border-color: $gray-f3 !important;
+  }
+
+  .greya7--text {
+    color: $color-gray-4 !important;
+    caret-color: $color-gray-4 !important;
+  }
+  
+  .grey1--text {
+    color: $color-gray-1 !important;
+  }
+
+  .grey2--text {
+    color: $color-gray-2 !important;
+  }
+  .row-disabled {
+    opacity: 0.48;
+  }
+
+  // color text by status
+  .blue-1c--text {
+    color: $color-blue !important;
+    caret-color: $color-blue !important;
+  }
+  .blue-4a--text {
+    color: $blue-4a !important;
+    caret-color: $blue-4a !important;
+  }
+  .organe-fd--text {
+    color: $organe-fd !important;
+    caret-color: $organe-fd !important;
+  }
+  .danger--text {
+    color: $danger !important;
+    caret-color: $danger !important;
+  }
+  .yellow-ff--text {
+    color: $yellow-ff !important;
+    caret-color: $yellow-ff !important;
+  }
+  .pink-f0--text {
+    color: $pink-f0 !important;
+    caret-color: $pink-f0 !important;
+  }
+}

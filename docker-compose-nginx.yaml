@@ -1,0 +1,30 @@
+version: '3.2'
+
+services:
+  nginx:
+    image: docker.io/bitnami/nginx:1.21
+    container_name: mdo2-econtract-web
+    ports:
+      - '8181:8181'
+      # - '6688:6688'
+      # - '6689:6689'
+      # - '6690:6690'
+    volumes:
+      - type: bind
+        source: ./6688.conf
+        target: /opt/bitnami/nginx/conf/server_blocks/6688.conf
+      - type: bind
+        source: ./6689.conf
+        target: /opt/bitnami/nginx/conf/server_blocks/6689.conf
+      - type: bind
+        source: ./6690.conf
+        target: /opt/bitnami/nginx/conf/server_blocks/6690.conf
+      - type: bind
+        source: ./8181.conf
+        target: /opt/bitnami/nginx/conf/server_blocks/8181.conf    
+      - type: bind
+        source: /app/mdo2-econtract-web/logs
+        target: /opt/bitnami/nginx/logs
+      - type: bind
+        source: ./dist
+        target: /opt/bitnami/nginx/html/home

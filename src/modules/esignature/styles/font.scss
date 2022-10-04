@@ -1,0 +1,477 @@
+.esignature-font {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: normal;
+    color: #22242c;
+  }
+  h1 {
+    font-size: 36px !important;
+    font-weight: 800;
+  }
+  h2 {
+    font-size: 32px !important;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 24px !important;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 20px !important;
+    font-weight: 700;
+  }
+  h5 {
+    font-size: 18px !important;
+    font-weight: 700;
+  }
+  h6 {
+    font-size: 14px !important;
+    font-weight: 400;
+  }
+
+  // text--button
+  .text--button {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    *:not(i) {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+    }
+  }
+
+  // text--label.
+  .text--label {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    label,
+    span {
+      font-size: 16px !important;
+      font-weight: 500 !important;
+    }
+  }
+
+  .text--label-1 {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    label,
+    span {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+    }
+  }
+
+  .text--label-2 {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    label,
+    span {
+      font-size: 12px !important;
+      font-weight: 500 !important;
+    }
+  }
+
+  // text--body.
+  .text--body-1 {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    input {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      &:active::placeholder,
+      &:focus::placeholder {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  .text--body-2 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    *:not(i) {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+    }
+
+    input {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      &:active::placeholder,
+      &:focus::placeholder {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  .text--body-3 {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    input {
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      &:active::placeholder,
+      &:focus::placeholder {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  //Text--body--normal
+  .text--body-1-normal {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+  }
+
+  .text--body-2-normal {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    input {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      &:active::placeholder,
+      &:focus::placeholder {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+      }
+    }
+  }
+
+  .text--body-3-normal {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+  }
+
+  // text--caption.
+  .text--caption {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    *:not(i) {
+      font-size: 13px !important;
+      font-weight: 400 !important;
+    }
+  }
+
+  // text--overlined.
+  .text--overlined {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+  }
+
+  .text--overlined-semi {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+
+  @media (max-width: 1336px) {
+    // text--label.
+    .text--label {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      label,
+      span {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+      }
+    }
+
+    .text--label-1 {
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      label,
+      span {
+        font-size: 12px !important;
+        font-weight: 500 !important;
+      }
+    }
+
+    .text--label-2 {
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      label,
+      span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+      }
+    }
+
+    // text--body.
+    .text--body-1 {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      input {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 14px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    .text--body-2 {
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      *:not(i) {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+      }
+      input {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 13px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    .text--body-3 {
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      input {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 12px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    //Text--body--normal
+    .text--body-1-normal {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+
+    .text--body-2-normal {
+      font-size: 12px !important;
+      font-weight: 400 !important;
+    }
+
+    .text--body-3-normal {
+      font-size: 10px !important;
+      font-weight: 400 !important;
+      input {
+        font-size: 10px !important;
+        font-weight: 400 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 10px !important;
+          font-weight: 400 !important;
+        }
+      }
+    }
+
+    .text--body-5 {
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      *:not(i) {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+      }
+
+      input {
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-weight: 600 !important;
+          font-size: 14px !important;
+        }
+      }
+    }
+
+    .text--caption {
+      font-size: 11px !important;
+      font-weight: 400 !important;
+      *:not(i) {
+        font-size: 11px !important;
+        font-weight: 400 !important;
+      }
+    }
+
+    // text--overlined.
+    .text--overlined {
+      font-size: 10px !important;
+      font-weight: 400 !important;
+    }
+
+    .text--overlined-semi {
+      font-size: 10px !important;
+      font-weight: 600 !important;
+    }
+
+    // H1 -> H6.
+    h1 {
+      font-size: 40px !important;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 36px !important;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 24px !important;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 20px !important;
+      font-weight: 700;
+    }
+    h5 {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+    }
+    h6 {
+      font-size: 16px !important;
+      font-weight: 700;
+    }
+  }
+
+  @media (max-width: 960px) {
+    // text--label.
+    .text--label {
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      label,
+      span {
+        font-size: 12px !important;
+        font-weight: 500 !important;
+      }
+    }
+
+    .text--label-1 {
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      label,
+      span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+      }
+    }
+
+    .text--label-2 {
+      font-size: 8px !important;
+      font-weight: 500 !important;
+      label,
+      span {
+        font-size: 8px !important;
+        font-weight: 500 !important;
+      }
+    }
+
+    // text--body.
+    .text--body-1 {
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      input {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 12px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    .text--body-2 {
+      font-size: 10px !important;
+      font-weight: 600 !important;
+      input {
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 10px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    .text--body-3 {
+      font-size: 10px !important;
+      font-weight: 600 !important;
+      input {
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 10px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    //Text--body--normal
+    .text--body-1-normal {
+      font-size: 12px !important;
+      font-weight: 400 !important;
+    }
+
+    .text--body-2-normal {
+      font-size: 10px !important;
+      font-weight: 400 !important;
+      input {
+        font-size: 10px !important;
+        font-weight: 400 !important;
+        &:active::placeholder,
+        &:focus::placeholder {
+          font-size: 10px !important;
+          font-weight: 400 !important;
+        }
+      }
+    }
+
+    .text--body-3-normal {
+      font-size: 8px !important;
+      font-weight: 400 !important;
+    }
+
+    // text--overlined.
+    .text--overlined {
+      font-size: 8px !important;
+      font-weight: 400 !important;
+    }
+
+    .text--overlined-semi {
+      font-size: 8px !important;
+      font-weight: 600 !important;
+    }
+
+    // H1 -> H6.
+    h1 {
+      font-size: 32px !important;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 24px !important;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 20px !important;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 18px !important;
+      font-weight: 700;
+    }
+    h5 {
+      font-size: 16px !important;
+      font-weight: 700;
+    }
+    h6 {
+      font-size: 14px !important;
+      font-weight: 700;
+    }
+  }
+}

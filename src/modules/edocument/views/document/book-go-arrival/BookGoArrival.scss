@@ -1,0 +1,145 @@
+.wrap-content-document {
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .date-picker {
+    position: relative;
+  }
+  .wrap-list-signer {
+    padding: 18px 0;
+  }
+  .signer-item {
+    position: relative;
+    padding-left: 90px !important;
+    background: #f9f5ff;
+    border-radius: 8px;
+
+    .form-group {
+      position: relative;
+      .v-input__slot {
+        background: #fff;
+      }
+      .v-text-field__details {
+        background: transparent !important;
+      }
+    }
+    .index-signer {
+      border-radius: 50%;
+      border: 1px solid;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      span {
+        color: #4b506d;
+        font-weight: 600;
+      }
+    }
+    .signer-action {
+      width: 32px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 40px;
+      background: #5d5fef;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btn-remove-signer {
+        color: #fff !important;
+      }
+    }
+  }
+  .disable-edit-file {
+    background-color: #d9d9d9;
+    padding: 5px 15px 5px 8px;
+    color: #0a093d;
+  }
+  .margin-b1 {
+    margin-bottom: 2px;
+  }
+
+  .label-unti {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8e8ea1;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    span {
+      color: red;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .wrap-content-document {
+    max-height: 82vh;
+  }
+}
+@media (max-width: 1280px) {
+  .wrap-content-document {
+    max-height: 62vh;
+  }
+}
+.wrap-book-tab {
+  .v-tabs {
+    padding-top: 15px;
+    border-radius: 20px;
+  }
+
+  .v-tab {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: none;
+    padding: 0 30px;
+    color: #22242c !important;
+  }
+
+  .v-tab--active {
+    color: #0fafe4 !important;
+    font-weight: 700 !important;
+  }
+
+  .v-tabs-slider-wrapper {
+    height: 4px !important;
+  }
+
+  .theme--light.v-tabs-items {
+    border-radius: 20px;
+  }
+}
+
+.list-signer {
+  position: relative;
+}
+
+.wrap-list-search {
+  border-radius: 8px;
+  position: absolute;
+  border: 1px solid #c4c4c4;
+  z-index: 9;
+  width: 91%;
+  top: 78px;
+  max-height: 220px;
+  overflow-y: auto;
+  .v-list-item {
+    min-height: 45px !important;
+    padding: 5px !important;
+  }
+}
+
+.wrap-list {
+  .wrap-empty-list {
+    height: calc(100vh - 300px) !important;
+    min-height: 71vh;
+  }
+}

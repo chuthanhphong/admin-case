@@ -1,0 +1,168 @@
+.contract-sign {
+
+  @media(max-width: 1000px){
+      .file-name{
+        min-width: 130px!important;
+        max-width: 130px!important;
+      }
+      .tool__nav{
+        left: 70%!important;
+    }
+    .tool__preview{
+      display: none!important;;
+    }
+    .tool__sidebar{
+      .button-responsive{
+
+          width: 100px!important;
+          span {
+            font-size: 10px !important;
+          }
+
+      }
+      width: 100px!important;
+    }
+  }
+  .content-page {
+    min-height: calc(100vh - 160px);
+  }
+  .tool__header {
+    display: flex;
+    align-items: center;
+    padding: 10px 7px;
+    height: 60px;
+    .file-name {
+      border: 0.5px solid #7b8794;
+      background: #fff;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 175px;
+      max-width: 450px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .tool__nav {
+      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+    }
+    .tool__comment {
+      margin: 0 auto;
+      position: absolute;
+      right: 80px;
+      display: flex;
+      align-items: center;
+    }
+    .zoom-input {
+      width: 100px;
+      margin: 0 10px;
+      text-align: center;
+      font-size: 12px !important;
+    }
+  }
+
+  .tool {
+    .tool__sidebar {
+      text-align: center;
+    }
+    .note-contract {
+      border: 1px solid #000000;
+      box-sizing: border-box;
+    }
+  }
+  // Tool PDF
+  .main__tool {
+    background: #e8e9eb;
+    height: calc(100vh - 230px);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-radius: 10px;
+    flex: 1 1 auto;
+  }
+  .tool {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 50px);
+    padding-bottom: 30px;
+    .v-tabs-slider-wrapper {
+      width: 50% !important;
+    }
+    .tool__preview {
+      width: 188px;
+      background: #fff;
+      border: 1px solid #e8e9eb;
+      border-radius: 5px;
+      height: 100%;
+      padding-top: 0;
+      margin-left: 2px;
+      overflow-y: auto;
+      .pdf-viewer > .page {
+        margin-top: 20px;
+      }
+      @media (max-width: 1336px) {
+        width: 130px !important;
+      }
+    }
+
+    .tool__workarea {
+      text-align: center;
+      height: 100%;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -ms-flex: 1 1 0%;
+      flex: 1 1 0%;
+      background-color: #fff;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      border-radius: 5px;
+      margin: 0 10px;
+
+      .pdf-viewer > .page {
+        margin-top: 20px;
+      }
+    }
+  }
+  .wrap-accept-term {
+    background: #c9ecf3;
+    padding: 0;
+    bottom: 60px;
+    z-index: 99;
+    position: relative;
+    .v-input {
+      padding: 10px;
+    }
+  }
+  .wrap-tool {
+    position: relative;
+    flex: 1 1 0%;
+  }
+  .nav-signature-items {
+    position: absolute;
+    width: 110px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+      margin-bottom: 40px;
+    }
+  }
+}
+.icon-pentool.icon-ca {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  background-color: #0fafe4;
+  border-radius: 8px 0 0 0;
+}

@@ -1,0 +1,23 @@
+.dialog-contract-detail {
+  .detail-content {
+    background: #e9f8f9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    min-height: 50px;
+  }
+  .wrap-history {
+    .history-timeline {
+      max-height: calc(100vh - 290px);
+      overflow-y: auto;
+    }
+    .content-history-item {
+      .v-list.v-sheet.theme--light {
+        overflow: hidden;
+      }
+    }
+  }
+  label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}

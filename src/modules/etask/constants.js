@@ -1,0 +1,153 @@
+export default {
+  STATUS_TASK: {
+    DELETED: 'DELETED',
+    NEW: 'NEW',
+    REVIEW_RECEIVING: 'REVIEW_RECEIVING',
+    RECEIVED_UNPROCESS: 'RECEIVED_UNPROCESS',
+    INPROGRESS: 'INPROGRESS',
+    REJECT_RECEIVING: 'REJECT_RECEIVING',
+    FINISH: 'FINISH',
+    CLOSED: 'CLOSED',
+    CANCELED: 'CANCELED',
+    REVIEW_SENDING: 'REVIEW_SENDING',
+    PENDING: 'PENDING'
+  },
+  TASK_MANAGER_ACTIONS: {
+    UPDATE: 'UPDATE',
+    REMOVE: 'REMOVE',
+    CANCEL: 'CANCEL',
+    PAUSE: 'PAUSE',
+    VIEW: 'VIEW',
+    REVIEW: 'REVIEW',
+    DENY_REVIEW: 'DENY_REVIEW',
+    TAKE_OVER: 'TAKE_OVER',
+    DENY_TAKE_OVER: 'DENY_TAKE_OVER',
+    APPROVE: 'APPROVE',
+    DENY_APPROVE: 'DENY_APPROVE',
+    CLOSE: 'CLOSE',
+    UPDATE_PROGRESS: 'UPDATE_PROGRESS',
+    RESENT_REVIEW: 'RESENT_REVIEW',
+    RESENT_TAKE_OVER: 'RESENT_TAKE_OVER',
+    RESENT_APPROVE: 'RESENT_APPROVE'
+  },
+  PATICIPATION: {
+    ASSIGNER: 'ASSIGNER',
+    MONITOR: 'MONITOR',
+    PERFORMER: 'PERFORMER',
+    COMBINATOR: 'COMBINATOR'
+  },
+  PRIORITY: {
+    LOW: 'LOW',
+    MEDIUM: 'MEDIUM',
+    HIGH: 'HIGH'
+  },
+  NOTIFY_TYPE: {
+    SUCCESS: 'success',
+    ERROR: 'error',
+    WARNING: 'warning'
+  },
+  PRIORITY_TASK: {
+    URGENT: 1,
+    MEDIUM: 2,
+    NORMAL: 3
+  },
+  FILE_TYPES: {
+    FILE_MAIN: 'FILE_MAIN',
+    FILE_EXTRA: 'FILE_EXTRA',
+    FILE_TEMPLATE: 'FILE_TEMPLATE',
+    FILE_EXTERNAL: 'FILE_EXTERNAL',
+    FILE_IMAGE_SIGNATURE: 'FILE_IMAGE_SIGNATURE',
+    FILE_IMAGE_AVATAR: 'FILE_IMAGE_AVATAR'
+  },
+  ROLE: {
+    ROLE_ADMIN: 'ROLE_ADMIN',
+    LD: 'LD',
+    HDDT: 'HDDT',
+    NV: 'NV',
+    GD: 'GD',
+    VT: 'VT'
+  },
+
+  PERMISSION: {
+    ASSIGNER: 'ASSIGNER',
+    PERFORMER: 'PERFORMER',
+    COMBINATOR: 'COMBINATOR',
+    MONITOR: 'MONITOR',
+    CREATOR: 'CREATOR',
+    NONE: 'NONE',
+    MANAGER_PERFORMER: 'MANAGER_PERFORMER',
+    MANAGER_ASSIGNER: 'MANAGER_ASSIGNER'
+  },
+  APPROVE_STATUS: {
+    APPROVE: 'APPROVE',
+    REJECT: 'REJECT',
+    CANCEL: 'CANCEL'
+  },
+  ASSOCIATION_TYPE: {
+    DOCUMENT: 'DOCUMENT',
+    TASK: 'TASK',
+    REQUEST: 'REQUEST',
+    TICKET: 'TICKET'
+  },
+  task: {
+    paging: {
+      pageSize: 1000
+    }
+  },
+  GROUPS: {
+    EXTERNAL: 'EXTERNAL'
+  },
+  ACTION_EDITOR: {
+    BOLD: 'bold',
+    ITALIC: 'italic',
+    UNDERLINE: 'underline',
+    IMAGE: 'image',
+    LIST: {
+      BUTTLET: "bullet",
+      ORDERED: 'ordered',
+      CENTER: 'center',
+      RIGHT: 'right',
+      JUSTIFY: 'justify'
+    }
+  },
+  OBJECT_TYPE: {
+    USER: 'USER',
+    GROUP: 'GROUP'
+  },
+  TIME_TYPE: {
+    HOUR: 'HOUR',
+    MINUTE: 'MINUTE',
+    DAY: 'DAY'
+  },
+  TASK_TYPE_ACTION: {
+    SAVE: 1,
+    CANCEL: 0,
+    ACTIVE: 2,
+    UPDATE: 3,
+    INACTIVE: 4,
+    REMOVE: -1
+  },
+  ROLE_TYPE: {
+    MAIN: 'MAIN',
+    OTHER: 'OTHER'
+  },
+  STATE_TYPE_TASK: {
+    ACTIVE: 'ACTIVE',
+    INACTIVE: 'INACTIVE'
+  },
+  TYPE_SCREEN: {
+    CREATE: 'CREATE',
+    ASSIGN: 'ASSIGN',
+    PERFORMER: 'PERFORMER',
+    FOLLOWER: 'FOLLOWER',
+    DEPARTMENT: 'DEPARTMENT'
+  },
+  TYPE_OF_ELEMENT: {
+    OBJECT: 'object',
+    ARRAY: 'array',
+    NUMBER: 'number',
+    STRING: 'string',
+    BOOLEAN: 'BOOLEAN'
+  }
+}
+

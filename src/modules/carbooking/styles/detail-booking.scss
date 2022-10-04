@@ -1,0 +1,220 @@
+.container-booking-detail {
+  background: #00c3f9;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 100%;
+
+  .wrap-left {
+    height: calc(100vh - 285px);
+    overflow-y: auto;
+    .approver-section {
+      position: fixed;
+      top: 100px;
+      width: -webkit-fill-available;
+      padding-right: 20px;
+    }
+  }
+  .container-content {
+    height: 100%;
+    padding: 24px;
+    .v-expansion-panel-header{
+      max-height: 54px;
+    }
+    .title-booking {
+      display: flex;
+      align-items: start;
+      width: 50%;
+      min-height: 8%;
+      padding: 12px 20px;
+      word-break: break-all;
+    }
+    .v-expansion-panel-header__icon {
+      position: initial;
+    }
+
+    .v-expansion-panels.no-z-index {
+      z-index: initial !important;
+    }
+    .v-text-field--outlined {
+      &.no-border {
+        fieldset {
+          border: none !important;
+        }
+      }
+    }
+
+    .scroll-expand-detail-booking-info {
+      max-height: calc(100vh - 520px);
+      position: relative;
+
+      .list-signer {
+        display: contents;
+        position: absolute;
+      }
+
+      .render-signer-name {
+        position: absolute;
+        left: 40px;
+      }
+
+      .signer-avatar {
+        position: absolute;
+        left: 0px;
+        cursor: pointer;
+        overflow: unset;
+
+        &:hover {
+          .signer-tooltip {
+            display: block;
+
+            &:hover {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .group-avatar-signer {
+      position: relative;
+
+      .signer-avatar {
+        cursor: pointer;
+        overflow: unset;
+
+        &:hover {
+          .signer-tooltip {
+            display: block;
+          }
+        }
+      }
+      .popup-list-signer {
+        position: absolute;
+        background: #ffffff;
+        border-radius: 8px;
+        filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.15));
+        width: 300px;
+        padding: 15px 10px;
+        left: -310px;
+        top: -25px;
+        z-index: 9;
+        .btn-close-list-signer {
+          position: absolute;
+          right: 0;
+          top: 2px;
+        }
+        &::after {
+          content: url("../assets/icons/arrow-right-signer.png");
+          position: absolute;
+          right: -10px;
+          top: 15px;
+        }
+        .popup-header {
+          color: #22242c;
+          font-weight: 700;
+        }
+        .list-signer {
+          max-height: 360px;
+          overflow-y: auto;
+        }
+        .list-item-signer {
+          b {
+            color: #22242c;
+            font-weight: 600;
+            font-size: 14px;
+          }
+          font-size: 12px;
+          color: #9fa2b4;
+        }
+      }
+      .signer-tooltip {
+        display: none;
+        position: absolute;
+        width: 350px;
+        top: 120%;
+        z-index: 9999;
+        background: #ffffff;
+        border: 1px solid #c4c4c4;
+        box-sizing: border-box;
+        border-radius: 8px;
+        color: #000;
+        left: 40px;
+        padding: 18px;
+        transform: translateY(-50%);
+        &::after {
+          content: url("../assets/icons/arrow-left-signer.png");
+          position: absolute;
+          left: -10px;
+          top: 15px;
+        }
+        filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+        .v-avatar {
+          span {
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+          }
+        }
+        b {
+          color: #22242c;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        span {
+          color: #9fa2b4;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .btn-choose {
+      border: 1px dashed #7a7c80;
+      padding: 4px 8px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .divider-line {
+      border: 1px solid #c1c9d2;
+      height: 30px;
+    }
+
+    .participant-info {
+      .v-expansion-panel-content__wrap {
+        padding: 0 !important;
+      }
+      .v-data-table__wrapper {
+        border: 1px solid #e7ecf1;
+        border-radius: 8px;
+        max-height: 40vh !important;
+        min-height: auto;
+        overflow-y: auto;
+      }
+    }
+
+    .footer-actions-fixed {
+      position: fixed;
+      bottom: 40px;
+      right: 25px;
+      // box-shadow: -5px -5px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .title-page {
+    position: absolute;
+    top: -40px;
+    left: 15px;
+  }
+
+  & .wrap-home {
+    background: rgb(255, 255, 255);
+    padding: 20px 12px;
+    border-radius: 8px;
+    height: 100%;
+  }
+
+  .bg-award {
+    background-image: url("../assets/icons/calendar/award.png");
+  }
+}

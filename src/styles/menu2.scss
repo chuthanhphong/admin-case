@@ -1,0 +1,467 @@
+#core-navigation-drawer {
+  .icon-menu {
+    line-height: 0.5!important;
+  }
+  &.v-navigation-drawer--mini-variant {
+    width: 78px !important;
+  }
+  &.v-navigation-drawer--open {
+    z-index: 99;
+  }
+  .v-navigation-drawer__border {
+    background-color: #e7ecf1 !important;
+  }
+  .header-logo {
+    padding-top: 10px !important;
+    .v-avatar {
+      border-radius: 0 !important;
+    }
+  }
+  .v-list-item__content {
+    padding: 5px 0!important;
+  }
+  .v-list-group--active {
+    div.v-list-item--active {
+      .icon-cameraAI::before {
+        content: '';
+        background: url(../assets/icons/menubar/cameraAI/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-congtacphi::before {
+        content: '';
+        background: url(../assets/icons/menubar/congtacphi/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-congviec::before {
+        content: '';
+        background: url(../assets/icons/menubar/congviec/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-hddt::before {
+        content: '';
+        background: url(../assets/icons/menubar/hddt/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-lichhop::before {
+        content: '';
+        background: url(../assets/icons/menubar/lichhop/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-quantri::before {
+        content: '';
+        background: url(../assets/icons/menubar/quantri/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-quytrinh::before {
+        content: '';
+        background: url(../assets/icons/menubar/quytrinh/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-taikhoan::before {
+        content: '';
+        background: url(../assets/icons/menubar/taikhoan/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-tailieu::before {
+        content: '';
+        background: url(../assets/icons/menubar/tailieu/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-truyenthong::before {
+        content: '';
+        background: url(../assets/icons/menubar/truyenthong/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-kydt::before {
+        content: '';
+        background: url(../assets/icons/menubar/kydt/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-vanban::before {
+        content: '';
+        background: url(../assets/icons/menubar/vanban/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-tongquan::before {
+        content: '';
+        background: url(../assets/icons/menubar/tongquan/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-vanphongpham::before {
+        content: '';
+        background: url(../assets/icons/menubar/vanphongpham/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-yeucau::before {
+        content: '';
+        background: url(../assets/icons/menubar/yeucau/active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-xe::before {
+        content: '';
+        background: url(../assets/icons/icon-car-active.svg) no-repeat;
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .icon-tag-new::before {
+        background: url(../assets/icons/menubar/dot/active.png) no-repeat;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      div > .v-list-item__title {
+        color: #0fafe4 !important;
+      }
+    }
+  }
+  .v-list--nav {
+    padding: 0;
+  }
+  .v-list:not(.item) {
+    .active {
+      .icon-tag-new::before {
+        background: url(../assets/icons/menubar/dot/active.png) no-repeat;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-size: 100% 100%;
+        display: inline-block;
+      }
+      .v-list-item__title {
+        color: #fff;
+        border-radius: 9px;
+        background: #00c3f9;
+        height: 36px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 8px;
+      }
+    }
+    .v-list-item__title {
+      color: #22242C;
+      height: 36px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 8px;
+    }
+  }
+  
+  .icon-cameraAI::before {
+    content: '';
+    background: url(../assets/icons/menubar/cameraAI/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-congtacphi::before {
+    content: '';
+    background: url(../assets/icons/menubar/congtacphi/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-congviec::before {
+    content: '';
+    background: url(../assets/icons/menubar/congviec/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-hddt::before {
+    content: '';
+    background: url(../assets/icons/menubar/hddt/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-lichhop::before {
+    content: '';
+    background: url(../assets/icons/menubar/lichhop/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-quantri::before {
+    content: '';
+    background: url(../assets/icons/menubar/quantri/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-quytrinh::before {
+    content: '';
+    background: url(../assets/icons/menubar/quytrinh/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-taikhoan::before {
+    content: '';
+    background: url(../assets/icons/menubar/taikhoan/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-tailieu::before {
+    content: '';
+    background: url(../assets/icons/menubar/tailieu/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-truyenthong::before {
+    content: '';
+    background: url(../assets/icons/menubar/truyenthong/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-kydt::before {
+    content: '';
+    background: url(../assets/icons/menubar/kydt/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-vanban::before {
+    content: '';
+    background: url(../assets/icons/menubar/vanban/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-tongquan::before {
+    content: '';
+    background: url(../assets/icons/menubar/tongquan/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-vanphongpham::before {
+    content: '';
+    background: url(../assets/icons/menubar/vanphongpham/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-yeucau::before {
+    content: '';
+    background: url(../assets/icons/menubar/yeucau/main.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-xe::before {
+    content: '';
+    background: url(../assets/icons/icon-car.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-tag-new::before {
+    background: url(../assets/icons/menubar/dot/Inactive.png) no-repeat;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+
+
+  .icon-cameraAI-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/cameraAI/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-congtacphi-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/congtacphi/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-congviec-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/congviec/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-hddt-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/hddt/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-lichhop-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/lichhop/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-quantri-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/quantri/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-quytrinh-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/quytrinh/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-taikhoan-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/taikhoan/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-tailieu-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/tailieu/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-truyenthong-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/truyenthong/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-kydt-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/kydt/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-vanban-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/vanban/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-tongquan-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/tongquan/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-vanphongpham-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/vanphongpham/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .icon-yeucau-disable::before {
+    content: '';
+    background: url(../assets/icons/menubar/yeucau/inactive.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+
+  .menu-text-disable {
+    color: #C1C9D2!important;
+  }
+}
+.first-home {
+  color: #22242C !important;
+  background: transparent !important;
+}
+

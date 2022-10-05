@@ -88,6 +88,8 @@ export default {
     GET_TICKET_DASHBOARD                  : 'ticket/dashboard/getDashboardTicketOfMDO'
   },
   AssociationApis: {
-    GET_ASSOCIATIONS                      : 'core/association/private/get-associations'
+    GET_ASSOCIATIONS                      : 'core/association/private/get-associations',
+    ADD_SOURCE                            : 'ticket/update-source',
+    REMOVE_SOURCE                         : 'ticket/remove-source'
   }
 }

@@ -71,7 +71,6 @@ export default {
   },
   watch: {
     rejectReason(val) {
-      console.log(val);
       if (!val) {
         this.errorMessage = "booking.messages.reason-required";
       } else {

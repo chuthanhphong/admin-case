@@ -1212,7 +1212,8 @@
       "review-sending": "Chờ xem xét",
       "pending": "Tạm dừng",
       "classify": "Phân loại",
-      "sending": "Đang gửi"
+      "sending": "Đang gửi",
+      "no-data" : "Chưa có trạng thái"
     },
     "select-box": {
       "processing": "Đang thực hiện",
@@ -1325,6 +1326,10 @@
     "title-footer": "<br>Tôi cam đoan đã bàn giao công việc lại cho bộ phận có liên quan trước khi nghỉ phép.</br> <br>Rất mong Ban Giám Đốc xem xét và chấp nhận.</br><br>Tôi xin chân thành cảm ơn!"
   },
   "ticket-manager": {
+    "notify-message" : {
+      "add-source-success" : "Thêm nguồn gốc thành công",
+      "remove-source-success" : "Xóa nguồn gốc thành công "
+    },
     "name": "Quản lý yêu cầu",
     "menu": {
       "list-category": "Danh sách loại yêu cầu",
@@ -2832,6 +2837,15 @@
     "unitCalendar": "Lịch đơn vị",
     "iBrowse": "Tôi duyệt",
     "iCreate": "Tôi tạo",
+    "today": "Hôm nay",
+    "monday": "Thứ 2",
+    "tuesday": "Thứ 3",
+    "wednesday": "Thứ 4",
+    "thursday": "Thứ 5",
+    "friday": "Thứ 6",
+    "saturday": "Thứ 7",
+    "sunday": "Chủ Nhật",
+    "viewAll":"Xem tất cả",
     "messApproveMeeting": "Bạn có chắc chắn muốn gửi lịch họp không?",
     "messSendSuccess": "Duyệt lịch họp thành công",
     "messConfirmReject": "Bạn có chắc chắn muốn từ chối duyệt lịch họp không?",
@@ -2839,6 +2853,8 @@
     "messConfirmCancel": "Bạn có chắc chắn muốn hủy lịch không?",
     "messCancelSuccess": "Hủy lịch thành công",
     "messConfirmDelete": "Bạn có chắc chắn muốn xoá lịch họp không?",
+    "messConfirmRejectParticipant": "Bạn có chắc chắn muốn từ chối tham gia họp không ?",
+    "month": "Tháng ",
     "meetingScheduleList": {
       "searchMeetingSchedule": "Tìm lịch",
       "createMeetingSchedule": "Đặt lịch",
@@ -2858,6 +2874,7 @@
       "prepare": "Chuẩn bị",
       "allGroup": "Mời cả đơn vị",
       "addUserOrGroup": "Thêm cá nhân/ đơn vị",
+      "checkParticipants": "Kiểm trùng thành phần tham gia",
       "pointOfContact": "Đầu mối liên hệ",
       "note": "Ghi chú",
       "advance": "Cài đặt nâng cao",
@@ -2874,7 +2891,12 @@
         "tooltip-3": "Khi tích chọn",
         "tooltip-4": "sẽ mời tất cả người trong đơn vị được chọn tham gia họp."
       },
-      "titleComfirmDraft": "Bạn có chắc chắn muốn lưu nháp lịch họp không?"
+      "titleComfirmDraft": "Bạn có chắc chắn muốn lưu nháp lịch họp không?",
+      "mesErrorParticipant": "Bạn cần nhập người tham gia trong hệ thống",
+      "duplicate": "Bị trùng lịch",
+      "errorChairManName": "Bắt buộc phải chọn 1 thành viên chủ trì",
+      "errorParticipantName": "Người tham gia là bắt buộc",
+      "schedule-duplicate": "Trùng lịch họp"
     },
     "updateMeeting": {
       "title": "Chỉnh sửa lịch họp",
@@ -2929,7 +2951,9 @@
       "joinOnlineMeeting": "Tham gia meet",
       "addParticipant": "Thêm tham gia",
       "resendNotify": "Gửi thông báo",
-      "notParticipant": "Bỏ tham gia"
+      "notParticipant": "Bỏ tham gia",
+      "pending": "Lịch họp chờ duyệt",
+      "approved": "Lịch họp đã duyệt"
     },
     "detailMeeting": {
       "meetingDetail": "Chi tiết lịch họp",
@@ -2968,12 +2992,14 @@
       "not-participate": "Không tham gia",
       "delete": "Xóa lịch",
       "cancel": "Hủy lịch",
+      "pointOfContact": "Đầu mối liên hệ",
       "confirm": {
         "approve": "Bạn có chắc chắn muốn hủy lịch họp ?",
         "reject": "Bạn có chắc chắn muốn từ chối lịch họp ?",
         "cancel": "Bạn có chắc chắn muốn hủy lịch họp ?",
         "delete": "Bạn có chắc chắn muốn xóa lịch họp ?",
         "sent": "Bạn có chắc chắn muốn gửi duyệt lịch ?",
+        "not-participant": "Bạn có chắc chắn muốn từ chối tham gia họp không ?",
         "placeholder-reason": "Nhập lý do",
         "reason": "Lý do"
       },
@@ -2982,7 +3008,8 @@
         "reject": "Từ chối lịch họp thành công",
         "cancel": "Hủy lịch họp thành công",
         "delete": "Xóa lịch họp thành công",
-        "sent": "Gửi duyệt lịch thành công"
+        "sent": "Gửi duyệt lịch thành công",
+        "not-participant": "Từ chối tham gia thành công"
       },
       "report-meeting": "Biên bản họp",
       "link-schedule": "Liên kết của lịch",

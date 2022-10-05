@@ -96,17 +96,17 @@
         </v-btn>
 
         <!-- sua duyet -->
-<!--        <v-btn-->
-<!--          v-if="isStatus === 2 && isShowApprove && enableApproveBtn"-->
-<!--          color="primary"-->
-<!--          rounded-->
-<!--          elevation="1"-->
-<!--          class="w-160 py-5 mr-0 mr-md-3"-->
-<!--          :disabled="false"-->
-<!--          @click="onChangeApprove"-->
-<!--        >-->
-<!--          {{ $t("booking.labels.change-approve") }}-->
-<!--        </v-btn>-->
+        <v-btn
+          v-if="isStatus === 2 && isShowApprove && enableApproveBtn"
+          color="primary"
+          rounded
+          elevation="1"
+          class="w-160 py-5 mr-0 mr-md-3"
+          :disabled="false"
+          @click="onChangeApprove"
+        >
+          {{ $t("booking.labels.change-approve") }}
+        </v-btn>
 
         <!-- luu duyet -->
         <v-btn
@@ -411,6 +411,8 @@ export default {
             .forEach((x) => {
               this.participantUserList.push(x);
             });
+        } else {
+          this.participantUserList = this.detail.participantDtos;
         }
         // if (this.detail.participantDtos?.length === 1) {
         //   var avatar = await Promise.all(

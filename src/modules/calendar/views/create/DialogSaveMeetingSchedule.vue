@@ -5,7 +5,7 @@
     max-width="750"
     content-class="dialog-save-calendar"
   >
-    <div v-if="showDialog" class="wrap-dialog-save-calendar calendar-font">
+    <div v-if="showDialog" class="wrap-dialog-save-calendar calendar-font calendar-create">
       <!-- Title -->
       <div class="backgroup-title-create-calendar">
         <v-icon class="close-dialog" @click="closeDialog">mdi-close</v-icon>
@@ -19,7 +19,7 @@
             <!-- ten lich -->
             <div class="col-12 pb-0">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.meetingTitle') }}
+                {{ $t("calendar.createMeeting.meetingTitle") }}
               </label>
               <span class="red-1"> *</span>
               <validation-provider
@@ -47,7 +47,7 @@
           <v-row class="ma-0 px-2 pt-0">
             <div class="col-12 pt-0">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.roomMeeting') }}
+                {{ $t("calendar.createMeeting.roomMeeting") }}
               </label>
               <span class="red-1"> *</span>
               <div class="d-flex flex-column py-2 border-wrap-meeting">
@@ -127,7 +127,7 @@
           <v-row class="ma-0 px-2">
             <div class="col-12">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.timeMeeting') }}
+                {{ $t("calendar.createMeeting.timeMeeting") }}
               </label>
               <span class="red-1"> *</span>
               <div class="d-flex flex-column py-2 border-wrap-meeting">
@@ -139,7 +139,7 @@
                       :time-picker-options="{
                         start: '00:00',
                         step: '00:15',
-                        end: '23:45'
+                        end: '23:45',
                       }"
                       :formatter="momentFormat"
                       :lang="localDate"
@@ -149,7 +149,15 @@
                       placeholder="hh:mm"
                       class="calendar-text--body-4"
                     />
-                    <span style="color:#FF5252; font-size: 12px; line-height: 12px; font-weight: 600; margin: 3px 10px 0;">
+                    <span
+                      style="
+                        color: #ff5252;
+                        font-size: 12px;
+                        line-height: 12px;
+                        font-weight: 600;
+                        margin: 3px 10px 0;
+                      "
+                    >
                       {{ $t(errorTimeStart) }}
                     </span>
                   </div>
@@ -163,7 +171,7 @@
                       :time-picker-options="{
                         start: '00:00',
                         step: '00:15',
-                        end: '23:45'
+                        end: '23:45',
                       }"
                       :formatter="momentFormat"
                       format="HH:mm"
@@ -173,7 +181,15 @@
                       class="calendar-text--body-4"
                       :class="errorTimeEnd ? 'bg-color-error' : ''"
                     />
-                    <span style="color:#FF5252; font-size: 12px; line-height: 12px; font-weight: 600; margin: 3px 10px 0;">
+                    <span
+                      style="
+                        color: #ff5252;
+                        font-size: 12px;
+                        line-height: 12px;
+                        font-weight: 600;
+                        margin: 3px 10px 0;
+                      "
+                    >
                       {{ $t(errorTimeEnd) }}
                     </span>
                   </div>
@@ -238,7 +254,7 @@
                       attach
                       :menu-props="{
                         bottom: true,
-                        offsetY: true
+                        offsetY: true,
                       }"
                       :disabled="!cycleType"
                       :items="lstCycleType"
@@ -255,10 +271,10 @@
           </v-row>
 
           <!-- thanh phan tham gia -->
-          <v-row class="ma-0 px-2">
+          <v-row class="ma-0 px-2 participant-meeting">
             <div class="col-12">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.meetingParticipants') }}
+                {{ $t("calendar.createMeeting.meetingParticipants") }}
               </label>
               <span class="red-1"> *</span>
               <div class="d-flex flex-column py-2 border-wrap-meeting">
@@ -269,7 +285,7 @@
                       <v-col cols="1" class="pa-0" />
                       <v-col cols="11" class="pa-0">
                         <label class="calendar-text--body-4">{{
-                          $t('calendar.createMeeting.participantName')
+                          $t("calendar.createMeeting.participantName")
                         }}</label>
                       </v-col>
                     </v-row>
@@ -278,12 +294,12 @@
                     <v-row>
                       <v-col cols="5" class="pa-0">
                         <label class="calendar-text--body-4">{{
-                          $t('calendar.createMeeting.chairMan')
+                          $t("calendar.createMeeting.chairMan")
                         }}</label><span class="red-1">*</span>
                       </v-col>
                       <v-col cols="6" class="pa-0">
                         <label class="calendar-text--body-4">
-                          {{ $t('calendar.createMeeting.prepare') }}
+                          {{ $t("calendar.createMeeting.prepare") }}
                         </label></v-col>
                     </v-row>
                   </v-col>
@@ -307,6 +323,7 @@
                             "
                             :is-entered="isEntered"
                             :meeting-participants="meetingParticipants"
+                            :list-meeting-dup="listParticipantDup"
                             @change-auto-forcus="changeAutoForcus"
                             @remove-participant="removeSigner"
                             @add-participant="addSigner"
@@ -327,11 +344,20 @@
             </div>
           </v-row>
 
+          <!-- check trung thanh phan tham gia -->
+          <v-row class="ma-0 px-2">
+            <div class="col-12 d-flex justify-end align-center pt-0">
+              <span class="check-participants" @click="checkParticipants()">
+                ({{ $t('calendar.createMeeting.checkParticipants') }})
+              </span>
+            </div>
+          </v-row>
+
           <!-- dau moi lien he -->
           <v-row class="ma-0 px-2">
             <div class="col-12 search-item pb-0">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.pointOfContact') }}
+                {{ $t("calendar.createMeeting.pointOfContact") }}
               </label>
               <v-text-field
                 v-model="pointOfContact"
@@ -385,7 +411,7 @@
             <!-- ten lich -->
             <div class="col-12 py-0">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.note') }}
+                {{ $t("calendar.createMeeting.note") }}
               </label>
               <v-textarea
                 v-model="summary"
@@ -408,7 +434,7 @@
             <div class="form-group col-12 pt-0">
               <div>
                 <label class="calendar-text--body-4 text-label">
-                  {{ $t('document.attachments') }}
+                  {{ $t("document.attachments") }}
                 </label>
                 <div class="d-flex justify-end align-center">
                   <validation-provider
@@ -456,11 +482,11 @@
                 <div class="d-flex justify-space-between align-center">
                   <div>
                     <div class="calendar-text--body-2">
-                      {{ $t('contract.format') }}: pdf, doc, docx, xlsx, xls,
+                      {{ $t("contract.format") }}: pdf, doc, docx, xlsx, xls,
                       png, jpg, jpeg, txt, msg
                     </div>
                     <div class="text-danger calendar-text--body-2">
-                      ({{ $t('contract.fileMax') }} 50MB)
+                      ({{ $t("contract.fileMax") }} 50MB)
                     </div>
                   </div>
                 </div>
@@ -472,7 +498,7 @@
           <v-row v-if="false" class="ma-0 px-2">
             <div class="col-12">
               <label class="text--label calendar-text--body-4">
-                {{ $t('calendar.createMeeting.advance') }}
+                {{ $t("calendar.createMeeting.advance") }}
               </label>
               <div class="d-flex flex-column py-2 border-wrap-meeting">
                 <div class="pa-2 d-flex align-center">
@@ -525,7 +551,7 @@
                     ></v-select>
                   </div>
                   <label class="calendar-text--body-4">{{
-                    $t('calendar.createMeeting.alarmType')
+                    $t("calendar.createMeeting.alarmType")
                   }}</label>
                 </div>
               </div>
@@ -543,7 +569,7 @@
           class="w-150 py-5 text--button mr-7"
           @click="closeDialog"
         >
-          {{ $t('cancelLabel') }}
+          {{ $t("cancelLabel") }}
         </v-btn>
 
         <v-btn
@@ -554,7 +580,7 @@
           :disabled="!isComplete || !validateDuplicates()"
           @click="showDialogSaveDraff()"
         >
-          {{ $t('calendar.createMeeting.draft') }}
+          {{ $t("calendar.createMeeting.draft") }}
         </v-btn>
 
         <v-btn
@@ -564,7 +590,7 @@
           :disabled="!isComplete || !validateDuplicates()"
           @click="showDialogSave()"
         >
-          {{ $t('calendar.createMeeting.send') }}
+          {{ $t("calendar.createMeeting.send") }}
         </v-btn>
       </v-row>
     </div>
@@ -579,56 +605,72 @@
 </template>
 
 <script>
-import filterItems from '@/mixins/filterItems.js'
-import rules from '@/mixins/rules'
-import { mapActions } from 'vuex'
-import moment from 'moment'
-import ParticipantsMeeting from '@/views/components/ParticipantsMeeting.vue'
-import BtnAdd from '@/modules/calendar/views/create/components/BtnAdd.vue'
-import { CalendarService } from '@/modules/calendar/services/calendarService'
-import mixinFile from '@/modules/calendar/views/mixin/mixinFile'
-import roomCalendar from '@/modules/calendar/views/mixin/roomCalendar'
-import contact from '@/modules/calendar/views/mixin/contact'
-import DatePicker from 'vue2-datepicker'
-import DialogConfirmSave from '@/modules/calendar/views/components/DialogConfirmSave'
-import groupBy from 'lodash/groupBy'
-import { isNull, isEmpty } from 'lodash'
-import constants from '@/constants'
+import filterItems from "@/mixins/filterItems.js";
+import rules from "@/mixins/rules";
+import { mapActions } from "vuex";
+import moment from "moment";
+import ParticipantsMeeting from "@/views/components/ParticipantsMeeting.vue";
+import BtnAdd from "@/modules/calendar/views/create/components/BtnAdd.vue";
+import { CalendarService } from "@/modules/calendar/services/calendarService";
+import mixinFile from "@/modules/calendar/views/mixin/mixinFile";
+import roomCalendar from "@/modules/calendar/views/mixin/roomCalendar";
+import contact from "@/modules/calendar/views/mixin/contact";
+import DatePicker from "vue2-datepicker";
+import DialogConfirmSave from "@/modules/calendar/views/components/DialogConfirmSave";
+import groupBy from "lodash/groupBy";
+import { isNull, isEmpty } from "lodash";
+import constants from "@/constants";
 
 const initData = {
-  participantName: '', // ten nguoi tham gia
-  userId: '', // id nguoi tham gia
-  groupId: '', // id don vi
-  email: '',
-  phone: '',
-  groupType: '', // check don vi
+  participantName: "", // ten nguoi tham gia
+  userId: "", // id nguoi tham gia
+  groupId: "", // id don vi
+  email: "",
+  phone: "",
+  groupType: "", // check don vi
   isChairMan: false, // chu tri
   isPrepare: false, // chuan bi
-  note: '', // ghi chu
-  isInviteAllInGroup: false // moi ca don vi
-}
+  note: "", // ghi chu
+  isInviteAllInGroup: false, // moi ca don vi
+};
 export default {
-  name: 'DialogSaveMeetingSchedule',
+  name: "DialogSaveMeetingSchedule",
   components: {
     ParticipantsMeeting,
     BtnAdd,
     DatePicker,
-    DialogConfirmSave
+    DialogConfirmSave,
   },
   mixins: [filterItems, rules, mixinFile, roomCalendar, contact],
   props: {
     showDialog: {
       type: Boolean,
-      default: false
+      default: false,
     },
     meetingId: {
       type: Number,
-      default: 0
+      default: 0,
     },
     updateMeeting: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    checkCreateCalendar: {
+      type: Boolean,
+      default: false,
+    },
+    startDate: {
+      type: String,
+      default: "",
+    },
+    endDate: {
+      type: String,
+      default: "",
+    },
+    date: {
+      type: String,
+      default: "",
+    },
   },
 
   data() {
@@ -659,17 +701,17 @@ export default {
       alarmTime: null, // thoi gian nhac
       alarmType: null, // loai
       redmineTime: 30,
-      redmineDay: 'MINUTES',
+      redmineDay: "MINUTES",
       itemDays: [
-        { code: 'MINUTES', value: 'Phút' },
-        { code: 'HOURS', value: 'Giờ' },
-        { code: 'DAYS', value: 'Ngày' }
+        { code: "MINUTES", value: "Phút" },
+        { code: "HOURS", value: "Giờ" },
+        { code: "DAYS", value: "Ngày" },
       ],
 
       meetingParticipants: [
         {
-          ...initData
-        }
+          ...initData,
+        },
       ], // thanh phan tham gia
       pointOfContact: null, // dau moi lien he
       pointOfContactId: null,
@@ -679,7 +721,7 @@ export default {
       roomName: null, // ten phong hop
       isOnlineMeeting: false, // su dung phong hop online
       cycleType: false, // chu ky lap
-      cycleText: 'DAILY', // hang ngay
+      cycleText: "DAILY", // hang ngay
 
       lstMeetingRoom: [], // danh sach phong hop
       lstCycleType: [], // danh sach lich dinh ky
@@ -691,212 +733,225 @@ export default {
 
       momentFormat: {
         // [optional] Date to String
-        stringify: date => {
-          return date ? moment(date).format('HH:mm') : ''
-        }
+        stringify: (date) => {
+          return date ? moment(date).format("HH:mm") : "";
+        },
       },
       errorTimeStart: null,
       errorTimeEnd: null,
 
-      isEntered: false
+      isEntered: false,
+      listParticipantDup: []
     }
   },
 
   computed: {
     localDate() {
-      return this.$i18n.locale === 'vi' ? 'vi-VN' : 'en-US'
+      return this.$i18n.locale === "vi" ? "vi-VN" : "en-US";
     },
     titleMeeting() {
-      if (this.updateMeeting) return 'calendar.updateMeeting.title'
-      return 'calendar.createMeeting.title'
-    }
+      if (this.updateMeeting) return "calendar.updateMeeting.title";
+      return "calendar.createMeeting.title";
+    },
   },
 
   watch: {
     async showDialog() {
-      await this.initData()
-      await Promise.all([this.loadCycleTypes()])
-      await this.initDate()
-      this.tempContact = null
+      await this.initData();
+      await Promise.all([this.loadCycleTypes()]);
+      await this.initDate();
+      this.tempContact = null;
       if (this.showDialog) {
         if (this.updateMeeting) {
-          await this.getInfoMeeting()
+          await this.getInfoMeeting();
+        } else if (this.checkCreateCalendar) {
+          this.timeStartPicker = moment(
+            this.startDate,
+            "HH:mm dd/MM/yyyy"
+          ).toDate();
+          this.timeEndPicker = moment(
+            this.endDate,
+            "HH:mm dd/MM/yyyy"
+          ).toDate();
+          this.dateValue = this.date;
         } else {
           this.tempContact = JSON.parse(
             localStorage.getItem(constants.USER_INFO)
-          )
+          );
 
           if (this.tempContact) {
             this.pointOfContact = `${
               this.tempContact.fullName
-            } (${this.genEmailAndPhone(this.tempContact)})`
+            } (${this.genEmailAndPhone(this.tempContact)})`;
 
-            this.pointOfContactId = this.tempContact.userId
+            this.pointOfContactId = this.tempContact.userId;
           }
         }
       }
     },
     datePicker(date) {
-      if (date) this.dateValue = this.formatDate(date)
+      if (date) this.dateValue = this.formatDate(date);
     },
 
     dateValue() {
       if (this.dateValue) {
-        var isValid = moment(this.dateValue, 'DD/MM/YYYY', true).isValid()
+        var isValid = moment(this.dateValue, "DD/MM/YYYY", true).isValid();
 
         if (!isValid) {
-          this.errorDate = 'calendar.messError.dateValid'
-          this.datePicker = null
-          return
+          this.errorDate = "calendar.messError.dateValid";
+          this.datePicker = null;
+          return;
         }
 
         if (isValid) {
-          this.datePicker = moment(this.dateValue, 'DD/MM/YYYY').format(
-            'YYYY-MM-DD'
-          )
-          const dateFrom = moment().format('DD/MM/YYYY')
-          const diff = moment(dateFrom, 'DD/MM/YYYY').diff(
-            moment(this.dateValue, 'DD/MM/YYYY'),
-            'days'
-          )
-          this.errorDate = null
+          this.datePicker = moment(this.dateValue, "DD/MM/YYYY").format(
+            "YYYY-MM-DD"
+          );
+          const dateFrom = moment().format("DD/MM/YYYY");
+          const diff = moment(dateFrom, "DD/MM/YYYY").diff(
+            moment(this.dateValue, "DD/MM/YYYY"),
+            "days"
+          );
+          this.errorDate = null;
           if (diff > 0) {
-            this.errorDate = 'calendar.messError.compareDate'
-            this.datePicker = ''
-            return
+            this.errorDate = "calendar.messError.compareDate";
+            this.datePicker = "";
+            return;
           }
         }
       } else {
-        this.datePicker = null
-        this.errorDate = 'calendar.messError.dateRequired'
+        this.datePicker = null;
+        this.errorDate = "calendar.messError.dateRequired";
       }
-      if (this.timeStart) this.validateStartTime()
-      if (this.timeEnd) this.validateEndTime()
-      this.isValidStep()
+      if (this.timeStart) this.validateStartTime();
+      if (this.timeEnd) this.validateEndTime();
+      this.isValidStep();
     },
     timeStartPicker(dateTime) {
-      this.timeStart = null
-      if (dateTime) this.timeStart = moment(dateTime).format('HH:mm')
+      this.timeStart = null;
+      if (dateTime) this.timeStart = moment(dateTime).format("HH:mm");
     },
     timeEndPicker(dateTime) {
-      this.timeEnd = null
-      if (dateTime) this.timeEnd = moment(dateTime).format('HH:mm')
+      this.timeEnd = null;
+      if (dateTime) this.timeEnd = moment(dateTime).format("HH:mm");
     },
 
     timeStart() {
       if (this.timeStart) {
-        this.validateStartTime()
-        if (this.timeEnd) this.validateEndTime()
+        this.validateStartTime();
+        if (this.timeEnd) this.validateEndTime();
       } else {
-        this.timeStart = null
-        this.errorTimeStart = 'calendar.messError.timeRequired'
+        this.timeStart = null;
+        this.errorTimeStart = "calendar.messError.timeRequired";
       }
 
-      this.isValidStep()
+      this.isValidStep();
     },
     timeEnd() {
       if (this.timeEnd) {
-        if (this.timeStart) this.validateStartTime()
-        this.validateEndTime()
+        if (this.timeStart) this.validateStartTime();
+        this.validateEndTime();
       } else {
-        this.timeEnd = null
-        this.errorTimeEnd = 'calendar.messError.timeRequired'
+        this.timeEnd = null;
+        this.errorTimeEnd = "calendar.messError.timeRequired";
       }
-      this.isValidStep()
+      this.isValidStep();
     },
     meetingTitle() {
-      this.isValidStep()
+      this.isValidStep();
     },
     roomName() {
-      this.isValidStep()
+      this.isValidStep();
     },
     pointOfContact() {
-      this.isValidStep()
-    }
+      this.isValidStep();
+    },
   },
 
   methods: {
-    ...mapActions('layout', ['setNotify']),
+    ...mapActions("layout", ["setNotify"]),
     changeAutoForcus() {
-      this.isEntered = true
+      this.isEntered = true;
     },
     validateStartTime() {
-      var isValid = moment(this.timeStart, 'HH:mm', true).isValid()
-      if (!isValid || this.timeStart === '24:00') {
-        this.errorTimeStart = 'calendar.messError.timeInvalid'
-        return
+      var isValid = moment(this.timeStart, "HH:mm", true).isValid();
+      if (!isValid || this.timeStart === "24:00") {
+        this.errorTimeStart = "calendar.messError.timeInvalid";
+        return;
       }
       if (isValid) {
-        this.errorTimeStart = null
+        this.errorTimeStart = null;
 
         if (this.validateDate()) {
-          return
+          return;
         }
-        const timeCurrent = moment().format('HH:mm')
-        const diff = moment(this.timeStart, 'HH:mm').diff(
-          moment(timeCurrent, 'HH:mm'),
-          'minutes'
-        )
+        const timeCurrent = moment().format("HH:mm");
+        const diff = moment(this.timeStart, "HH:mm").diff(
+          moment(timeCurrent, "HH:mm"),
+          "minutes"
+        );
         if (diff <= 0) {
-          this.errorTimeStart = 'calendar.messError.compareTime'
+          this.errorTimeStart = "calendar.messError.compareTime";
         }
       }
     },
 
     validateDate() {
       var isValidDay = this.dateValue
-        ? moment(this.dateValue, 'DD/MM/YYYY', true).isValid()
-        : false
+        ? moment(this.dateValue, "DD/MM/YYYY", true).isValid()
+        : false;
       if (isValidDay) {
-        const dateFrom = moment().format('DD/MM/YYYY')
-        const diffDay = moment(dateFrom, 'DD/MM/YYYY').diff(
-          moment(this.dateValue, 'DD/MM/YYYY'),
-          'days'
-        )
+        const dateFrom = moment().format("DD/MM/YYYY");
+        const diffDay = moment(dateFrom, "DD/MM/YYYY").diff(
+          moment(this.dateValue, "DD/MM/YYYY"),
+          "days"
+        );
         if (diffDay >= 0) {
-          return false
+          return false;
         }
       }
-      return true
+      return true;
     },
 
     validateEndTime() {
-      var isValid = moment(this.timeEnd, 'HH:mm', true).isValid()
-      if (!isValid || this.timeEnd === '24:00') {
-        this.errorTimeEnd = 'calendar.messError.timeInvalid'
-        return
+      var isValid = moment(this.timeEnd, "HH:mm", true).isValid();
+      if (!isValid || this.timeEnd === "24:00") {
+        this.errorTimeEnd = "calendar.messError.timeInvalid";
+        return;
       }
       if (isValid) {
-        this.errorTimeEnd = null
+        this.errorTimeEnd = null;
 
         var isValidStartTime = this.timeStart
-          ? moment(this.timeStart, 'HH:mm', true).isValid()
-          : false
+          ? moment(this.timeStart, "HH:mm", true).isValid()
+          : false;
 
         const timeCurrent = isValidStartTime
           ? this.timeStart
-          : moment().format('HH:mm')
-        const diff = moment(this.timeEnd, 'HH:mm').diff(
-          moment(timeCurrent, 'HH:mm'),
-          'minutes'
-        )
+          : moment().format("HH:mm");
+        const diff = moment(this.timeEnd, "HH:mm").diff(
+          moment(timeCurrent, "HH:mm"),
+          "minutes"
+        );
         if (diff <= 0) {
           this.errorTimeEnd = isValidStartTime
-            ? 'calendar.messError.endTime'
-            : 'calendar.messError.compareTime'
+            ? "calendar.messError.endTime"
+            : "calendar.messError.compareTime";
           if (this.validateDate() && !isValidStartTime) {
-            this.errorTimeEnd = null
+            this.errorTimeEnd = null;
           }
         }
       }
     },
 
     checkValidateStart() {
-      if (!this.timeStart) { this.errorTimeStart = 'calendar.messError.timeRequired' }
+      if (!this.timeStart) {
+        this.errorTimeStart = "calendar.messError.timeRequired";
+      }
     },
 
     checkValidateEnd() {
-      if (!this.timeEnd) this.errorTimeEnd = 'calendar.messError.timeRequired'
+      if (!this.timeEnd) this.errorTimeEnd = "calendar.messError.timeRequired";
     },
 
     isValidStep() {
@@ -908,315 +963,378 @@ export default {
         isNull(this.errorTimeStart) &&
         isNull(this.errorTimeEnd) &&
         !isEmpty(this.roomName) &&
-        isNull(this.errorDate)
+        isNull(this.errorDate);
     },
 
     onInputRedmine() {
       if (!this.redmineTime || this.redmineTime <= 0) {
-        this.redmineTime = 30
+        this.redmineTime = 30;
       }
     },
     showDialogSaveDraff() {
-      this.titleComfirm = 'calendar.createMeeting.titleComfirmDraft'
-      this.draft = true
-      this.showConfirmSave = true
+      this.titleComfirm = "calendar.createMeeting.titleComfirmDraft";
+      this.draft = true;
+      this.showConfirmSave = true;
     },
     showDialogSave() {
-      this.titleComfirm = 'calendar.createMeeting.titleComfirm'
-      this.draft = false
-      this.showConfirmSave = true
+      this.titleComfirm = "calendar.createMeeting.titleComfirm";
+      this.draft = false;
+      this.showConfirmSave = true;
     },
 
     genDate(date) {
       if (date) {
-        if (date.includes(' ')) {
-          const timeValue = date.split(' ')
-          return timeValue[1]
+        if (date.includes(" ")) {
+          const timeValue = date.split(" ");
+          return timeValue[1];
         }
       } else {
-        return null
+        return null;
       }
     },
 
     async getInfoMeeting() {
       try {
-        this.loading = true
-        const response = await CalendarService.loadDetailMeeting(this.meetingId)
-        this.meetingInfo = response.data
+        this.loading = true;
+        const response = await CalendarService.loadDetailMeeting(
+          this.meetingId
+        );
+        this.meetingInfo = response.data;
         if (this.meetingInfo) {
-          this.meetingTitle = this.meetingInfo.meetingTitle
-          this.pointOfContact = this.meetingInfo.pointOfContact
-          await this.initFileAttachs(this.meetingInfo)
-          this.isOnlineMeeting = this.meetingInfo.onlineMeeting
-          this.summary = this.meetingInfo.summary
+          this.meetingTitle = this.meetingInfo.meetingTitle;
+          this.pointOfContact = this.meetingInfo.pointOfContact;
+          await this.initFileAttachs(this.meetingInfo);
+          this.isOnlineMeeting = this.meetingInfo.onlineMeeting;
+          this.summary = this.meetingInfo.summary;
           if (this.meetingInfo.meetingRooms.length > 0) {
-            this.roomId = this.meetingInfo.meetingRooms[0].id
-            this.roomName = this.meetingInfo.meetingRooms[0].name
+            this.roomId = this.meetingInfo.meetingRooms[0].id;
+            this.roomName = this.meetingInfo.meetingRooms[0].name;
           }
 
-          if (this.meetingInfo.cycleType !== 'ONCE') {
-            this.cycleText = this.meetingInfo.cycleType
-            this.cycleType = true
+          if (this.meetingInfo.cycleType !== "ONCE") {
+            this.cycleText = this.meetingInfo.cycleType;
+            this.cycleType = true;
           }
 
-          this.meetingParticipants = this.meetingInfo.meetingParticipants
+          this.meetingParticipants = this.meetingInfo.meetingParticipants;
           if (this.meetingInfo.meetingParticipants.length > 0) {
             this.meetingInfo.meetingParticipants.filter((meeting, index) => {
               if (meeting.isChairMan) {
-                this.radioGroup = index
+                this.radioGroup = index;
               }
-            })
+            });
           }
           this.timeStartPicker = moment(
             this.meetingInfo.startTime,
-            'HH:mm dd/MM/yyyy'
-          ).toDate()
+            "HH:mm dd/MM/yyyy"
+          ).toDate();
           this.timeEndPicker = moment(
             this.meetingInfo.endTime,
-            'HH:mm dd/MM/yyyy'
-          ).toDate()
-          this.dateValue = this.genDate(this.meetingInfo.startTime)
+            "HH:mm dd/MM/yyyy"
+          ).toDate();
+          this.dateValue = this.genDate(this.meetingInfo.startTime);
 
-          this.loading = false
+          this.loading = false;
         }
       } catch (error) {
-        console.log(error)
-        this.loading = false
+        console.log(error);
+        this.loading = false;
       }
     },
 
     async saveCalendar() {
-      this.showConfirmSave = false
+      this.showConfirmSave = false;
 
       try {
-        const params = {}
-        params.meetingTitle = this.meetingTitle
-        params.meetingRooms = []
+        const params = {};
+        params.meetingTitle = this.meetingTitle;
+        params.meetingRooms = [];
         const room = {
           roomId: this.roomId,
           roomName: this.roomName,
-          isHostRoom: true
-        }
-        params.meetingId = this.updateMeeting ? this.meetingId : null
-        params.meetingRooms.push(room)
-        params.isOnlineMeeting = this.isOnlineMeeting
-        params.startTime = this.buildDateTime(this.timeStart)
-        params.endTime = this.buildDateTime(this.timeEnd)
-        params.cycleType = this.cycleType ? this.cycleText : null
+          isHostRoom: true,
+        };
+        params.meetingId = this.updateMeeting ? this.meetingId : null;
+        params.meetingRooms.push(room);
+        params.isOnlineMeeting = this.isOnlineMeeting;
+        params.startTime = this.buildDateTime(this.timeStart);
+        params.endTime = this.buildDateTime(this.timeEnd);
+        params.cycleType = this.cycleType ? this.cycleText : null;
         this.meetingParticipants.map((meeting, index) => {
-          meeting.isChairMan = false
+          meeting.isChairMan = false;
           if (index === this.radioGroup) {
-            meeting.isChairMan = true
+            meeting.isChairMan = true;
           }
-        })
-        params.meetingParticipants = this.meetingParticipants
-        params.contactBy = this.pointOfContact
-        params.summary = this.summary
-        params.fileAttachments = this.fileAttachments
-        params.hasMeetingMinute = this.hasMeetingMinute || false
-        params.isSecurityMeeting = this.isSecurityMeeting || false
-        params.alarmTime = this.alarmTime || null
-        params.alarmType = this.alarmType || null
+        });
+        params.meetingParticipants = this.meetingParticipants;
+        params.contactBy = this.pointOfContact;
+        params.summary = this.summary;
+        params.fileAttachments = this.fileAttachments;
+        params.hasMeetingMinute = this.hasMeetingMinute || false;
+        params.isSecurityMeeting = this.isSecurityMeeting || false;
+        params.alarmTime = this.alarmTime || null;
+        params.alarmType = this.alarmType || null;
         if (this.draft) {
-          await CalendarService.saveMeeting(params)
+          await CalendarService.saveMeeting(params);
         } else {
-          await CalendarService.saveAndSendMeeting(params)
+          await CalendarService.saveAndSendMeeting(params);
         }
 
-        var message = 'calendar.messSuccess.sendCalendarMeeting'
+        var message = "calendar.messSuccess.sendCalendarMeeting";
         if (this.draft) {
-          message = 'calendar.messSuccess.saveCalendarMeetingDraft'
+          message = "calendar.messSuccess.saveCalendarMeetingDraft";
         }
         this.setNotify({
           show: true,
           type: 'success',
           content: this.$t(message)
         })
+        this.$emit('reset-tab-current')
         this.$emit('close-dialog-save', true)
+      } catch (error) {
+        this.setNotify({
+          show: true,
+          type: "error",
+          content: this.$t(error.message),
+        });
+      }
+    },
+
+    buildDateTime(time) {
+      if (this.dateValue && time) {
+        return `${this.dateValue} ${time}:00`;
+      }
+      return null;
+    },
+
+    validateDuplicates() {
+      const lstMsgError = [];
+      const keyUser = this.isDuplicateUser("keyUser");
+      if (keyUser && keyUser.isDuplicate) {
+        lstMsgError.push(
+          `<li>
+            ${keyUser.value[0]["val"].participantName}
+            (${keyUser.value[0]["val"].email})
+            ${this.$t("calendar.messError.duplicate")}
+          </li>`
+        );
+      }
+      const keyGroup = this.isDuplicateGroup("keyGroup");
+      if (keyGroup && keyGroup.isDuplicate) {
+        lstMsgError.push(
+          `<li>
+            ${keyGroup.value[0]["val"].participantName}
+            ${this.$t("calendar.messError.duplicate")}
+          </li>`
+        );
+      }
+      if (lstMsgError.length > 0) {
+        this.setNotify({
+          show: true,
+          type: "error",
+          content: `<ul>${lstMsgError.join("")}</ul>`,
+        });
+      }
+      let checkUser = true;
+      const checkNull = this.meetingParticipants.find(
+        (e) => !e.participantName || e.participantName === ""
+      );
+      if (checkNull) {
+        checkUser = false;
+      }
+      return lstMsgError.length === 0 && checkUser;
+    },
+
+    isDuplicateGroup(type) {
+      // check trung nguoi ky trong don vi
+      this.meetingParticipants.filter((e) => {
+        e[type] = "";
+        if (e.groupId && e.groupType) {
+          e[type] = `${e.groupId}`;
+        }
+      });
+      return this.isDuplicate(type);
+    },
+
+    isDuplicateUser(type) {
+      // check trung nguoi ky trong don vi
+      this.meetingParticipants.filter((e) => {
+        e[type] = "";
+        if (e.userId) {
+          e[type] = `${e.userId}`;
+        }
+      });
+      return this.isDuplicate(type);
+    },
+
+    isDuplicate(type) {
+      const dataCompare = this.meetingParticipants.filter(
+        (e) => e[type] !== ""
+      );
+      const dataDuplicate = [];
+      const groupKey = groupBy(dataCompare, type);
+      const keys = Object.keys(groupKey);
+      keys.map((k) => {
+        if (groupKey[k].length > 1 && k !== "null") {
+          dataDuplicate.push({ k, val: groupKey[k][0] });
+        }
+      });
+
+      return { isDuplicate: dataDuplicate.length > 0, value: dataDuplicate };
+    },
+
+    genEmailAndPhone(user) {
+      if (user.phone) {
+        return `${user.email} - ${user.phone}`;
+      }
+      return user.email;
+    },
+    genPositionName(user) {
+      if (user.roleName) {
+        return `${user.positionName} - ${user.groupPathName}`;
+      }
+      return `${user.groupPathName}`;
+    },
+    // load danh sach lich dinh ky
+    async loadCycleTypes() {
+      try {
+        const result = await CalendarService.loadCycleTypes();
+        if (result) {
+          this.lstCycleType = result.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    trimSpace(val) {
+      return val ? val.trim() : "";
+    },
+
+    formatDate(date) {
+      return moment(date).format("DD/MM/YYYY");
+    },
+
+    async initDate() {
+      this.dateValue = moment().format("DD/MM/YYYY");
+      this.nowDate = moment().format("YYYY-MM-DD");
+      this.timeValue = moment().format("HH:mm");
+    },
+
+    async initData() {
+      this.fileAttachments = [];
+      this.uploadingFileAttatch = false;
+      this.nameFileAttachs = [];
+      this.fileAttachs = [];
+      this.radioGroup = 0;
+      this.loading = false;
+
+      this.menuDate = false;
+      this.datePicker = null;
+      this.errorDate = null;
+
+      this.timeStartPicker = false;
+      this.timeEndPicker = false;
+      this.timeStart = null;
+      this.timeEnd = null;
+
+      this.errorTimeStart = null;
+      this.errorTimeEnd = null;
+
+      this.meetingParticipants = [
+        {
+          ...initData,
+        },
+      ]; // thanh phan tham gia
+      this.pointOfContact = null; // dau moi lien he
+      this.summary = null; // ghi chu
+      this.meetingTitle = null; // ten lich hop
+      this.roomId = null; // ip phong hop
+      this.roomName = null; // ten phong hop
+      this.isOnlineMeeting = false; // su dung phong hop online
+      this.cycleType = false; // chu ky lap
+      this.cycleText = "DAILY"; // hang ngay
+      this.lstPointOfContact = [];
+      this.pointOfContactId = null;
+
+      this.lstMeetingRoom = []; // danh sach phong hop
+      this.lstCycleType = []; // danh sach lich dinh ky
+
+      this.isEntered = false; //
+    },
+
+    closeDialog() {
+      this.$refs.observer.reset();
+      this.$emit("close-dialog-save");
+    },
+    viewMeetingEmpty() {},
+    addSigner() {
+      this.meetingParticipants.push({
+        ...initData,
+      });
+    },
+    removeSigner(index) {
+      this.meetingParticipants.splice(index, 1);
+      if (this.radioGroup >= this.meetingParticipants.length) {
+        this.radioGroup = 0;
+      }
+    },
+    async checkParticipants() {
+      try {
+        // check gio bat dau
+        if (!this.timeStart) {
+          this.setNotify({
+            show: true,
+            type: 'error',
+            content: this.$t('calendar.messError.timeRequired')
+          })
+          this.errorTimeStart = this.$t('calendar.messError.timeRequired')
+          return
+        }
+        // check gio ket thuc
+        if (!this.timeEnd) {
+          this.setNotify({
+            show: true,
+            type: 'error',
+            content: this.$t('calendar.messError.timeRequired')
+          })
+          this.errorTimeEnd = this.$t('calendar.messError.timeRequired')
+          return
+        }
+        // lay ra cac doi tuong can kiem tra
+        const arrObject = []
+        this.meetingParticipants.filter(
+          e => {
+            if (e.userId) {
+              arrObject.push(e)
+            }
+          }
+        )
+        // check thanh phan tham gia
+        if (!arrObject) {
+          this.setNotify({
+            show: true,
+            type: 'error',
+            content: this.$t('calendar.createMeeting.mesErrorParticipant')
+          })
+          return
+        }
+        const params = {}
+        params.startTime = this.buildDateTime(this.timeStart)
+        params.endTime = this.buildDateTime(this.timeEnd)
+        params.meetingParticipants = arrObject
+        const str = JSON.parse(JSON.stringify(params))
+        this.loading = true
+        const response = await CalendarService.searchSavingDuplicateParticipants(str)
+        this.listParticipantDup = response.data
       } catch (error) {
         this.setNotify({
           show: true,
           type: 'error',
           content: this.$t(error.message)
         })
-      }
-    },
-
-    buildDateTime(time) {
-      if (this.dateValue && time) {
-        return `${this.dateValue} ${time}:00`
-      }
-      return null
-    },
-
-    validateDuplicates() {
-      const lstMsgError = []
-      const keyUser = this.isDuplicateUser('keyUser')
-      if (keyUser && keyUser.isDuplicate) {
-        lstMsgError.push(
-          `<li>
-            ${keyUser.value[0]['val'].participantName}
-            (${keyUser.value[0]['val'].email})
-            ${this.$t('calendar.messError.duplicate')}
-          </li>`
-        )
-      }
-      const keyGroup = this.isDuplicateGroup('keyGroup')
-      if (keyGroup && keyGroup.isDuplicate) {
-        lstMsgError.push(
-          `<li>
-            ${keyGroup.value[0]['val'].participantName}
-            ${this.$t('calendar.messError.duplicate')}
-          </li>`
-        )
-      }
-      if (lstMsgError.length > 0) {
-        this.setNotify({
-          show: true,
-          type: 'error',
-          content: `<ul>${lstMsgError.join('')}</ul>`
-        })
-      }
-      let checkUser = true
-      const checkNull = this.meetingParticipants.find(
-        e => !e.participantName || e.participantName === ''
-      )
-      if (checkNull) {
-        checkUser = false
-      }
-      return lstMsgError.length === 0 && checkUser
-    },
-
-    isDuplicateGroup(type) {
-      // check trung nguoi ky trong don vi
-      this.meetingParticipants.filter(e => {
-        e[type] = ''
-        if (e.groupId && e.groupType) {
-          e[type] = `${e.groupId}`
-        }
-      })
-      return this.isDuplicate(type)
-    },
-
-    isDuplicateUser(type) {
-      // check trung nguoi ky trong don vi
-      this.meetingParticipants.filter(e => {
-        e[type] = ''
-        if (e.userId) {
-          e[type] = `${e.userId}`
-        }
-      })
-      return this.isDuplicate(type)
-    },
-
-    isDuplicate(type) {
-      const dataCompare = this.meetingParticipants.filter(e => e[type] !== '')
-      const dataDuplicate = []
-      const groupKey = groupBy(dataCompare, type)
-      const keys = Object.keys(groupKey)
-      keys.map(k => {
-        if (groupKey[k].length > 1 && k !== 'null') {
-          dataDuplicate.push({ k, val: groupKey[k][0] })
-        }
-      })
-
-      return { isDuplicate: dataDuplicate.length > 0, value: dataDuplicate }
-    },
-
-    genEmailAndPhone(user) {
-      if (user.phone) {
-        return `${user.email} - ${user.phone}`
-      }
-      return user.email
-    },
-    genPositionName(user) {
-      if (user.roleName) {
-        return `${user.positionName} - ${user.groupPathName}`
-      }
-      return `${user.groupPathName}`
-    },
-    // load danh sach lich dinh ky
-    async loadCycleTypes() {
-      try {
-        const result = await CalendarService.loadCycleTypes()
-        if (result) {
-          this.lstCycleType = result.data
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    },
-
-    trimSpace(val) {
-      return val ? val.trim() : ''
-    },
-
-    formatDate(date) {
-      return moment(date).format('DD/MM/YYYY')
-    },
-
-    async initDate() {
-      this.dateValue = moment().format('DD/MM/YYYY')
-      this.nowDate = moment().format('YYYY-MM-DD')
-      this.timeValue = moment().format('HH:mm')
-    },
-
-    async initData() {
-      this.fileAttachments = []
-      this.uploadingFileAttatch = false
-      this.nameFileAttachs = []
-      this.fileAttachs = []
-      this.radioGroup = 0
-      this.loading = false
-
-      this.menuDate = false
-      this.datePicker = null
-      this.errorDate = null
-
-      this.timeStartPicker = false
-      this.timeEndPicker = false
-      this.timeStart = null
-      this.timeEnd = null
-
-      this.errorTimeStart = null
-      this.errorTimeEnd = null
-
-      this.meetingParticipants = [
-        {
-          ...initData
-        }
-      ] // thanh phan tham gia
-      this.pointOfContact = null // dau moi lien he
-      this.summary = null // ghi chu
-      this.meetingTitle = null // ten lich hop
-      this.roomId = null // ip phong hop
-      this.roomName = null // ten phong hop
-      this.isOnlineMeeting = false // su dung phong hop online
-      this.cycleType = false // chu ky lap
-      this.cycleText = 'DAILY' // hang ngay
-      this.lstPointOfContact = []
-      this.pointOfContactId = null
-
-      this.lstMeetingRoom = [] // danh sach phong hop
-      this.lstCycleType = [] // danh sach lich dinh ky
-
-      this.isEntered = false //
-    },
-
-    closeDialog() {
-      this.$refs.observer.reset()
-      this.$emit('close-dialog-save')
-    },
-    viewMeetingEmpty() {},
-    addSigner() {
-      this.meetingParticipants.push({
-        ...initData
-      })
-    },
-    removeSigner(index) {
-      this.meetingParticipants.splice(index, 1)
-      if (this.radioGroup >= this.meetingParticipants.length) {
-        this.radioGroup = 0
+      } finally {
+        this.loading = false
       }
     }
   }
@@ -1301,4 +1419,14 @@ export default {
     }
   }
 }
+
+.check-participants {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #00C3F9;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 </style>

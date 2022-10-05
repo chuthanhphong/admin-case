@@ -27,13 +27,7 @@
                 : 'participant-item form-group pa-0 ml-1',
             ]"
           >
-            <validation-provider
-              v-slot="{ errors }"
-              ref="refProvidercustomerRepresentative"
-              :name="radioGroup == index ? 'chairManName' : 'participantName'"
-              rules="required"
-              :vid="`customerRepresentative-${index}`"
-            >
+            <div :class="isShowErrorNameNull ? 'error-red' : 'error-blue'">
               <v-text-field
                 v-model="participant.participantName"
                 class="calendar-text--body-4"
@@ -42,24 +36,76 @@
                 dense
                 required
                 :autofocus="isEntered"
-                :error-messages="errors"
+                hide-details
                 :clearable="checkGroup"
                 :readonly="checkGroup"
                 :placeholder="$t('calendar.placeholder.participantName')"
                 @click:clear="clearSignerName"
                 @input="onInputSearchCustomer"
                 @blur="closeFilterCustomer"
-                @change="
-                  triggerValidate();
-                  participant.participantName = trimSpace(
-                    participant.participantName
-                  );
-                "
+                @change="onChangeParticipantName"
                 @click="selectSigner()"
                 @keydown.enter="addSigner()"
               >
               </v-text-field>
+              <div v-if="isShowErrorNameNull">
+                <span class="mes-error-red">{{ radioGroup === index ? $t('calendar.createMeeting.errorChairManName') : $t('calendar.createMeeting.errorParticipantName') }}</span>
+              </div>
+              <div v-if="!isShowErrorNameNull && listMeetingDupDetail && listMeetingDupDetail.length">
+                <v-menu
+                  v-model="menuParticipantsDup"
+                  :nudge-width="200"
+                  offset-x
+                  attach
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <div
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      <span class="time-duplicate" v-html="renderTimeDup()" />
+                      <span class="icon-warning" />
+                    </div>
+                  </template>
 
+                  <v-card>
+                    <v-card-title class="d-flex justify-space-between align-center" style="border-bottom: 1px solid #eee;">
+                      <div class="title-schedule-duplicate">{{ $t('calendar.createMeeting.schedule-duplicate') }}</div>
+                      <v-icon class="close-dialog cursor-pointer" @click="menuParticipantsDup = false">mdi-close</v-icon>
+                    </v-card-title>
+                    <v-list>
+                      <v-list-item v-for="(item, ind) in listMeetingDupDetail" :key="ind">
+                        <v-list-item-content>
+                          <div class="row">
+                            <div class="col-1">
+                              <v-tooltip top content-class="tooltip-top">
+                                <template v-slot:activator="{ on, attrs }">
+                                  <span
+                                    class="icon-li"
+                                    v-bind="attrs"
+                                    :class="item.status === 'PENDING' ? 'icon-li-violet' : 'icon-li-blue'"
+                                    v-on="on"
+                                  />
+                                </template>
+                                <span>{{ item.status === 'PENDING' ? $t('calendar.tooltip.pending') : $t('calendar.tooltip.approved') }}</span>
+                              </v-tooltip>
+                            </div>
+                            <div class="col-10">
+                              <div
+                                class="d-flex align-center mb-3"
+                                style="gap: 3px"
+                                v-html="renderTimeMeeting(item)"
+                              />
+                              <div class="title-meeting mb-3" v-html="renderTitleMeeting(item)" />
+                              <div class="mb-3" v-html="renderClue(item)" />
+                            </div>
+                          </div>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                  </v-card>
+                </v-menu>
+              </div>
               <div
                 v-if="radioGroup == index"
                 :class="
@@ -68,7 +114,7 @@
                 class="bg-award"
               ></div>
               <div v-if="participant.isPrepare" class="bg-ruler"></div>
-            </validation-provider>
+            </div>
             <div v-show="showFilterCustomer" class="wrap-list-search-user">
               <v-list :autofocus="true" dense>
                 <v-list-item-group v-model="selectedCustomer" color="primary">
@@ -279,6 +325,10 @@ export default {
     isEntered: {
       type: Boolean,
       default: false,
+    },
+    listMeetingDup: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -293,13 +343,17 @@ export default {
       tempCustomer: null,
       keywordTemp: null,
       firstSelect: false,
-      groupNameTmp: null
+      groupNameTmp: null,
+      listMeetingDupDetail: [],
+      menuParticipantsDup: false,
+      isShowErrorNameNull: false,
+      isShowErrorDup: false
     };
   },
   computed: {
     checkGroup() {
       return !!this.participant.groupType;
-    },
+    }
   },
   watch: {
     selectedCustomer() {
@@ -323,6 +377,9 @@ export default {
       this.closeFilterCustomer();
       this.$emit("selected-customer", this.participant.userId, this.index);
     },
+    listMeetingDup() {
+      this.getListMeetingDupDetail()
+    }
   },
   created() {},
   methods: {
@@ -358,6 +415,8 @@ export default {
       this.$emit('change-auto-forcus')
       this.keywordTemp = null;
       this.searchCustomer();
+      this.isValidParticipantName()
+      this.listMeetingDupDetail = []
     },
 
     trimSpace(val) {
@@ -400,6 +459,7 @@ export default {
       setTimeout(() => {
         this.showFilterCustomer = false;
       }, 200);
+      this.isValidParticipantName()
     },
 
     // xoa nguoi ky
@@ -411,6 +471,8 @@ export default {
       this.participant.participantId = "";
       this.participant.userId = "";
       this.participant.groupType = null;
+      this.isValidParticipantName();
+      this.listMeetingDupDetail = []
     },
 
     // nhap de tim kiem nguoi ky
@@ -422,11 +484,80 @@ export default {
       setTimeout(() => {
         this.searchCustomer();
       }, 200);
+      this.isValidParticipantName()
     },
 
     addSigner() {
       this.$emit("add-participant");
+      this.isValidParticipantName();
+      this.listMeetingDupDetail = []
     },
+    isValidParticipantName() {
+      this.participant.participantName = this.trimSpace(
+        this.participant.participantName
+      )
+      if (!this.participant.participantName) {
+        this.isShowErrorNameNull = true
+      } else {
+        this.isShowErrorNameNull = false
+      }
+    },
+    onChangeParticipantName() {
+      this.triggerValidate()
+      this.isValidParticipantName();
+      this.listMeetingDupDetail = []
+    },
+    getListMeetingDupDetail() {
+      this.listMeetingDupDetail = []
+      this.listMeetingDup.filter(
+        e => {
+          // user
+          if (e.userId &&
+                this.participant.groupId &&
+                e.userId === this.participant.userId &&
+                e.groupId === this.participant.groupId) {
+            this.listMeetingDupDetail.push(e)
+          }
+          // group
+          if (!e.userId &&
+                !this.participant.groupId &&
+                this.participant.userId &&
+                e.groupId === this.participant.groupId
+          ) {
+            this.listMeetingDupDetail.push(e)
+          }
+        }
+      )
+    },
+    renderTimeDup() {
+      if (this.listMeetingDup) {
+        return this.$t('calendar.createMeeting.duplicate') + " " + this.listMeetingDup[0].startTime.split(" ")[0] + " - " + this.listMeetingDup[0].endTime.split(" ")[0]
+      }
+      return ''
+    },
+    renderTimeMeeting(item) {
+      return `
+          <span class="first-time">
+              ${item.startTime.split(" ")[0]}
+          </span>
+          <span class="end-time">
+              ${item.startTime.split(" ")[1]}
+          </span>
+          <span class="mx-1"> - </span>
+          <span class="first-time">
+          ${item.endTime.split(" ")[0]}
+          </span>
+          <span class="end-time">
+          ${item.endTime.split(" ")[1]}
+          </span>
+        `
+    },
+    renderTitleMeeting(item) {
+      return item.participantName
+    },
+    renderClue(item) {
+      return item.contactBy
+    }
   },
 };
 </script>
@@ -502,4 +633,5 @@ export default {
     }
   }
 }
+
 </style>

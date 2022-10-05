@@ -36,7 +36,7 @@
             :key="index"
             class="list-item mb-2"
           >
-            <div class="d-flex nowrap" style="width: 100%">
+            <div class="d-flex align-center nowrap">
               <div class="d-flex flex-column justify-center div-avatar">
                 <v-img
                   v-if="it.referType === 1"
@@ -56,7 +56,7 @@
                   ({{ it.sourceId }}) {{ it.sourceName }}
                 </span>
               </div>
-              <div
+              <!-- <div
                 class="
                   d-flex
                   no-wrap
@@ -69,12 +69,12 @@
                 <v-chip class="source-name" color="#CCF3FE">{{
                   it.status
                 }}</v-chip>
-                <!-- <div class="ic-delete">
+                <div class="ic-delete">
                   <v-btn icon color="black">
                     <v-icon>mdi-close</v-icon>
                   </v-btn>
-                </div> -->
-              </div>
+                </div>
+              </div> -->
             </div>
           </v-list-item>
         </v-expansion-panel-content>

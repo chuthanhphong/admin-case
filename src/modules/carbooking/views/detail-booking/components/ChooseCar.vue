@@ -55,7 +55,7 @@
                 <div v-if="it.isShowChoose" style="width: 100%">
                   <v-autocomplete
                     :items="transportData"
-                    no-data-text="Không có dữ liệu"
+                    :no-data-text="$t('noData')"
                     placeholder="Nhập tên tài xế / tên xe"
                     class="text--body-5"
                     dense
@@ -261,6 +261,7 @@ export default {
       isDisableAdd: true,
       transportData: [],
       transferVehicleData: [],
+      itemSearch: [],
     };
   },
 
@@ -365,22 +366,31 @@ export default {
         };
         const res = await BookingService.findTransport(dataRequest);
         this.transportData = res.data.data;
-        const itemSearch = this.transferVehicleData.filter((it) => {
+        this.transferVehicleData.map((x) => {
+          x.driverName = x.driverName.toLowerCase();
+          x.vehicleName = x.vehicleName.toLowerCase();
+        });
+        this.itemSearch = this.transferVehicleData.filter((it) => {
+          event = event + "";
           if (
-            it.driverName.includes(event) ||
-            it.vehicleName.includes(event) ||
-            !event
+            it.driverName.includes(event.toLowerCase()) ||
+            it.vehicleName.includes(event.toLowerCase()) ||
+            event === "undefined"
           ) {
             return it;
           }
         });
-        if (itemSearch.length && this.transferVehicleData.length) {
+        if (this.itemSearch.length && this.transferVehicleData.length) {
           if (this.transportData === undefined) {
             this.transportData = [];
           }
-          itemSearch.forEach((x) => {
+          this.itemSearch.forEach((x) => {
             this.transportData.push(x);
           });
+          this.transportData = this.transportData.filter(
+            (item, index, self) =>
+              index === self.findIndex((t) => t.id === item.id)
+          );
         }
       } catch (error) {
         console.log(error);

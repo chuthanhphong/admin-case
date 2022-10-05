@@ -602,6 +602,8 @@ export default {
       meetingSchedule: false,
       onCallSchedule: false,
 
+      createStartTimeValueDefault: null,
+      createEndTimeValueDefault: null
     }
   },
   computed: {
@@ -1002,6 +1004,10 @@ export default {
         .subtract(365, 'days')
         .format('DD/MM/YYYY')
       this.createEndTimeValue = moment().format('DD/MM/YYYY')
+
+      // set time default
+      this.createStartTimeValueDefault = this.createStartTimeValue.replaceAll('/', '')
+      this.createEndTimeValueDefault = this.createEndTimeValue.replaceAll('/', '')
     },
 
     // load danh sach lich dinh ky
@@ -1145,7 +1151,23 @@ export default {
         cycleType: this.cycleText || null, // lich dinh ky: CYCLE_TYPE, ONCE, DAILY, WEEKLY, MONTHLY, QUARTERLY
         searchingType: 'CREATE' // PARTICIPATING: toi tham gia, GROUP: lich don vi, APPROVE: toi duyet, CREATE: toi tao
       }
-      this.$emit('submit-dialog', params, this.listIndexState)
+
+      // check searching
+      let isSearching = false
+
+      if (this.createStartTimeValueDefault !== params.createStartTime ||
+          this.createEndTimeValueDefault !== params.createEndTime ||
+          params.meetingStartTime ||
+          params.meetingEndTime ||
+          params.roomId ||
+          params.roomName ||
+          (params.status && params.status.length !== 6) ||
+          (params.meetingTypes && params.meetingTypes.length !== 0) ||
+          (params.calendarTypes && params.calendarTypes.length !== 0) ||
+          params.participantName ||
+          params.cycleType) isSearching = true
+
+      this.$emit('submit-dialog', params, this.listIndexState, isSearching)
       this.$emit('close-dialog')
     },
     genTypeCalenar() {

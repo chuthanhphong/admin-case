@@ -166,13 +166,13 @@
               </v-autocomplete>
             </v-layout>
 
-            <!-- nguon goc -->
-            <!-- <v-layout v-if="isShowSourceEl" column>
+            <!--             nguon goc -->
+            <v-layout v-if="isShowSourceEl" column>
               <label class="text--body-5 darken--text text-uppercase">
                 {{ $t("tickets.labels.source-from") }}
               </label>
               <v-autocomplete
-                v-model="formData.source"
+                v-model="formData.sourceTicket"
                 :item-text="(item) => item.name"
                 :items="lstAssociation"
                 class="text--body-5 cursor-pointer"
@@ -192,34 +192,47 @@
                   />
                 </template>
                 <template v-slot:selection="data">
-                  <v-chip
-                    close
-                    @click="data.select"
-                    @click:close="removeSource()"
+                  <v-tooltip
+                    content-class="tooltip-top"
+                    top
                   >
-                    <v-avatar left>
-                      <v-img v-if="checkEqualItem(data.item.associationType, 'DOCUMENT')" :src="require('@/assets/icons/task/createTask/document.svg')" />
-                      <v-img v-if="checkEqualItem(data.item.associationType, 'TICKET')" :src="require('@/assets/icons/task/createTask/ticket.svg')" />
-                      <v-img v-if="checkEqualItem(data.item.associationType, 'TASK')" :src="require('@/assets/icons/task/createTask/work.svg')" />
-                    </v-avatar>
-                    {{ data.item.name }}
-                  </v-chip>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-chip
+                        close
+                        v-bind="attrs"
+                        @click="data.select"
+                        v-on="on"
+                        @click:close="removeSource()"
+                      >
+
+                        <v-avatar left>
+                          <v-img v-if="checkEqualItem(data.item.associationType , 'DOCUMENT')" :src="require('@/assets/icons/task/createTask/document.svg')" />
+                          <v-img v-if="checkEqualItem(data.item.associationType , 'TICKET')" :src="require('@/assets/icons/task/createTask/ticket.svg')" />
+                          <v-img v-if="checkEqualItem(data.item.associationType , 'TASK')" :src="require('@/assets/icons/task/createTask/work.svg')" />
+                        </v-avatar>
+                        {{ getTextTruncate(data.item.name,15) }}
+                      </v-chip>
+                    </template>
+                    <span>{{ data.item.name }}</span>
+                  </v-tooltip>
                 </template>
               </v-autocomplete>
-            </v-layout> -->
+            </v-layout>
 
-            <!-- lien ket -->
-            <!-- <v-layout v-if="isShowLinkEl" column>
+            <!--             lien ket -->
+            <v-layout v-if="isShowLinkEl" column>
               <label class="text--body-5 darken--text text-uppercase">
                 {{ $t("tickets.labels.link-to") }}
               </label>
               <v-autocomplete
-                v-model="formData.referList"
+                v-model="formData.ticketAssociations"
                 :hide-selected="true"
                 :item-text="item=>item.name"
                 :item-value="item=>item.id"
-                :items="formData.referList"
+                :items="formData.ticketAssociations"
                 class="text--body-5 cursor-pointer custom-autocomplete"
+                height="40px"
+                multiple
                 outlined
                 readonly
                 return-object
@@ -232,21 +245,33 @@
                     @click="onShowDialogSelectRefer"
                   />
                 </template>
-                <template v-slot:selection="{item,index}">
-                  <v-chip
-                    close
-                    @click:close="removeLinkTo(index)"
+                <template v-slot:selection="{ item,index }">
+                  <v-tooltip
+                    content-class="tooltip-top"
+                    top
                   >
-                    <v-avatar left>
-                      <v-img v-if="checkEqualItem(item.associationType ,'DOCUMENT')" :src="require('@/assets/icons/task/createTask/document.svg')" />
-                      <v-img v-if="checkEqualItem(item.associationType ,'TICKET')" :src="require('@/assets/icons/task/createTask/ticket.svg')" />
-                      <v-img v-if="checkEqualItem(item.associationType , 'TASK')" :src="require('@/assets/icons/task/createTask/work.svg')" />
-                    </v-avatar>
-                    {{ item.name }}
-                  </v-chip>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-chip
+                        :input-value="item.selected"
+                        close
+                        v-bind="attrs"
+                        v-on="on"
+                        @click:close="removeLinkTo(index)"
+                      >
+                        <v-avatar left>
+                          <v-img v-if="checkEqualItem(item.associationType , 'DOCUMENT')" :src="require('@/assets/icons/task/createTask/document.svg')" />
+                          <v-img v-if="checkEqualItem(item.associationType , 'TICKET')" :src="require('@/assets/icons/task/createTask/ticket.svg')" />
+                          <v-img v-if="checkEqualItem(item.associationType , 'TASK')" :src="require('@/assets/icons/task/createTask/work.svg')" />
+                        </v-avatar>
+                        {{ getTextTruncate(item.name,15) }}
+                      </v-chip>
+                    </template>
+                    <span>{{ item.name }}</span>
+                  </v-tooltip>
+
                 </template>
               </v-autocomplete>
-            </v-layout> -->
+            </v-layout>
             <v-layout v-if="isShowAttachEl" column>
               <label class="text--body-5 darken--text text-uppercase">
                 {{ $t("tickets.labels.attach-file") }}
@@ -385,24 +410,24 @@
                 </v-list-item>
               </v-list-item-group>
             </v-menu> -->
-            <!-- nguon goc -->
-            <!-- <button-icon
+            <!--             nguon goc -->
+            <button-icon
               :is-actived="isShowSourceEl"
               :is-disabled="disabledAll"
               :on-click="changeStateSource"
               :text-action="$t('tickets.labels.source')"
               :text-tooltip="$t('tickets.tooltips.source')"
               text-icon="icon-source icon-size-20"
-            /> -->
-            <!-- lien ket -->
-            <!-- <button-icon
+            />
+            <!--             lien ket -->
+            <button-icon
               :is-actived="isShowLinkEl"
               :is-disabled="disabledAll"
               :on-click="changeStateLink"
               :text-action="$t('tickets.labels.link')"
               :text-tooltip="$t('tickets.tooltips.link')"
               text-icon="icon-link icon-size-20"
-            /> -->
+            />
             <!-- dinh kem -->
             <button-icon
               :is-actived="isShowAttachEl"
@@ -486,6 +511,7 @@
               >
                 <gen-input-by-value-type
                   :index="index"
+                  :is-update="isUpdate"
                   :type-attributes="typeAttributes"
                 />
               </v-layout>
@@ -596,8 +622,8 @@ const initForm = {
   duration: "",
   follower: [],
   priority: null,
-  source: null,
-  referList: [],
+  sourceTicket: null,
+  ticketAssociations: [],
   fileAttachmentRequests: [],
   selectedCategory: null,
   selectedGroup: null,
@@ -631,6 +657,10 @@ export default {
       type: Object,
       default: undefined,
     },
+    isListTicketType: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -717,8 +747,17 @@ export default {
 
       this.$emit("input", val);
       if (this.internalValue) {
-        if (this.typesTicket.length > 0) {
-          this.formData.selectedCategory = this.typesTicket[0]
+        if (this.isListTicketType) {
+          if (this.typesTicket.length > 0) {
+            this.formData.selectedCategory = this.typesTicket[0]
+          }
+        }
+        if (this.isUpdate) {
+          this.typesTicket.filter(item => {
+            if (item.name === this.detailTicket.ticketCateName) {
+              this.formData.selectedCategory = item
+            }
+          })
         }
       }
     },
@@ -815,6 +854,7 @@ export default {
       this.listModuleType.forEach((x) => {
         if (x.name === type) {
           this.sourceType = x.value;
+          this.sourceValue = x.value;
         }
       });
       this.isShowDialogSource = false;
@@ -856,7 +896,7 @@ export default {
       }
     },
     taskAssociationsFromEmit(value) {
-      this.formData.referList = value
+      this.formData.ticketAssociations = value
     },
     closeDialogSelectTaskAssociations() {
       this.isShowDialogReferList = false
@@ -924,7 +964,6 @@ export default {
         }
         // this.$emit("on-accept-confirm");
       } catch (error) {
-        console.log(error)
         this.setNotify({
           show: true,
           type: constants.NOTIFY_TYPE.ERROR,
@@ -984,27 +1023,27 @@ export default {
       }
 
       // nguon goc
-      if (this.isShowSourceEl && this.formData.source) {
-        pars["sourceMapDto"] = {
-          sourceId: this.sourceId,
-          sourceType: this.sourceType,
-          referType: this.referType,
-          objectType: 0,
-          objectId: 0,
+      if (this.isShowSourceEl && this.formData.sourceTicket) {
+        pars["sourceTicket"] = {
+          id: this.formData.sourceTicket.id,
+          name: this.formData.sourceTicket.name,
+          creatorName: this.formData.sourceTicket.creatorName,
+          status: this.formData.sourceTicket.status,
+          associationType: this.formData.sourceTicket.associationType,
         };
       }
-      this.referList.forEach((x) => {
-        this.referListPars.push({
-          sourceType: this.sourceType,
-          sourceId: x,
-          referType: this.referType,
-          objectType: 0,
-          objectId: 0,
-        });
-      });
       // lien ket
-      if (this.isShowLinkEl && this.formData.referList) {
-        pars["referList"] = this.referListPars;
+      if (this.isShowLinkEl && this.formData.ticketAssociations) {
+        this.formData.ticketAssociations.forEach((x) => {
+          this.referListPars.push({
+            id: x.id,
+            name: x.name,
+            creatorName: x.creatorName,
+            status: x.status,
+            associationType: x.associationType,
+          });
+        });
+        pars["ticketAssociations"] = this.referListPars;
       }
 
       // dinh kem
@@ -1041,16 +1080,16 @@ export default {
           valueType: item.valueType,
         };
         if (item.valueType === definedValueType.file) {
-          if (item.attributeValue && item.attributeValue.length > 0) {
-            newItem["fileAttributeRequests"] = item.attributeValue;
-            // if (this.isUpdate) {
-            //   const fileOrigin = this.originInputFileAttributes[item.id];
-            //   newItem["flagChangeFile"] = this.getFlagChangeFile(
-            //     item.attributeValue,
-            //     fileOrigin
-            //   );
-            // }
-          }
+          // if (item.attributeValue && item.attributeValue.length > 0) {
+          //   newItem["fileAttributeRequests"] = item.attributeValue;
+          //   if (this.isUpdate) {
+          //     const fileOrigin = this.originInputFileAttributes[item.id];
+          //     newItem["flagChangeFile"] = this.getFlagChangeFile(
+          //       item.attributeValue,
+          //       fileOrigin
+          //     );
+          //   }
+          // }
         } else {
           newItem["attributeValue"] = item.attributeValue;
         }
@@ -1257,11 +1296,11 @@ export default {
           ).value;
         }
 
-        if (data.taskSourceMap.data.length > 0) {
+        if (data.sourceTicket) {
           this.changeStateSource();
         }
 
-        if (data.refers.length > 0) {
+        if ((data.ticketAssociations && data.ticketAssociations.length > 0)) {
           this.changeStateLink();
         }
 
@@ -1280,7 +1319,7 @@ export default {
       }
     },
     sourceTaskFromEmit(value) {
-      this.formData.source = value
+      this.formData.sourceTicket = value
     },
     closeDialogSelectSourceTask() {
       this.isShowDialogSource = false
@@ -1329,6 +1368,13 @@ export default {
         }
       });
       this.originInputFileAttributes = results;
+    },
+    getTextTruncate(val, size) {
+      if (val.length > size) {
+        return val.substring(0, size) + "...";
+      } else {
+        return val;
+      }
     },
   },
 };

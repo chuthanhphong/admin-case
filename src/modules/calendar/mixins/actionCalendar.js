@@ -114,6 +114,27 @@ export default {
           break
         // khong tham gia
         case constants.CALENDAR_ACTION.NOT_PARTICIPATE:
+          try {
+            const response = await CalendarService.notParticipant(
+              formData
+            )
+            if (response.status === 200) {
+              this.setNotify({
+                show: true,
+                type: 'success',
+                content: this.$t('calendar.detailMeeting.success.not-participant')
+              })
+              this.isBackList = true
+            }
+          } catch (error) {
+            const message = error.message
+            this.setNotify({
+              show: true,
+              type: 'error',
+              content: this.$t(message)
+            })
+          }
+          this.objConfirm.showDialogConfirm = false
           break
         // huy
         case constants.CALENDAR_ACTION.CANCEL:

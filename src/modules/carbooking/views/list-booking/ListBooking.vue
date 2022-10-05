@@ -11,11 +11,11 @@
           @change="changeTab()"
           class="wrap--content wrap-book-tab"
         >
-          <v-tab key="0"> {{ $t("booking.labels.my-participation") }} </v-tab>
-          <v-tab key="1"> {{ $t("booking.labels.my-request") }} </v-tab>
-          <v-tab key="2" v-if="enableApproveTab">
+          <v-tab key="0" v-if="enableApproveTab">
             {{ $t("booking.labels.my-approve") }}
           </v-tab>
+          <v-tab key="1"> {{ $t("booking.labels.my-participation") }} </v-tab>
+          <v-tab key="2"> {{ $t("booking.labels.my-request") }} </v-tab>
         </v-tabs>
         <HeaderList
           :form-search="formSearch"
@@ -46,15 +46,13 @@
             height="70vh"
           >
             <template v-slot:[`item.title`]="{ item }">
-              <v-layout class="link">
+              <v-layout
+                class="link cursor-pointer"
+                @click="onGotoDetailBooking(item)"
+              >
                 <v-tooltip top content-class="tooltip-top">
                   <template v-slot:activator="{ on, attrs }">
-                    <b
-                      class="fw-600 cursor-pointer"
-                      v-on="on"
-                      v-bind="attrs"
-                      @click="onGotoDetailBooking(item)"
-                    >
+                    <b class="fw-600" v-on="on" v-bind="attrs">
                       {{ getTextTruncateView(item.title, 30) }}
                     </b>
                   </template>
@@ -511,7 +509,8 @@ export default {
       showConfirmDialog: false,
       chooseId: null,
       cancelReason: null,
-      currentTab: 0,
+      currentTab:
+        parseInt(localStorage.getItem("lastestBookingTabSelected")) || 0,
       userInfo: localStorage.getItem("USER_INFO"),
       enableApproveTab: false,
       approveRule: false,
@@ -750,6 +749,7 @@ export default {
       this.statusValue = [];
     },
     onGotoDetailBooking(item) {
+      localStorage.setItem("lastestBookingTabSelected", this.currentTab);
       this.$router.push({
         path: routePaths.DETAIL_BOOKING_PATH,
         query: {

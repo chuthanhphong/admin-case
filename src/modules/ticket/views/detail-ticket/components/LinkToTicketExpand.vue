@@ -1,10 +1,10 @@
 <template>
   <v-expansion-panels v-model="expanded" class="rounded-0 no-z-index">
     <v-expansion-panel class="rounded-0">
-      <v-expansion-panel-header color="primary" class="rounded-0">
+      <v-expansion-panel-header class="rounded-0" color="primary">
         <v-layout justify-space-between>
           <v-layout align-center>
-            <v-btn fab x-small color="white" class="mr-3">
+            <v-btn class="mr-3" color="white" fab x-small>
               <i class="app-icon icon-link primary"></i>
             </v-btn>
             <label class="text--subtitle-2 white--text">
@@ -13,26 +13,27 @@
           </v-layout>
           <v-btn
             v-if="isShowBtnCreateLinkTicket"
+            class="border-width-2 mr-2"
+            color="white"
             fab
             outlined
             x-small
-            color="white"
-            class="border-width-2 mr-2"
             @click.stop="onShowSourceTask"
           >
             <v-icon>mdi-link-variant</v-icon>
           </v-btn>
         </v-layout>
-        <template v-slot:actions>
-          <v-icon color="white"> $expand</v-icon>
+        <template v-slot:actions class="d-flex flex-row px-3">
+          <img :src="require('@/assets/icons/ticket/link.svg')" />
+          <v-icon class="ml-1" color="white"> $expand</v-icon>
         </template>
       </v-expansion-panel-header>
       <v-expansion-panel-content
         class="scroll-expand-task-list overflow-y-auto rounded-0"
       >
         <v-list>
-          <div v-for="(item, i) in detail.taskSourceMap.data" :key="i" class="mt-2">
-            <ItemLinkRequestTicketViewList :item="item" :index="i" />
+          <div v-for="(item, i) in detail.ticketAssociations" :key="i" class="py-3 mt-3">
+            <ItemLinkRequestTicketViewList :index="i" :item="item" />
           </div>
         </v-list>
       </v-expansion-panel-content>

@@ -502,4 +502,27 @@ export class TicketService extends BaseService {
       this.handleError(error)
     }
   }
+
+  static async addSourceTicket(ticketId, formData) {
+    try {
+      const response = await this.requestTicket({ auth: true }).post(
+        `${apiTickets.AssociationApis.ADD_SOURCE}/${ticketId}`,
+        formData
+      )
+      return this.handleSuccess(response)
+    } catch (error) {
+      this.handleError(error)
+    }
+  }
+
+  static async removeSouceTicKet(ticketId) {
+    try {
+      const response = await this.requestTicket({ auth: true }).delete(
+        `${apiTickets.AssociationApis.REMOVE_SOURCE}/${ticketId}`,
+      )
+      return this.handleSuccess(response)
+    } catch (error) {
+      this.handleError(error)
+    }
+  }
 }

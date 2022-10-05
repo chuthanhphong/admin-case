@@ -87,7 +87,15 @@
                     </b>
                   </div>
                   <v-layout class="link">
-                    <span class="text--body-5 task-name-hover text-ellipsis cursor-pointer" @click="onGotoDetailTicket(item)">
+                    <span
+                      class="
+                        text--body-5
+                        task-name-hover
+                        text-ellipsis
+                        cursor-pointer
+                      "
+                      @click="onGotoDetailTicket(item)"
+                    >
                       {{ getTextTruncateView(item.name, 30) }}
                     </span>
                     <div
@@ -116,7 +124,15 @@
                   :class="getColorTextByStatus(item.status)"
                   v-html="getTextByStatus(item.status)"
                 ></span>
-                <span v-if="isShowTextDealline(item)" v-html="getTextDeallineByExpectEndDate(item.startDate, item.estDuration)"></span>
+                <span
+                  v-if="isShowTextDealline(item)"
+                  v-html="
+                    getTextDeallineByExpectEndDate(
+                      item.startDate,
+                      item.estDuration
+                    )
+                  "
+                ></span>
               </v-layout>
             </template>
             <template v-slot:[`item.progress`]="{ item }">
@@ -383,7 +399,7 @@ export default {
           value: "name",
           sortable: false,
           class: "text--body-5 gray--text",
-          width: "10%"
+          width: "10%",
         },
         {
           text: this.$t("tickets.labels.status"),
@@ -740,17 +756,22 @@ export default {
     getTextDeallineByExpectEndDate(startDate, estDuration) {
       const expectEndDate = getEstDateTimeFromStartAndHour(
         startDate,
-        estDuration,
+        estDuration
       );
       const time = getDiffTimeToNow(expectEndDate);
       if (time > 0) {
-        return `<span style="color:red"> trễ ${secondsToHm(Math.abs(time))}</span>`
+        return `<span style="color:red"> trễ ${secondsToHm(
+          Math.abs(time)
+        )}</span>`;
       } else if (time < 0) {
-        return `còn ${secondsToHm(Math.abs(time))}`
+        return `còn ${secondsToHm(Math.abs(time))}`;
       }
     },
     isShowTextDealline(item) {
-      return typeof item.estDuration !== "undefined" && typeof item.startDate !== "undefined";
+      return (
+        typeof item.estDuration !== "undefined" &&
+        typeof item.startDate !== "undefined"
+      );
     },
     formatDateView(date) {
       return formatDate(date, FORMAT_DATE_TIME_TICKET);

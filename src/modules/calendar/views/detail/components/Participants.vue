@@ -256,8 +256,8 @@ export default {
 
 .icon-ruler:before {
   content: '';
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-image: url("../../../../../assets/icons/calendar/ruler.png");
   background-size: 100% 100%;
   display: inline-block;
@@ -268,8 +268,8 @@ export default {
 
 .icon-award:before {
   content: '';
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-image: url("../../../../../assets/icons/calendar/award.png");
   background-size: 100% 100%;
   display: inline-block;

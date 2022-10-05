@@ -7,28 +7,32 @@
         </h5>
       </div>
       <v-row v-if="detail">
-        <v-col cols="6" class="white">
+        <v-col class="white" cols="6">
           <v-card class="rounded-xl rounded-b-0">
-            <TicketInfoTop :detail="detail" />
+            <TicketInfoTop
+              :detail="detail"
+              @source-task="sourceTicketFromEmit"
+              @remove-Source="removeSoucreTicket"
+            />
           </v-card>
           <TicketInfoExpand :detail="detail" />
         </v-col>
         <!-- card-right -->
-        <v-col cols="6" class="expand-detail overflow-y-auto white">
+        <v-col class="expand-detail overflow-y-auto white" cols="6">
           <v-card class="rounded-xl">
             <PerformerInfo
               :detail="detail"
               :is-viewer="isViewer"
-              :users-by-group-id="usersByGroupIdForAssigner"
               :user-info="userInfo"
+              :users-by-group-id="usersByGroupIdForAssigner"
               @update-assign-to="updateAssignTo"
             />
 
             <MonitorUsers
-              :detail="detail"
-              :is-viewer="isViewer"
               :all-user="allUserOfDomain"
+              :detail="detail"
               :is-reload.sync="isReload"
+              :is-viewer="isViewer"
               @update-selected-follower="updateSelectedFollower"
             />
             <ResultProcessExpand :detail="detail" />
@@ -37,15 +41,15 @@
               @create-task="onShowCreateTask"
               @get-task-detail="getTaskDetail"
             />
-            <!-- <LinkToTicketExpand :detail="detail" @Source-task="onShowSourceTask" /> -->
+            <LinkToTicketExpand :detail="detail" @Source-task="onShowSourceTask" />
             <v-layout align-center class="mx-6 mt-4 mb-2">
               <v-progress-linear
-                height="15"
-                background-opacity="1"
-                color="#E7ECF1"
-                class="rounded-xl"
-                :value="detail.progress ? detail.progress : 0"
                 :class="getClassColorProgressByStatus(detail.status)"
+                :value="detail.progress ? detail.progress : 0"
+                background-opacity="1"
+                class="rounded-xl"
+                color="#E7ECF1"
+                height="15"
                 @click="onShowDialogUpdateProgress"
               >
               </v-progress-linear>
@@ -64,14 +68,14 @@
     </div>
 
     <!-- actions -->
-    <v-layout v-if="detail" justify-end class="white mt-4 footer-actions-fixed">
+    <v-layout v-if="detail" class="white mt-4 footer-actions-fixed" justify-end>
       <!-- quay lai -->
       <v-btn
-        color="primary"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="primary"
+        elevation="1"
+        outlined
+        rounded
         @click="onGotoBack"
       >
         {{ $t("tickets.labels.back") }}
@@ -79,11 +83,11 @@
       <!-- xoa yeu cau -->
       <v-btn
         v-if="isShowDeleteAction"
-        color="error"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="error"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowConfirmDelete"
       >
         {{ $t("tickets.labels.delete") }}
@@ -92,11 +96,11 @@
       <!-- huy yeu cau -->
       <v-btn
         v-if="isShowCancelAction"
-        color="error"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="error"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowConfirmCancel"
       >
         {{ $t("tickets.labels.cancel") }}
@@ -105,11 +109,11 @@
       <!-- tu choi duyet chuyen don vi -->
       <v-btn
         v-if="isShowDenyForwardGroupAction"
-        color="error"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="error"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowConfirmDenyForwardGroup"
       >
         {{ $t("rejectLabel") }}
@@ -118,10 +122,10 @@
       <!-- duyet chuyen don vi -->
       <v-btn
         v-if="isShowAcceptForwardGroupAction"
-        color="primary"
-        rounded
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3"
+        color="primary"
+        elevation="1"
+        rounded
         @click="onShowConfirmAcceptForwardGroup"
       >
         {{ $t("tickets.labels.approve") }}
@@ -130,11 +134,11 @@
       <!-- tu choi duyet ket qua -->
       <v-btn
         v-if="isShowRejectAction"
-        color="error"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="error"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowConfirmReject"
       >
         {{ $t("rejectLabel") }}
@@ -143,10 +147,10 @@
       <!-- duyet ket qua -->
       <v-btn
         v-if="isShowResultApproveAction"
-        color="primary"
-        rounded
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3"
+        color="primary"
+        elevation="1"
+        rounded
         @click="onShowConfirmResultApprove"
       >
         {{ $t("tickets.labels.approve") }}
@@ -155,11 +159,11 @@
       <!-- tu choi xem xet -->
       <v-btn
         v-if="isShowRejectReviewAction"
-        color="error"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="error"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowConfirmRejectReview"
       >
         {{ $t("rejectLabel") }}
@@ -168,10 +172,10 @@
       <!-- xem xet -->
       <v-btn
         v-if="isShowReviewAction"
-        color="primary"
-        rounded
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3"
+        color="primary"
+        elevation="1"
+        rounded
         @click="onShowConfirmReview"
       >
         {{ $t("tickets.labels.review") }}
@@ -180,10 +184,10 @@
       <!-- chinh sua -->
       <v-btn
         v-if="isShowEditAction"
-        color="primary"
-        rounded
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3"
+        color="primary"
+        elevation="1"
+        rounded
         @click="onShowDialogUpdateTicket"
       >
         {{ $t("tickets.labels.edit") }}
@@ -192,10 +196,10 @@
       <!-- gui yeu cau -->
       <v-btn
         v-if="isShowSendAction"
-        color="primary"
-        rounded
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3"
+        color="primary"
+        elevation="1"
+        rounded
         @click="onAcceptSend"
       >
         {{ $t("tickets.labels.send-ticket") }}
@@ -204,10 +208,10 @@
       <!-- close -->
       <v-btn
         v-if="isShowCloseAction"
-        color="primary"
-        rounded
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3"
+        color="primary"
+        elevation="1"
+        rounded
         @click="onShowConfirmClose"
       >
         {{ $t("tickets.labels.ticket-close") }}
@@ -216,11 +220,11 @@
       <!-- tu choi dong -->
       <v-btn
         v-if="isShowRefuseCloseAction"
-        color="error"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="error"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowConfirmRefuseClose"
       >
         {{ $t("tickets.labels.refused-close") }}
@@ -229,11 +233,11 @@
       <!-- chuyen don vi -->
       <v-btn
         v-if="isShowForwardGroupAction"
-        color="primary"
-        rounded
-        outlined
-        elevation="1"
         class="w-160 py-5 mr-0 mr-md-3 bg-white"
+        color="primary"
+        elevation="1"
+        outlined
+        rounded
         @click="onShowDialogTreeView"
       >
         {{ $t("tickets.labels.forward") }}
@@ -242,9 +246,9 @@
       <!-- hoan thanh -->
       <v-btn
         v-if="isShowCompleteAction"
+        class="w-160 py-5"
         color="primary"
         rounded
-        class="w-160 py-5"
         @click="onShowConfirmComplete"
       >
         {{ $t("completed") }}
@@ -264,10 +268,10 @@
     />
 
     <dialog-select-link-to
-      :show-dialog="showDialogLinkTo"
-      :title="'task-manager.title.link-to'"
-      :task-associations="dataTaskDetail.taskAssociations"
       :excludes="[{ id:dataTaskDetail.id, associationType: 'TICKET' }]"
+      :show-dialog="showDialogLinkTo"
+      :task-associations="dataTaskDetail.taskAssociations"
+      :title="'task-manager.title.link-to'"
       @close-dialog="showDialogLinkTo = false"
       @miniMize-dialog="showDialogLinkTo = false"
     />
@@ -363,9 +367,9 @@
     <!-- dialog tree view -->
     <dialog-tree-view
       v-model="showDialogTreeView"
-      :title="$t('tickets.labels.unit-request-perform')"
-      :group-id="detail ? detail.groupId : null"
       :all-groups="allGroups"
+      :group-id="detail ? detail.groupId : null"
+      :title="$t('tickets.labels.unit-request-perform')"
       @selected-group="selectedForwardGroup"
       @on-cancel="onCloseDialogTreeView"
     />
@@ -374,9 +378,9 @@
     <dialog-create-ticket
       v-model="showDialogUpdateTicket"
       :category-id="detail ? detail.ticketCateId : null"
-      :types-ticket="typesTicket"
-      :is-update="true"
       :detail-ticket="detail"
+      :is-update="true"
+      :types-ticket="typesTicket"
     />
     <!--show dialog chi tiet task-->
     <dialog-task-detail
@@ -401,7 +405,7 @@ import TicketInfoExpand from "./components/TicketInfoExpand";
 import TaskInfoExpand from "./components/TaskInfoExpand";
 import PerformerInfo from "./components/PerformerInfo";
 import MonitorUsers from "./components/MonitorUsers";
-// import LinkToTicketExpand from "./components/LinkToTicketExpand";
+import LinkToTicketExpand from "./components/LinkToTicketExpand";
 import ResultProcessExpand from "./components/ResultProcessExpand";
 import HistoryActivityTicket from "./components/HistoryActivityTicket";
 import DialogUpdateProcess from "@/modules/ticket/views/components/DialogUpdateProcess";
@@ -420,11 +424,7 @@ import { mapActions } from "vuex";
 import constants from "@/constants";
 import mixinStatusAndPriority from "@/modules/ticket/mixins/mixinStatusAndPriority";
 import mixinFindUserRole from "@/modules/ticket/mixins/mixinFindUserRole";
-import {
-  formatDate,
-  FORMAT_DATE_TIME_TICKET,
-  HTTP_STATUS_SUCCESS,
-} from "@/modules/ticket/helpers/ticketUtils";
+import { FORMAT_DATE_TIME_TICKET, formatDate, HTTP_STATUS_SUCCESS, } from "@/modules/ticket/helpers/ticketUtils";
 import mixinUploadFiles from "@/modules/ticket/mixins/mixinUploadFiles";
 import mixinComputedState from "./mixins/mixinComputedState";
 import mixinPermissionActions from "./mixins/mixinPermissionActions";
@@ -443,7 +443,7 @@ export default {
     TaskInfoExpand,
     PerformerInfo,
     MonitorUsers,
-    // LinkToTicketExpand,
+    LinkToTicketExpand,
     ResultProcessExpand,
     HistoryActivityTicket,
     // DialogSelectSourceTask,
@@ -840,8 +840,51 @@ export default {
     onShowDialogUpdateTicket() {
       this.showDialogUpdateTicket = true;
     },
-    sourceTaskFromEmit(val) {
-      this.dataTask.sourceTask = val;
+    async sourceTicketFromEmit(val) {
+      if (val) {
+        try {
+          this.loading = true
+          await TicketService.addSourceTicket(this.detail.id, val)
+          this.setNotify({
+            show: true,
+            type: constants.NOTIFY_TYPE.SUCCESS,
+            content: this.$t('ticket-manager.notify-message.add-source-success'),
+            key: false,
+          });
+          this.getDetail()
+        } catch (err) {
+          this.setNotify({
+            show: true,
+            type: constants.NOTIFY_TYPE.ERROR,
+            content: err.message,
+            key: false,
+          });
+        } finally {
+          this.loading = false
+        }
+      }
+    },
+    async removeSoucreTicket() {
+      try {
+        this.loading = true
+        await TicketService.removeSouceTicKet(this.detail.id)
+        this.setNotify({
+          show: true,
+          type: constants.NOTIFY_TYPE.SUCCESS,
+          content: this.$t('ticket-manager.notify-message.remove-source-success'),
+          key: false,
+        });
+        this.getDetail()
+      } catch (err) {
+        this.setNotify({
+          show: true,
+          type: constants.NOTIFY_TYPE.ERROR,
+          content: err.message,
+          key: false,
+        });
+      } finally {
+        this.loading = false
+      }
     },
     listAssociationFromEmit(val) {
       this.listAssociation = val;

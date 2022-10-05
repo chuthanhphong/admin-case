@@ -21,11 +21,11 @@
         </v-btn>
       </template>
 
-      <v-list class="px-2 item-action cursor-pointer">
+      <v-list>
         <div
           v-for="(action, id) in listActionOther"
           :key="id"
-          class="px-2 item-action"
+          class="px-2 my-2 item-action cursor-pointer"
           @click="onBtnAction(action)"
         >
           <div
@@ -73,7 +73,7 @@ import statusCalender from '@/modules/calendar/mixins/statusCalender'
 // router
 import calendarRoute from '@/modules/calendar/router/routePaths'
 
-import DialogConfirm from '@/modules/calendar/views/detail/components/DialogConfirm'
+import DialogConfirm from '@/modules/calendar/views/components/DialogConfirm'
 
 // mixins
 import actionCalendar from '@/modules/calendar/mixins/actionCalendar'
@@ -108,6 +108,7 @@ export default {
         showDialogConfirm: false,
         titleConfirm: '',
         isReason: false,
+        isNull: false,
         reason: ''
       },
       actionActive: null,
@@ -204,6 +205,7 @@ export default {
       this.objConfirm.titleConfirm = ''
       this.objConfirm.reason = ''
       this.objConfirm.isReason = false
+      this.objConfirm.isNull = false
       switch (action) {
         // sua
         case constants.CALENDAR_ACTION.EDIT:
@@ -225,6 +227,7 @@ export default {
           this.objConfirm.titleConfirm = 'calendar.detailMeeting.confirm.reject'
           this.objConfirm.showDialogConfirm = true
           this.objConfirm.isReason = true
+          this.objConfirm.isNull = true
           this.actionActive = constants.CALENDAR_ACTION.REJECT
           break
         // tham gia online
@@ -250,18 +253,25 @@ export default {
           break
         // khong tham gia
         case constants.CALENDAR_ACTION.NOT_PARTICIPATE:
+          this.objConfirm.titleConfirm = 'calendar.detailMeeting.confirm.not-participant'
+          this.objConfirm.showDialogConfirm = true
+          this.objConfirm.isReason = true
+          this.objConfirm.isNull = false
+          this.actionActive = constants.CALENDAR_ACTION.NOT_PARTICIPATE
           break
         // huy
         case constants.CALENDAR_ACTION.CANCEL:
           this.objConfirm.titleConfirm = 'calendar.detailMeeting.confirm.cancel'
           this.objConfirm.showDialogConfirm = true
           this.objConfirm.isReason = true
+          this.objConfirm.isNull = true
           this.actionActive = constants.CALENDAR_ACTION.CANCEL
           break
         // xoa
         case constants.CALENDAR_ACTION.DELETE:
           this.objConfirm.titleConfirm = 'calendar.detailMeeting.confirm.delete'
           this.objConfirm.showDialogConfirm = true
+          this.objConfirm.isNull = true
           this.actionActive = constants.CALENDAR_ACTION.DELETE
           break
         default:
@@ -283,6 +293,7 @@ export default {
     closeDialogConfirm() {
       this.objConfirm.reason = ''
       this.objConfirm.isReason = false
+      this.objConfirm.isNull = false
       this.objConfirm.showDialogConfirm = false
     }
   }

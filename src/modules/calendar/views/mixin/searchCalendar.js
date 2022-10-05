@@ -76,59 +76,40 @@ export default {
 
       timeoutOnScroll: null,
       totalCount: 0,
-
+      removeEvent: false,
+      meetingStartTime: null,
+      meetingEndTime: null
     }
   },
   computed: {
-    listIndexState() {
-      return this.searchingType === 'APPROVE' ? ['PENDING', 'APPROVED', 'REJECTED', 'CANCELED', 'EXPIRED'] : ['APPROVED']
-    },
     isExpired: {
       get() {
-        return this.listIndexState.includes("EXPIRED")
-      },
-      set() {
         return this.listIndexState.includes("EXPIRED")
       }
     },
     isPending: {
       get() {
         return this.listIndexState.includes("PENDING")
-      },
-      set() {
-        return this.listIndexState.includes("PENDING")
       }
     },
     isApprove: {
       get() {
-        return this.listIndexState.includes("APPROVED")
-      },
-      set() {
         return this.listIndexState.includes("APPROVED")
       }
     },
     isReject: {
       get() {
         return this.listIndexState.includes("REJECTED")
-      },
-      set() {
-        return this.listIndexState.includes("REJECTED")
       }
     },
     isCancel: {
       get() {
-        return this.listIndexState.includes("CANCELED")
-      },
-      set() {
         return this.listIndexState.includes("CANCELED")
       }
     },
     countListMeeting() {
       return this.lstMeeting.length
     },
-    isLoadMore() {
-      return this.countListMeeting < this.totalCount
-    }
   },
 
   updated() {
@@ -147,8 +128,10 @@ export default {
   },
   methods: {
     initDate() {
-      this.formdata.meetingStartTime = moment().clone().startOf("isoWeek").format("DD/MM/YYYY").replaceAll('/', '')
-      this.formdata.meetingEndTime = moment().clone().endOf("isoWeek").format("DD/MM/YYYY").replaceAll('/', '')
+      this.meetingStartTime = moment().clone().startOf("isoWeek").format("DD/MM/YYYY")
+      this.meetingEndTime = moment().clone().endOf("isoWeek").format("DD/MM/YYYY")
+      this.formdata.meetingStartTime = this.meetingStartTime.replaceAll('/', '')
+      this.formdata.meetingEndTime = this.meetingEndTime.replaceAll('/', '')
     },
     showDialogSave() {
       this.showDialog = true
@@ -157,8 +140,18 @@ export default {
       if (status) {
         this.lstMeetingDefault = []
         this.search()
+      } else {
+        this.removeEvent = true;
       }
       this.showDialog = false
+    },
+    searchDate(from, to) {
+      this.formdata.meetingStartTime = from.replaceAll('/', '')
+      this.formdata.meetingEndTime = null
+      if (to) this.formdata.meetingEndTime = to.replaceAll('/', '')
+
+      this.showAdvance = true
+      this.search()
     },
     advanceSearch(params, listIndexState) {
       this.formdata = params

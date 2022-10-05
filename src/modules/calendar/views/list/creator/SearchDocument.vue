@@ -35,10 +35,20 @@
               <v-btn
                 v-bind="attrs"
                 outlined
+                :color="isSearch ? 'primary' : ''"
                 class="btn-show-advance mx-0 ml-1"
                 v-on="{ ...menuState, ...tooltip }"
               >
-                <i class="app-icon icon-advance darken" />
+                <v-badge
+                  v-if="isSearch"
+                  color="info"
+                  dot
+                  bordered
+                  value="true"
+                >
+                  <i class="app-icon icon-advance darken" />
+                </v-badge>
+                <i v-else class="app-icon icon-advance darken" />
               </v-btn>
             </template>
             <div>
@@ -112,6 +122,7 @@ export default {
     return {
       showAdvance: false,
       show: false,
+      isSearch: false
     };
   },
   created() {},
@@ -128,7 +139,8 @@ export default {
       this.$emit("show-dialog-save");
     },
 
-    onSubmitAdvanceSearch(params, listIndexState) {
+    onSubmitAdvanceSearch(params, listIndexState, isSearching) {
+      this.isSearch = isSearching
       this.$emit("advance-search", params, listIndexState);
     },
     searchCalendar() {

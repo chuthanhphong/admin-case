@@ -2,8 +2,13 @@
   <div class="calendar-font wrap-content-calendar-search">
     <SearchDocument
       v-show="showListData"
+      :show-search="showListData"
       :formdata="formdata"
       :search="quickSearch"
+      :search-date="searchDate"
+      :meeting-start-time="meetingStartTime"
+      :meeting-end-time="meetingEndTime"
+      :searching-type="searchingType"
       @show-dialog-save="showDialogSave"
       @advance-search="advanceSearch"
     />
@@ -18,7 +23,6 @@
         <v-data-table
           id="virtual-scroll-table-participant"
           ref="tableParticipant"
-          v-scroll:#virtual-scroll-table-participant="onScroll"
           hide-default-footer
           fixed-header
           group-by="dateValue"
@@ -54,7 +58,7 @@
           <!-- thoi gian hop -->
           <template v-slot:item="{ item }">
             <tr>
-              <td class="text-center">
+              <td class="text-center" @click="onDetailMeeting(item)">
                 {{ genDateTime(item) }}
               </td>
               <!-- dia diem -->
@@ -76,7 +80,7 @@
                 {{ item.title }}
               </td>
               <!-- trang thai -->
-              <td class="text-left">
+              <td class="text-left" @click="onDetailMeeting(item)">
                 <span v-html="calendarStatus(item.status)"></span>
               </td>
               <!-- Chu tri -->
@@ -256,13 +260,18 @@
       :show-list-data="showListData"
       :formdata="formdata"
       :search="quickSearch"
+      :remove-event="removeEvent"
       @close-dialog-save="closeDialogSave"
       @show-dialog-save="showDialogSave"
       @advance-search="advanceSearch"
+      @showDialogSaveClickCalendar="showDialogSaveClickCalendar"
+      @updateStateRemoveEvent="updateStateRemoveEvent"
+      @onDetailMeeting="onDetailMeeting"
     />
 
     <DialogSaveMeetingSchedule
       :show-dialog="showDialog"
+      @reset-tab-current="resetTabCurrent"
       @close-dialog-save="closeDialogSave"
     />
 
@@ -284,6 +293,18 @@
       :title-confirm="titleConfirm"
       @close-dialog="showDialogConfirmDelete = false"
       @accept-action="deleteMeeting"
+    />
+
+    <!-- Dialog tu choi tham gia -->
+    <DialogConfirmReject
+      :show-dialog="showDialogConfirmRejectParticipant"
+      :title-confirm="titleConfirmRejectParticipant"
+      :show-comment="true"
+      :required-comment="false"
+      :label-comment="labelRejectParticipant"
+      :label-input-comment="labelInputRejectParticipant"
+      @close-dialog="showDialogConfirmRejectParticipant = false"
+      @accept="rejectParticipantMeeting"
     />
   </div>
 </template>
@@ -358,13 +379,23 @@ export default {
     // Data dialog confirm xoa lich.
     showDialogConfirmDelete: false,
     titleConfirm: "",
+    checkCreateCalendar: false,
+    startDate: "",
+    endDate: "",
+    datePicker: "",
+    removeEvent: false,
+    listIndexState: [
+      "APPROVED"
+    ],
+
+    // Data dialog confirm reject duyet lich.
+    showDialogConfirmRejectParticipant: false,
+    titleConfirmRejectParticipant: "calendar.messConfirmReject",
+    labelRejectParticipant: "document.label.reason",
+    labelInputRejectParticipant: "document.label.inputReason",
   }),
 
   computed: {
-    computedHeightTable() {
-      const box = document.getElementById("virtual-scroll-table-participant");
-      return box.offsetHeight;
-    },
   },
   methods: {
     ...mapActions("layout", ["setNotify"]),
@@ -421,6 +452,25 @@ export default {
       }
     },
 
+    async rejectParticipantMeeting(comment) {
+      try {
+        this.loading = true;
+        var formData = {};
+        formData.meetingId = this.meetingItemId;
+        formData.note = comment;
+        await CalendarService.notParticipant(formData);
+        this.lstMeeting = [];
+        this.lstMeetingDefault = [];
+        this.page = 1;
+        this.search();
+        this.loading = false;
+        this.getNotifySucces("calendar.detailMeeting.success.not-participant");
+      } catch (error) {
+        this.getNotifyError(error.message);
+        this.loading = false;
+      }
+    },
+
     // show icon thao tac cua van ban
     showIconHandleDoc(action, item) {
       console.log(action);
@@ -434,6 +484,14 @@ export default {
         this.titleConfirm = "calendar.messConfirmDelete";
         this.meetingItemId = item.meetingId;
         this.showDialogConfirmDelete = true;
+        return;
+      }
+
+      // tu choi tham gia
+      if (action === constants.LIST_ACTIONS_DETAIL.NOT_PARTICIPATE) {
+        this.titleConfirm = "calendar.messConfirmRejectParticipant";
+        this.meetingItemId = item.meetingId;
+        this.showDialogConfirmRejectParticipant = true;
         return;
       }
     },
@@ -478,22 +536,6 @@ export default {
       }
     },
 
-    onScroll(e) {
-      // this.timeoutOnScroll && clearTimeout(this.timeoutOnScroll);
-      // this.timeoutOnScroll = setTimeout(() => {
-      //   const heightContent = document.querySelector(
-      //     "#virtual-scroll-table-participant > .v-data-table__wrapper tbody"
-      //   ).offsetHeight;
-      //   const heightHeader = 44;
-      //   const scrollTop =
-      //     heightHeader + heightContent - this.computedHeightTable;
-      //   if (e.target.scrollTop >= scrollTop && this.isLoadMore) {
-      //     this.page = this.page + 1;
-      //     this.search();
-      //   }
-      // }, 20);
-    },
-
     onDetailMeeting(item) {
       if (
         item.showIcons &&
@@ -510,6 +552,22 @@ export default {
           )}`
         );
       }
+    },
+    showDialogSaveClickCalendar(start, end, date) {
+      this.updateMeeting = false;
+      this.meetingId = null;
+      this.checkCreateCalendar = true;
+      this.startDate = start;
+      this.endDate = end;
+      this.datePicker = date;
+      this.showDialog = true;
+    },
+    updateStateRemoveEvent() {
+      this.removeEvent = false;
+    },
+
+    resetTabCurrent() {
+      this.$emit("reset-tab-current");
     },
   },
 };

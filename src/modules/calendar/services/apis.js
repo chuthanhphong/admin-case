@@ -63,7 +63,9 @@ export default {
     APPROVE_MEETING: 'calendar/meeting/private/approve-meeting', // duyet lich.
     LOAD_DETAIL_MEETING: 'calendar/meeting/limitless/private/load-meeting-detail', // load thong tin de sua
     SENT_MEETING: 'calendar/meeting/private/send-meeting/', // gui duyet lich
-    CANCEL_MEETING: '/calendar/meeting/private/cancel-meeting', // huy lich
-    DELETE_MEETING: '/calendar/meeting/private/delete-meeting' // xoa lich
+    CANCEL_MEETING: 'calendar/meeting/private/cancel-meeting', // huy lich
+    DELETE_MEETING: 'calendar/meeting/private/delete-meeting', // xoa lich
+    SEARCH_SAVING_DUPLICATE_PARTICIPANTS: 'calendar/meeting-participant/private/search-saving-duplicate-participants', // check duplicate thanh phan tham gia tao lich
+    NOT_PARTICIPANT: 'calendar/meeting-participant/private/reject-participating' // bo tham gia
   }
 }

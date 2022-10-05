@@ -88,9 +88,9 @@
                     </b>
                   </div>
                   <v-layout class="link">
-                    <span class="text--body-5 task-name-hover text-ellipsis cursor-pointer" @click="onGotoDetailTicket(item)">
+                    <div class="text--body-5 task-name-hover cursor-pointer" @click="onGotoDetailTicket(item)">
                       {{ getTextTruncateView(item.name, 30) }}
-                    </span>
+                    </div>
                     <div
                       v-if="item.amountTask > 0"
                       class="d-flex align-center ml-3"
@@ -179,6 +179,7 @@
                       <PopupUserInfoViewHover
                         v-if="hover"
                         :user-info="item.userInfo"
+                        :is-chevron-left="false"
                       />
                     </v-btn>
                   </v-hover>

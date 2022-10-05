@@ -29,7 +29,7 @@
           <!-- thoi gian hop -->
           <template v-slot:item="{ item, index }">
             <tr>
-              <td class="text-center">
+              <td class="text-center" @click="onDetailMeeting(item)">
                 {{ genDateTime(item) }}
               </td>
               <td class="text-center">
@@ -50,7 +50,7 @@
                 {{ item.title }}
               </td>
               <!-- trang thai -->
-              <td class="text-left">
+              <td class="text-left" @click="onDetailMeeting(item)">
                 <span v-html="calendarStatus(item.status)"></span>
               </td>
               <!-- Chu tri -->
@@ -241,15 +241,23 @@
       :show-list-data="showListData"
       :formdata="formdata"
       :search="quickSearch"
+      :remove-event="removeEvent"
       @close-dialog-save="closeDialogSave"
       @show-dialog-save="showDialogSave"
       @advance-search="advanceSearch"
+      @showDialogSaveClickCalendar="showDialogSaveClickCalendar"
+      @updateStateRemoveEvent="updateStateRemoveEvent"
+      @onDetailMeeting="onDetailMeeting"
     />
 
     <DialogSaveMeetingSchedule
       :meeting-id="meetingId"
       :show-dialog="showDialogSaveMeeting"
       :update-meeting="updateMeeting"
+      :start-date="startDate"
+      :end-date="endDate"
+      :date="datePicker"
+      :check-create-calendar="checkCreateCalendar"
       @close-dialog-save="closeDialogSave"
     />
     <DialogConfirmSave
@@ -277,6 +285,18 @@
       :title-confirm="titleConfirm"
       @close-dialog="showDialogConfirmDelete = false"
       @accept-action="deleteMeeting"
+    />
+
+    <!-- Dialog tu choi tham gia -->
+    <DialogConfirmReject
+      :show-dialog="showDialogConfirmRejectParticipant"
+      :title-confirm="titleConfirmRejectParticipant"
+      :show-comment="true"
+      :required-comment="false"
+      :label-comment="labelRejectParticipant"
+      :label-input-comment="labelInputRejectParticipant"
+      @close-dialog="showDialogConfirmRejectParticipant = false"
+      @accept="rejectParticipantMeeting"
     />
   </div>
 </template>
@@ -411,7 +431,7 @@ export default {
       ...initData,
     },
     page: 1,
-    pageSize: 10,
+    pageSize: 100000,
 
     params: null,
     showAdvance: false,
@@ -439,13 +459,21 @@ export default {
     labelInputReject: "document.label.inputReason",
     // Data dialog confirm xoa lich.
     showDialogConfirmDelete: false,
+    checkCreateCalendar: false,
+    startDate: "",
+    endDate: "",
+    datePicker: "",
+    removeEvent: false,
+
+    // Data dialog confirm reject duyet lich.
+    showDialogConfirmRejectParticipant: false,
+    titleConfirmRejectParticipant: "calendar.messConfirmReject",
+    labelRejectParticipant: "document.label.reason",
+    labelInputRejectParticipant: "document.label.inputReason",
   }),
   computed: {
     isExpired: {
       get() {
-        return this.listIndexState.includes("EXPIRED");
-      },
-      set() {
         return this.listIndexState.includes("EXPIRED");
       },
     },
@@ -453,15 +481,9 @@ export default {
       get() {
         return this.listIndexState.includes("DRAFT");
       },
-      set() {
-        return this.listIndexState.includes("DRAFT");
-      },
     },
     isPending: {
       get() {
-        return this.listIndexState.includes("PENDING");
-      },
-      set() {
         return this.listIndexState.includes("PENDING");
       },
     },
@@ -469,23 +491,14 @@ export default {
       get() {
         return this.listIndexState.includes("APPROVED");
       },
-      set() {
-        return this.listIndexState.includes("APPROVED");
-      },
     },
     isReject: {
       get() {
         return this.listIndexState.includes("REJECTED");
       },
-      set() {
-        return this.listIndexState.includes("REJECTED");
-      },
     },
     isCancel: {
       get() {
-        return this.listIndexState.includes("CANCELED");
-      },
-      set() {
         return this.listIndexState.includes("CANCELED");
       },
     },
@@ -576,6 +589,25 @@ export default {
       }
     },
 
+    async rejectParticipantMeeting(comment) {
+      try {
+        this.loading = true;
+        var formData = {};
+        formData.meetingId = this.meetingItemId;
+        formData.note = comment;
+        await CalendarService.notParticipant(formData);
+        this.lstMeeting = [];
+        this.lstMeetingDefault = [];
+        this.page = 1;
+        this.search();
+        this.loading = false;
+        this.getNotifySucces("calendar.detailMeeting.success.not-participant");
+      } catch (error) {
+        this.getNotifyError(error.message);
+        this.loading = false;
+      }
+    },
+
     // show icon thao tac cua van ban
     showIconHandleDoc(action, item) {
       if (action === constants.LIST_ACTIONS_DETAIL.EDIT) {
@@ -601,6 +633,14 @@ export default {
         this.titleConfirm = "calendar.messConfirmDelete";
         this.meetingItemId = item.meetingId;
         this.showDialogConfirmDelete = true;
+        return;
+      }
+
+      // tu choi tham gia
+      if (action === constants.LIST_ACTIONS_DETAIL.NOT_PARTICIPATE) {
+        this.titleConfirm = "calendar.messConfirmRejectParticipant";
+        this.meetingItemId = item.meetingId;
+        this.showDialogConfirmRejectParticipant = true;
         return;
       }
     },
@@ -635,10 +675,21 @@ export default {
       this.meetingId = null;
       this.showDialogSaveMeeting = true;
     },
+    showDialogSaveClickCalendar(start, end, date) {
+      this.updateMeeting = false;
+      this.meetingId = null;
+      this.checkCreateCalendar = true;
+      this.startDate = start;
+      this.endDate = end;
+      this.datePicker = date;
+      this.showDialogSaveMeeting = true;
+    },
     closeDialogSave(status) {
       if (status) {
         this.lstMeeting = [];
         this.search();
+      } else {
+        this.removeEvent = true;
       }
       this.showDialogSaveMeeting = false;
     },
@@ -713,6 +764,9 @@ export default {
           this.search();
         }
       }, 20);
+    },
+    updateStateRemoveEvent() {
+      this.removeEvent = false;
     },
   },
 };

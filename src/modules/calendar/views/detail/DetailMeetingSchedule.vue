@@ -7,56 +7,76 @@
       <div class="meeting-detail-content">
         <div class="row meeting-detail-body">
           <div class="col-12 col-md-6">
+            <div class="wrap__name">
+              <h5>{{ meetingTitle }}</h5>
+            </div>
             <div class="wrap__create-time">
               <img src="@/assets/icons/calendar/clock.png">
-              <h5>{{ meetingDetail.meetingDateTime }}</h5>
+              <h5 style="color: #00C3F9">{{ meetingDetail.meetingDateTime }}</h5>
             </div>
             <div class="wrap__address">
-              <img src="@/assets/icons/calendar/gps.png">
               <div
                 v-for="(item, idx) in meetingDetail.meetingRooms"
                 :key="idx"
-                class="text-ellipsis"
+                class="text-ellipsis d-flex align-center my-2"
+                style="gap: 5px;"
               >
-                <span :class="item.isHostRoom ? 'bold' : ''">
+                <img v-if="idx === 0" src="@/assets/icons/calendar/gps.png">
+                <span v-else class="icon-dot" />
+                <span class="item-room" :class="item.isHostRoom ? 'bold' : ''">
                   {{ item.name }}
                 </span>
               </div>
             </div>
-            <div class="wrap__name">
-              <h5>{{ meetingTitle }}</h5>
-            </div>
             <div class="box-body-left">
               <div class="wrap__online-meeting calendar-text--body-4">
-                <!--          <label class="label-name">{{ $t('calendar.detailMeeting.online-meeting') }}</label>
-            <v-text-field
-              dense
-              maxlength="200"
-              counter="200"
-              flat
-              solo
-              append-icon=""
-              class="text&#45;&#45;body-5"
-              readonly
-              hide-details
-              background-color="#F6F8FB"
-              value="https://bssd.mdo.com.vn/"
-            >
-              <template v-slot:append>
-                <v-tooltip top content-class="tooltip-top">
-                  <template v-slot:activator="{ on, attrs }">
-                    <img
-                      alt=""
-                      src="@/assets/icons/calendar/copy.png"
-                      class="cursor-pointer"
-                      v-bind="attrs"
-                      v-on="on"
-                    >
-                  </template>
-                  <span>{{ $t('calendar.detailMeeting.copy') }}</span>
-                </v-tooltip>
-              </template>
-            </v-text-field>-->
+                <!--<div class="mb-3">
+                  <label class="label-name">{{ $t('calendar.detailMeeting.online-meeting') }}</label>
+                  <v-text-field
+                    dense
+                    maxlength="200"
+                    counter="200"
+                    flat
+                    solo
+                    append-icon=""
+                    class="text&#45;&#45;body-5"
+                    readonly
+                    hide-details
+                    background-color="#F6F8FB"
+                    value="https://bssd.mdo.com.vn/"
+                  >
+                    <template v-slot:append>
+                      <v-tooltip top content-class="tooltip-top">
+                        <template v-slot:activator="{ on, attrs }">
+                          <img
+                            alt=""
+                            src="@/assets/icons/calendar/copy.png"
+                            class="cursor-pointer"
+                            v-bind="attrs"
+                            v-on="on"
+                          >
+                        </template>
+                        <span>{{ $t('calendar.detailMeeting.copy') }}</span>
+                      </v-tooltip>
+                    </template>
+                  </v-text-field>
+                </div>-->
+                <div v-show="meetingDetail.pointOfContact" class="mb-3">
+                  <label class="label-name">{{ $t('calendar.detailMeeting.pointOfContact') }}</label>
+                  <v-text-field
+                    dense
+                    maxlength="200"
+                    counter="200"
+                    flat
+                    solo
+                    append-icon=""
+                    class="text--body-5"
+                    readonly
+                    hide-details
+                    background-color="#F6F8FB"
+                    :value="meetingDetail.pointOfContact"
+                  />
+                </div>
                 <div class="schedule">
                   <span class="type-schedule">
                     {{ meetingDetail.meetingType === 'MEETING_SCHEDULE'
@@ -452,6 +472,9 @@ export default {
       this.getDetailMeeting()
     },
     isShowRepeat(periodic) {
+      if (!periodic) {
+        return false
+      }
       if (periodic === constants.FREQUENCY.ONCE) {
         return false
       }

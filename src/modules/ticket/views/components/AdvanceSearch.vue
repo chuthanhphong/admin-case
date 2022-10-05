@@ -621,7 +621,12 @@ import moment from "moment";
 import constants from "@/constants";
 import { mapActions } from "vuex";
 import mixinStatusAndPriority from "@/modules/ticket/mixins/mixinStatusAndPriority";
-import { definedStatus, FORMAT_DATE_TICKET, formatDate, getDateNow, } from "@/modules/ticket/helpers/ticketUtils";
+import {
+  definedStatus,
+  FORMAT_DATE_TICKET,
+  formatDate,
+  getDateNow,
+} from "@/modules/ticket/helpers/ticketUtils";
 import filterItems from "@/mixins/filterItems.js";
 import { TicketService } from "@/modules/ticket/services/ticketService";
 
@@ -706,7 +711,7 @@ export default {
     isAcceptBtnSearch: {
       type: Boolean,
       default: undefined,
-    }
+    },
   },
   data() {
     return {
@@ -834,7 +839,8 @@ export default {
         ).isValid();
         this.errorDateDeadlinefrom = isValid
           ? ""
-          : this.$t("task-manager.dateInvalid", { name: this.$t("task-manager.label.dateFrom"), });
+          : this.$t("task-manager.dateInvalid",
+            { name: this.$t("task-manager.label.dateFrom"), });
         if (isValid) {
           this.dateDeadlineFrom = moment(
             this.dateDeadlineFromFm,
@@ -850,8 +856,8 @@ export default {
           );
           const diff = selectDate.diff(timeExprired, "days");
           this.formData.estimateEndFromDate =
-              this.dateDeadlineFromFm &&
-              this.dateDeadlineFromFm.replaceAll("/", "");
+            this.dateDeadlineFromFm &&
+            this.dateDeadlineFromFm.replaceAll("/", "");
           this.formData.deadlineTaskTimeType = null;
           this.indexDate = "";
           if (diff < 0) {
@@ -886,7 +892,8 @@ export default {
         ).isValid();
         this.errorDateDeadlineTo = isValid
           ? ""
-          : this.$t("task-manager.dateInvalid", { name: this.$t("task-manager.label.dateTo"), });
+          : this.$t("task-manager.dateInvalid",
+            { name: this.$t("task-manager.label.dateTo"), });
         if (isValid) {
           this.dateDeadlineTo = moment(
             this.dateDeadlineToFm,
@@ -902,7 +909,7 @@ export default {
           );
           const diff = selectDate.diff(timeExprired, "days");
           this.formData.estimateEndToDate =
-              this.dateDeadlineToFm && this.dateDeadlineToFm.replaceAll("/", "");
+            this.dateDeadlineToFm && this.dateDeadlineToFm.replaceAll("/", "");
           this.formData.deadlineTaskTimeType = null;
           this.indexDate = "";
           if (diff < 0) {
@@ -947,7 +954,8 @@ export default {
         ).isValid();
         this.errorCreateDateFrom = isValid
           ? ""
-          : this.$t("task-manager.dateInvalid", { name: this.$t("task-manager.label.dateFrom"), });
+          : this.$t("task-manager.dateInvalid",
+            { name: this.$t("task-manager.label.dateFrom"), });
         if (isValid) {
           this.createDateFrom = moment(
             this.createDateFromFm,
@@ -963,7 +971,7 @@ export default {
           );
           const diff = selectDate.diff(timeExprired, "days");
           this.formData.estimateEndFromDate =
-              this.createDateFromFm && this.createDateFromFm.replaceAll("/", "");
+            this.createDateFromFm && this.createDateFromFm.replaceAll("/", "");
           this.formData.deadlineTaskTimeType = null;
           this.indexDate = "";
           if (diff < 0) {
@@ -998,7 +1006,8 @@ export default {
         ).isValid();
         this.errorCreateDateTo = isValid
           ? ""
-          : this.$t("task-manager.dateInvalid", { name: this.$t("task-manager.label.dateTo"), });
+          : this.$t("task-manager.dateInvalid",
+            { name: this.$t("task-manager.label.dateTo"), });
         if (isValid) {
           this.createDateTo = moment(
             this.createDateToFm,
@@ -1014,7 +1023,7 @@ export default {
           );
           const diff = selectDate.diff(timeExprired, "days");
           this.formData.estimateEndToDate =
-              this.createDateToFm && this.createDateToFm.replaceAll("/", "");
+            this.createDateToFm && this.createDateToFm.replaceAll("/", "");
           this.formData.deadlineTaskTimeType = null;
           this.indexDate = "";
           if (diff < 0) {
@@ -1077,16 +1086,16 @@ export default {
       });
       if (
         this.formData.name ||
-          this.dateDeadlineFrom ||
-          this.dateDeadlineTo ||
-          this.createDateFrom ||
-          this.createDateTo ||
-          this.deadLineValue ||
-          this.chooseStatus.length ||
-          this.formData.performerSelected ||
-          this.formData.performGroupSelected ||
-          this.formData.followerSelected ||
-          this.formData.type
+        this.dateDeadlineFrom ||
+        this.dateDeadlineTo ||
+        this.createDateFrom ||
+        this.createDateTo ||
+        this.deadLineValue ||
+        this.chooseStatus.length ||
+        this.formData.performerSelected ||
+        this.formData.performGroupSelected ||
+        this.formData.followerSelected ||
+        this.formData.type
       ) {
         this.formData = {};
         this.deadLineValue = null;
@@ -1158,7 +1167,7 @@ export default {
           if (item.value === value) {
             if (
               (item.isClicked && this.chooseStatus.length === 0) ||
-                !item.isClicked
+              !item.isClicked
             ) {
               this.chooseStatus.push(value);
             } else {
@@ -1180,7 +1189,7 @@ export default {
           if (item.value === value) {
             if (
               (item.isClicked && this.chooseStatus.length === 0) ||
-                !item.isClicked
+              !item.isClicked
             ) {
               this.chooseStatus.push(value);
             } else {
@@ -1202,7 +1211,7 @@ export default {
           if (item.value === value) {
             if (
               (item.isClicked && this.chooseStatus.length === 0) ||
-                !item.isClicked
+              !item.isClicked
             ) {
               this.chooseStatus.push(value);
             } else {
@@ -1239,7 +1248,9 @@ export default {
           };
         }
       });
-      if (this.lstOptionDeadline.filter((x) => x.isClicked === true).length > 0) {
+      if (
+        this.lstOptionDeadline.filter((x) => x.isClicked === true).length > 0
+      ) {
         this.deadLineValue = value;
         this.$emit("get-deadline", value);
       } else {

@@ -50,7 +50,7 @@
             <i class="app-icon icon-select-checked darken"></i>
           </template>
         </v-select>
-        <v-menu
+        <!-- <v-menu
           ref="menuDateFromTo"
           v-model="menuDateFromTo"
           :close-on-content-click="false"
@@ -91,7 +91,7 @@
             no-title
             @click:date="onChangeDates"
           />
-        </v-menu>
+        </v-menu> -->
       </v-layout>
       <div class="box-search">
         <v-text-field

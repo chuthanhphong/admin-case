@@ -1,42 +1,42 @@
 <template>
   <v-layout v-if="typeAttributes.valueType" column>
     <label
-      class="text--body-5 darken--text"
       :class="
         confirmTypeValue(definedValueType.title) ? 'mb-4' : 'text-uppercase'
       "
+      class="text--body-5 darken--text"
     >
       {{ typeAttributes.name }}
       <span v-if="hasRequired">*</span>
     </label>
     <validation-provider
       v-slot="{ errors }"
-      name="attributeValue"
       :rules="computedRules"
       :vid="`attributeValue-${index}`"
+      name="attributeValue"
     >
       <v-text-field
         v-if="confirmTypeValue(definedValueType.input)"
         v-model="typeAttributes.attributeValue"
-        outlined
-        dense
-        color="#7B8794"
-        background-color="white"
+        :error-messages="errors"
         :maxlength="maximumSmallText"
         :placeholder="$t('tickets.placeholders.is-input')"
-        :error-messages="errors"
+        background-color="white"
+        color="#7B8794"
+        dense
+        outlined
       />
 
       <v-text-field
         v-if="confirmTypeValue(definedValueType.number)"
         v-model="typeAttributes.attributeValue"
-        outlined
-        dense
-        color="#7B8794"
-        background-color="white"
+        :error-messages="errors"
         :maxlength="maximumSmallText"
         :placeholder="$t('tickets.placeholders.is-number')"
-        :error-messages="errors"
+        background-color="white"
+        color="#7B8794"
+        dense
+        outlined
         @keypress="isNumber($event)"
         @paste.prevent="onPasteNumber($event)"
       />
@@ -44,26 +44,26 @@
       <v-select
         v-if="confirmTypeValue(definedValueType.selectBox)"
         v-model="typeAttributes.attributeValue"
-        outlined
-        dense
-        :placeholder="$t('tickets.placeholders.is-select')"
         :error-messages="errors"
         :items="computedValueItems"
+        :placeholder="$t('tickets.placeholders.is-select')"
+        dense
+        outlined
       />
 
       <v-layout
         v-if="confirmTypeValue(definedValueType.checkBox)"
-        column
         class="mb-4"
+        column
       >
         <v-list-item-group v-for="(item, idx) in computedValueItems" :key="idx">
           <v-list-item>
             <v-checkbox
               v-model="checkSelected"
-              :value="item"
               :label="item"
-              hide-details
+              :value="item"
               class="mt-0"
+              hide-details
             >
             </v-checkbox>
           </v-list-item>
@@ -74,27 +74,27 @@
     <v-menu
       v-if="confirmTypeValue(definedValueType.calendar)"
       ref="menuDate"
-      :v-model="`menuDate_${index}`"
       :close-on-content-click="false"
-      transition="scale-transition"
-      offset-y
+      :v-model="`menuDate_${index}`"
       min-width="auto"
+      offset-y
+      transition="scale-transition"
     >
       <template v-slot:activator="{ on, attrs }">
         <validation-provider
           v-slot="{ errors }"
-          name="attributeValue"
           :rules="computedRules"
           :vid="`attributeValue-${index}`"
+          name="attributeValue"
         >
           <v-text-field
             v-model="attributeDateFm"
-            outlined
-            dense
-            readonly
-            clearable
-            :placeholder="$t('tickets.placeholders.is-calendar')"
             :error-messages="errors"
+            :placeholder="$t('tickets.placeholders.is-calendar')"
+            clearable
+            dense
+            outlined
+            readonly
             v-bind="attrs"
             v-on="on"
           >
@@ -120,30 +120,30 @@
     <v-menu
       v-if="confirmTypeValue(definedValueType.clock)"
       ref="menuTime"
-      :v-model="`menuTime_${index}`"
       :close-on-content-click="false"
       :nudge-right="40"
       :return-value.sync="typeAttributes.attributeValue"
-      transition="scale-transition"
-      offset-y
+      :v-model="`menuTime_${index}`"
       max-width="290px"
       min-width="290px"
+      offset-y
+      transition="scale-transition"
     >
       <template v-slot:activator="{ on, attrs }">
         <validation-provider
           v-slot="{ errors }"
-          name="attributeValue"
           :rules="computedRules"
           :vid="`attributeValue-${index}`"
+          name="attributeValue"
         >
           <v-text-field
             v-model="typeAttributes.attributeValue"
-            outlined
-            dense
-            readonly
-            clearable
-            :placeholder="$t('tickets.placeholders.is-clock')"
             :error-messages="errors"
+            :placeholder="$t('tickets.placeholders.is-clock')"
+            clearable
+            dense
+            outlined
+            readonly
             v-bind="attrs"
             v-on="on"
           >
@@ -155,16 +155,16 @@
       </template>
       <v-time-picker
         v-model="typeAttributes.attributeValue"
-        full-width
         format="24hr"
+        full-width
         @click:minute="$refs.menuTime.save(typeAttributes.attributeValue)"
       ></v-time-picker>
     </v-menu>
 
     <v-layout
       v-if="confirmTypeValue(definedValueType.file)"
-      column
       class="mb-4"
+      column
     >
       <validation-provider
         v-if="hasRequired"
@@ -174,24 +174,24 @@
       >
         <v-text-field
           v-model="typeAttributes.attributeValue"
-          hide-details
           hidden
+          hide-details
         ></v-text-field>
       </validation-provider>
 
       <validation-provider
         ref="providerFileAttachs"
         :rules="ruleFileAttachsTicket"
-        name="fileAttachs"
         :vid="`attributeValueFile-${index}`"
+        name="fileAttachs"
       >
         <input
           ref="fileAttachsInput"
-          type="file"
-          accept=".xlsx,.xls,.doc,.docx,.pdf,.png,.jpg,.jpeg"
-          multiple
-          hidden
           :loading="uploadingFileAttatch"
+          accept=".xlsx,.xls,.doc,.docx,.pdf,.png,.jpg,.jpeg"
+          hidden
+          multiple
+          type="file"
           @change="selectAttachs"
         />
       </validation-provider>
@@ -215,8 +215,8 @@
           </label>
         </v-layout>
         <v-btn
-          class="btn-upload"
           :loading="uploadingFileAttatch"
+          class="btn-upload"
           @click="uploadAttachs"
         >
           <v-icon size="30">mdi-upload</v-icon>
@@ -227,16 +227,13 @@
 </template>
 
 <script>
-import {
-  definedValueType,
-  formatDate,
-  FORMAT_DATE_TICKET,
-} from "@/modules/ticket/helpers/ticketUtils";
+import { definedValueType, FORMAT_DATE_TICKET, formatDate, } from "@/modules/ticket/helpers/ticketUtils";
 import { FormUtils } from "@/helpers/formUtils";
 
 import constants from "@/constants";
 import rules from "@/mixins/rules";
 import mixinUploadFiles from "@/modules/ticket/mixins/mixinUploadFiles";
+import moment from "moment";
 
 export default {
   mixins: [rules, mixinUploadFiles],
@@ -249,6 +246,10 @@ export default {
       type: Number,
       default: undefined,
     },
+    isUpdate: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -266,6 +267,9 @@ export default {
     };
   },
   computed: {
+    typeTicketId() {
+      return this.typeAttributes.valueType
+    },
     computedRules() {
       if (this.hasRequired) {
         return "required";
@@ -305,6 +309,18 @@ export default {
       this.typeAttributes.inputFileAttributes.length > 0
     ) {
       this.nameFileAttachs = this.typeAttributes.inputFileAttributes;
+    }
+    if (this.confirmTypeValue(definedValueType.checkBox) && this.isUpdate) {
+      this.checkSelected = this.computedValueItems
+    }
+    if (this.confirmTypeValue(definedValueType.calendar)) {
+      if (this.typeAttributes.attributeValue) {
+        this.attributeDateFm = formatDate(
+          this.typeAttributes.attributeValue,
+          FORMAT_DATE_TICKET
+        );
+        this.attributeDate = moment(this.attributeDateFm, 'DD/MM/YYYY').format('YYYY-MM-DD')
+      }
     }
   },
   methods: {

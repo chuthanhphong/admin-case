@@ -29,7 +29,7 @@
           <v-autocomplete
             :items="transportData"
             :no-filter="true"
-            no-data-text="Không có dữ liệu"
+            :no-data-text="$t('noData')"
             placeholder="Nhập tên tài xế / tên xe"
             class="text--body-5"
             dense

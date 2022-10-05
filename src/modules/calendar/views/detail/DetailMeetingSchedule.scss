@@ -34,16 +34,14 @@
   }
 
   & .wrap__address {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     font-size: 18px;
     line-height: 25px;
     font-weight: 500;
     color: #22242C;
     margin-bottom: 10px;
 
-    & :hover {
+    & .item-room:hover {
+      cursor: pointer;
       color: #00c3f9;
     }
 
@@ -400,5 +398,18 @@
     height: calc(100vh - 270px) !important;
     min-height: 50vh;
     overflow-y: auto;
+  }
+
+  & .icon-dot:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #22242C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #22242C;
+    margin: 0 14px;
   }
 }

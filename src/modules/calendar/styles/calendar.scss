@@ -1,0 +1,90 @@
+.calendar-create {
+  & .participant-meeting {
+    & .participant-item {
+      & .error-red {
+        & .v-text-field--outlined fieldset{
+          border: 2px solid #FF5252;
+        }
+      }
+      & .error-blue {
+        & .v-text-field--outlined fieldset{
+          border: 1px solid #00C3F9;
+        }
+      }
+
+      & .title-schedule-duplicate {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28px;
+      }
+
+      & .mes-error-red {
+        color: rgb(255, 82, 82);
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: 600;
+        margin: 3px 10px 0px;
+      }
+
+      & .time-duplicate {
+        color: #00C3F9;
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: 600;
+        margin: 3px 10px 0px;
+      }
+
+      & .icon-warning {
+        background-image: url("../assets/icons/calendar/warning.png");
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+      & .first-time {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #22242C;
+        display: flex;
+        align-items: center;
+      }
+
+      & .icon-li:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+
+      & .icon-li-blue:before {
+        background: #00c3f9 !important;
+      }
+
+      & .icon-li-violet:before {
+        background: #4A50E2 !important;
+      }
+
+      & .end-time {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #A7A7AB;
+      }
+
+      & .title-meeting {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #22242C
+      }
+    }
+  }
+}

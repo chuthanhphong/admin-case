@@ -127,6 +127,7 @@
           class="text--body-5"
           :placeholder="$t('booking.placeholders.participants')"
           :label="$t('tickets.placeholders.performer')"
+          :no-data-text="$t('noData')"
           :items="listParticipant"
           item-text="fullName"
           chips

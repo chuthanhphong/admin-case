@@ -245,4 +245,34 @@ export class CalendarService extends BaseService {
       throw new ErrorWrapper(error, message)
     }
   }
+
+  static async searchSavingDuplicateParticipants(formData) {
+    try {
+      const response = await this.requestContract({ auth: true }).post(
+        `${Apis.CALENDAR.SEARCH_SAVING_DUPLICATE_PARTICIPANTS}`,
+        formData
+      )
+      return new ResponseWrapper(response, response.data.data)
+    } catch (error) {
+      const message = error.response.data
+        ? error.response.data.error
+        : error.response.message
+      throw new ErrorWrapper(error, message)
+    }
+  }
+
+  // bo tham gia
+  static async notParticipant(formData) {
+    try {
+      const response = await this.requestContract({ auth: true }).put(
+        `${Apis.CALENDAR.NOT_PARTICIPANT}?${formatQuery(formData)}`
+      )
+      return new ResponseWrapper(response, response.data.data)
+    } catch (error) {
+      const message = error.response.data
+        ? error.response.data.error
+        : error.response.message
+      throw new ErrorWrapper(error, message)
+    }
+  }
 }

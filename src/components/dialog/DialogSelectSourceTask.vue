@@ -64,9 +64,9 @@
             dense
             height="40px"
             outlined
+            @change="trimSpace"
             @keyup.enter="search()"
             @click:clear="clearKeyword"
-            @change="trimSpace"
           >
             <template v-slot:append>
               <v-img
@@ -114,13 +114,13 @@
                     <v-list-item three-line>
                       <v-list-item-content style="height: 50px; margin-top: 12px">
                         <div class="label-parent-work text-ellipsis">
-                          <v-tooltip content-class="tooltip-top" top>
+                          <v-tooltip :nudge-left="item.name.length > 100 ? 500 : 0 " content-class="tooltip-top" top>
                             <template v-slot:activator="{ on }">
-                              <div style="display: inline" class="text-name-hover" v-on="on">
+                              <div class="text-name-hover" style="display: inline" v-on="on">
                                 {{ (item.name) }}
                               </div>
                             </template>
-                            <div>{{ (item.name) }}</div>
+                            <span>{{ (item.name) }}</span>
                           </v-tooltip>
                         </div>
                         <v-list-item-subtitle>{{ `${$t('task-manager.label.creator')}: ${item.creatorName}` }}</v-list-item-subtitle>

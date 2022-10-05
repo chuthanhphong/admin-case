@@ -1,5 +1,5 @@
 <template>
-  <v-card color="#00C3F9" class="card-ticket card-type-ticket">
+  <v-card class="card-ticket card-type-ticket" color="#00C3F9">
     <v-card-title class="d-flex align-center">
       <span class="text--subtitle white--text d-flex align-center">
         {{ $t("ticket-manager.menu.ticket-type") }}
@@ -7,14 +7,14 @@
       </span>
       <span v-if="isAdminTicket" class="pl-2">
         <v-btn
+          :to="{ name: routeNames.CREATE_CATEGORY_TICKET }"
           color="white"
           elevation="0"
           fab
-          x-small
           style="width: 28px; height: 28px"
-          :to="{ name: routeNames.CREATE_CATEGORY_TICKET }"
+          x-small
         >
-          <v-icon size="28" color="#4A50E2">mdi-plus-circle-outline</v-icon>
+          <v-icon color="#4A50E2" size="28">mdi-plus-circle-outline</v-icon>
         </v-btn>
         <!-- <menu-actions
           @edit-click="editTypeTicketClick"
@@ -28,9 +28,9 @@
     >
       <v-checkbox
         v-model="checkedActive"
-        hide-details
-        color="#ffffff"
         class="ml-3"
+        color="#ffffff"
+        hide-details
         @change="onChangeCheckActive"
       >
         <template v-slot:label>
@@ -41,9 +41,9 @@
       </v-checkbox>
       <v-checkbox
         v-model="checkedInActive"
-        hide-details
-        color="#ffffff"
         class="ml-3 pl-6"
+        color="#ffffff"
+        hide-details
         @change="onChangeCheckInActive"
       >
         <template v-slot:label>
@@ -57,13 +57,13 @@
       <div class="d-flex align-center mb-4">
         <v-text-field
           v-model="txtSearch"
-          dense
-          outlined
-          hide-details
-          clearable
-          placeholder="Tìm kiếm"
-          color="primary"
           background-color="white"
+          clearable
+          color="primary"
+          dense
+          hide-details
+          outlined
+          placeholder="Tìm kiếm"
           @input="searchfilter"
         >
           <template v-slot:append>
@@ -71,11 +71,11 @@
           </template>
         </v-text-field>
       </div>
-      <v-list v-show="typesTicket.length > 0" nav dense class="px-0">
+      <v-list v-show="typesTicket.length > 0" class="px-0" dense nav>
         <v-list-item-group
           v-model="selectedTypeTicket"
-          mandatory
           color="primary"
+          mandatory
         >
           <v-list-item
             v-for="(item, i) in typesTicket"
@@ -87,13 +87,13 @@
               <div class="d-flex align-center justify-space-between">
                 <v-list-item-title v-text="item.name" />
                 <v-rating
+                  background-color="#FFB74A"
+                  class="btn-fav"
                   empty-icon="icon-star"
                   full-icon="icon-star-active"
                   hover
                   length="1"
                   size="20"
-                  background-color="#FFB74A"
-                  class="btn-fav"
                 />
               </div>
             </v-list-item-content>
@@ -125,6 +125,7 @@ export default {
       type: Boolean,
       default: undefined,
     },
+
   },
   data() {
     return {

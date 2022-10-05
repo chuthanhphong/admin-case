@@ -1,10 +1,10 @@
 <template>
   <v-expansion-panels v-model="expanded" class="rounded-0 no-z-index">
     <v-expansion-panel class="rounded-0">
-      <v-expansion-panel-header color="primary" class="rounded-0">
+      <v-expansion-panel-header class="rounded-0" color="primary">
         <v-layout justify-space-between>
           <v-layout align-center>
-            <v-btn fab x-small color="white" class="mr-3">
+            <v-btn class="mr-3" color="white" fab x-small>
               <i class="app-icon icon-signature primary"></i>
             </v-btn>
             <label class="text--subtitle-2 white--text">
@@ -13,11 +13,11 @@
           </v-layout>
           <v-btn
             v-if="isShowBtnCreateTask"
+            class="border-width-2 mr-2"
+            color="white"
             fab
             outlined
             x-small
-            color="white"
-            class="border-width-2 mr-2"
             @click.stop="onShowCreateTask"
           >
             <v-icon>mdi-plus</v-icon>
@@ -33,8 +33,8 @@
         <ul>
           <li v-for="(item, i) in detail.taskSourceMap.data" :key="i">
             <ItemTaskViewList
-              :item="item"
               :index="i"
+              :item="item"
               @get-task-detail="getTaskDetail"
             />
           </li>
@@ -56,10 +56,6 @@ export default {
       type: Object,
       default: undefined,
     },
-    // showDialogTaskDetail: {
-    //   type: Boolean,
-    //   default: false
-    // },
   },
   data() {
     return {
@@ -85,11 +81,6 @@ export default {
     },
   },
   watch: {
-    // showDialogDetail() {
-    //   if (this.showDialogDetail) {
-    //     this.getTaskDetail(this.taskId);
-    //   }
-    // },
     taskId() {
       this.getTaskDetail(this.taskId);
     },

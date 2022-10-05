@@ -56,6 +56,7 @@
             <ListMeetingParticipant
               :key="childKeyParticipant"
               :show-list-data="showListData"
+              @reset-tab-current="resetTabCurrent"
               @count-participant="countParticipant"
             />
           </v-tab-item>
@@ -67,6 +68,7 @@
             <ListMeetingGroup
               :key="childKeyGroup"
               :show-list-data="showListData"
+              @reset-tab-current="resetTabCurrent"
               @count-group="countGroup"
             />
           </v-tab-item>
@@ -79,6 +81,7 @@
             <ListMeetingApprove
               :key="childKeyApprove"
               :show-list-data="showListData"
+              @reset-tab-current="resetTabCurrent"
               @count-approve="countApprove"
             />
           </v-tab-item>
@@ -212,6 +215,17 @@ export default {
 
     onChangeTypeCalendar() {
       this.showListData = false;
+    },
+
+    resetTabCurrent() {
+      this.currentTab = 2
+      const user = JSON.parse(localStorage.getItem(constants.USER_INFO));
+      if (user) {
+        if (user.roles && user.roles.includes("MEETING_MANAGE")) {
+          this.showTab = true;
+          this.currentTab = 3;
+        }
+      }
     },
   },
 };

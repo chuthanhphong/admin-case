@@ -424,6 +424,14 @@ export default {
     searchingType: {
       type: String,
       default: null
+    },
+    meetingStartTime: {
+      type: String,
+      default: null
+    },
+    meetingEndTime: {
+      type: String,
+      default: null
     }
   },
   data() {
@@ -494,6 +502,8 @@ export default {
       meetingSchedule: false,
       onCallSchedule: false,
 
+      meetingStartTimeValueDefault: null,
+      meetingEndTimeValueDefault: null,
     }
   },
   computed: {
@@ -503,6 +513,11 @@ export default {
   },
   watch: {
 
+    showAdvance() {
+      if (this.showAdvance) {
+        this.initDate()
+      }
+    },
     selectedCustomer() {
       if (this.selectedCustomer == null) {
         return
@@ -759,8 +774,12 @@ export default {
       return moment(date).format('DD/MM/YYYY')
     },
     initDate() {
-      this.meetingStartTimeValue = moment().clone().startOf("isoWeek").format("DD/MM/YYYY")
-      this.meetingEndTimeValue = moment().clone().endOf("isoWeek").format("DD/MM/YYYY")
+      this.meetingStartTimeValue = this.meetingStartTime ? moment(this.meetingStartTime, 'DD/MM/YYYY').format("DD/MM/YYYY") : null
+      this.meetingEndTimeValue = this.meetingEndTime ? moment(this.meetingEndTime, 'DD/MM/YYYY').format("DD/MM/YYYY") : null
+
+      // set time default
+      this.meetingStartTimeValueDefault = this.meetingStartTimeValue.replaceAll('/', '')
+      this.meetingEndTimeValueDefault = this.meetingEndTimeValue.replaceAll('/', '')
     },
 
     // load danh sach lich dinh ky
@@ -884,7 +903,33 @@ export default {
         cycleType: this.cycleText || null, // lich dinh ky: CYCLE_TYPE, ONCE, DAILY, WEEKLY, MONTHLY, QUARTERLY
         searchingType: null // PARTICIPATING: toi tham gia, GROUP: lich don vi, APPROVE: toi duyet, CREATE: toi tao
       }
-      this.$emit('submit-dialog', params, this.listIndexState)
+
+      // check searching
+      let isSearching = false
+
+      if (this.meetingStartTimeValueDefault !== params.meetingStartTime ||
+          this.meetingEndTimeValueDefault !== params.meetingEndTime ||
+          params.roomId ||
+          params.roomName ||
+          (params.meetingTypes && params.meetingTypes.length !== 0) ||
+          (params.calendarTypes && params.calendarTypes.length !== 0) ||
+          params.participantName ||
+          params.cycleType) isSearching = true
+      // man toi tham gia, lich don vi
+      if (this.searchingType === 'PARTICIPATING' || this.searchingType === 'GROUP') {
+        if (params.status && params.status.length === 1 && params.status[0] === 'APPROVED'
+        ) isSearching = false
+        else isSearching = true
+      }
+
+      // man toi duyet
+      if (this.searchingType === 'APPROVE') {
+        if (params.status && params.status.length !== 5
+        ) isSearching = true
+      }
+
+      this.$emit('change-date', this.meetingStartTimeValue, this.meetingEndTimeValue)
+      this.$emit('submit-dialog', params, this.listIndexState, isSearching)
       this.$emit('close-dialog')
     },
 

@@ -430,10 +430,8 @@ export default {
             this.menuSelected = 1;
           }
         }
-      } else if (value.length > 2) {
+      } else if (value.length > 1) {
         this.menuSelected = 3;
-      } else if (value.length === 2) {
-        this.menuSelected = 1;
       }
       this.$emit("get-status", value);
     },

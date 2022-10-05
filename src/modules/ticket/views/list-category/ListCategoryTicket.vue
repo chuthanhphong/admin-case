@@ -16,6 +16,7 @@
     <dialog-create-ticket
       v-model="isShowDialogCreateTicket"
       :category-id="typeTicketId"
+      :is-list-ticket-type="true"
       :types-ticket="typesTicket"
     />
   </div>
@@ -26,6 +27,7 @@ import DialogCreateTicket from "@/modules/ticket/views/components/create-ticket/
 
 import CategoryDetail from "./components/CategoryDetail.vue";
 import CategoryTicket from "./components/CategoryTicket.vue";
+
 export default {
   components: { CategoryDetail, CategoryTicket, DialogCreateTicket },
   data() {

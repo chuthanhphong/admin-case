@@ -166,6 +166,7 @@
                       <PopupUserInfoViewHover
                         v-if="hover"
                         :user-info="item.userInfo"
+                        :is-chevron-left="false"
                       />
                     </v-btn>
                   </v-hover>
@@ -568,6 +569,7 @@ export default {
       priorityValue: null,
       isClearData: false,
       onReloadData: true,
+      loadingPage: null,
       settingHeaders: [
         {
           text: "tickets.labels.status",
@@ -641,7 +643,7 @@ export default {
     async initData() {
       await this.findTicketCategoryActive();
       this.getListFollower();
-      this.getListCompleTime();
+      // this.getListCompleTime();
       this.getFullList();
     },
     onAcceptConfirm() {
@@ -933,7 +935,10 @@ export default {
           heightHeader + heightContent - this.computedHeightTable;
         if (e.target.scrollTop >= scrollTop && this.isLoadMore) {
           this.page = this.page + 1;
-          this.getList();
+          if (this.getListAdvanceSearch) {
+            this.getList(this.loadingPage);
+          }
+          // this.getList();
         }
       }, 20);
     },

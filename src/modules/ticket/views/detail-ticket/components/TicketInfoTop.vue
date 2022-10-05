@@ -81,14 +81,31 @@
         >
           {{ $t("tickets.labels.choose") }}
         </v-btn>
-        <v-chip v-else close color="#FFEDD2" @click:close="removeSource()">
-          <v-avatar left>
-            <v-img v-if="checkEqualItem(data.item.associationType, 'DOCUMENT')" :src="require('@/assets/icons/task/createTask/document.svg')" />
-            <v-img v-if="checkEqualItem(data.item.associationType, 'TICKET')" :src="require('@/assets/icons/task/createTask/ticket.svg')" />
-            <v-img v-if="checkEqualItem(data.item.associationType, 'TASK')" :src="require('@/assets/icons/task/createTask/work.svg')" />
-          </v-avatar>
-          {{ selectedSource }}
-        </v-chip>
+        <v-tooltip
+          v-else
+          content-class="tooltip-top"
+          top
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-chip
+              close
+              color="#FFEDD2"
+              v-bind="attrs"
+              @click="onShowDialogSelectSource"
+              v-on="on"
+              @click:close="removeSource()"
+            >
+              <v-avatar left>
+                <v-img v-if="checkEqualItem(detail.sourceTicket.associationType, 'DOCUMENT')" :src="require('@/assets/icons/task/createTask/document.svg')" />
+                <v-img v-if="checkEqualItem(detail.sourceTicket.associationType, 'TICKET')" :src="require('@/assets/icons/task/createTask/ticket.svg')" />
+                <v-img v-if="checkEqualItem(detail.sourceTicket.associationType, 'TASK')" :src="require('@/assets/icons/task/createTask/work.svg')" />
+              </v-avatar>
+              {{ getTextTruncate(detail.sourceTicket.name,15) }}
+            </v-chip>
+          </template>
+          <span>{{ detail.sourceTicket.name }}</span>
+        </v-tooltip>
+
       </v-layout>
     </v-layout>
     <v-layout class="mt-2" column>
@@ -115,35 +132,25 @@
       <span class="text--body-2">{{ detail.description }}</span>
     </template>
     <!-- dialog select source -->
-    <dialog-select-source
-      v-model="isShowDialogSource"
-      :items="lstAssociation"
-      :lst-module-type="listModuleType"
-      @select-source="selectSourceType"
-      @get-list-association="getListAssociation"
-      @on-accept="onAccept"
-    />
-    <!-- <dialog-select-source
+    <dialog-select-source-task
+      :excludes="[{ id:detail.id, associationType: 'TICKET' }]"
       :show-dialog="isShowDialogSource"
-      :source-task="dataTask.sourceTask"
-      :excludes="[{ id:dataTask.id, associationType: 'TICKET' }]"
+      :source-task="detail.sourceTask"
       :title="'task-manager.title.source-task'"
       @source-task="sourceTaskFromEmit"
-      @close-dia-log="closeDialogSelectSourceTask"
-      @list-association="listAssociationFromEmit"
-    /> -->
+      @close-dia-log="closeDialogSouceTask"
+    />
   </v-layout>
 </template>
 <script>
 // component
-import DialogSelectSource from "@/modules/ticket/views/components/DialogSelectSource.vue"; // import DialogSelectSource from "@/components/dialog/DialogSelectSourceTask";
-import { FORMAT_DATE_TIME_TICKET, formatDate, HTTP_STATUS_SUCCESS, } from "@/modules/ticket/helpers/ticketUtils";
+import DialogSelectSourceTask from "@/components/dialog/DialogSelectSourceTask";
+import { FORMAT_DATE_TIME_TICKET, formatDate, } from "@/modules/ticket/helpers/ticketUtils";
 import PopupUserInfoViewHover from "@/modules/ticket/views/components/PopupUserInfoViewHover";
 import mixinStatusAndPriority from "@/modules/ticket/mixins/mixinStatusAndPriority";
 
 // Services
 import { StorageService } from "@/modules/ticket/services/storageService";
-import { AssociationService } from "@/modules/ticket/services/associationService";
 import { PublicTicketService } from "@/modules/ticket/services/publicTicketService";
 
 const initForm = {
@@ -151,7 +158,7 @@ const initForm = {
   urgency: null,
 };
 export default {
-  components: { DialogSelectSource, PopupUserInfoViewHover },
+  components: { DialogSelectSourceTask, PopupUserInfoViewHover },
   mixins: [mixinStatusAndPriority],
   props: {
     value: Boolean,
@@ -168,6 +175,7 @@ export default {
     return {
       content: "",
       color: "#00c3f9",
+      loading: false,
       formData: { ...initForm },
       showDialogSourceTask: false,
       listUrgency: [],
@@ -203,6 +211,9 @@ export default {
   },
   created() {
     this.initData();
+    if (this.detail.sourceTicket) {
+      this.haveSourceValue = true
+    }
   },
   methods: {
     async initData() {
@@ -227,34 +238,6 @@ export default {
       const response = await PublicTicketService.getSourceType();
       this.listModuleType = response.data;
     },
-    async getListAssociation(keyword) {
-      const body = {
-        keyword: keyword,
-      };
-      const response = await AssociationService.getAssociations(body);
-      if (response && response.status === HTTP_STATUS_SUCCESS) {
-        if (this.sourceValue === 1) {
-          this.lstAssociation = response.data.documents;
-        } else if (this.sourceValue === 3) {
-          this.lstAssociation = response.data.tasks;
-        } else if (this.sourceValue === 4) {
-          this.lstAssociation = response.data.tickets;
-        }
-      }
-    },
-    async getAssociations() {
-      const body = {};
-      const response = await AssociationService.getAssociations(body);
-      if (response && response.status === HTTP_STATUS_SUCCESS) {
-        if (this.sourceValue === 1) {
-          this.lstAssociation = response.data.documents;
-        } else if (this.sourceValue === 3) {
-          this.lstAssociation = response.data.tasks;
-        } else if (this.sourceValue === 4) {
-          this.lstAssociation = response.data.tickets;
-        }
-      }
-    },
     onAccept(id, type, value) {
       this.selectedSource = value;
       this.sourceId = id;
@@ -267,15 +250,18 @@ export default {
       this.isShowDialogSource = false;
     },
     sourceTaskFromEmit(value) {
-      this.formData.sourceTask = value
+      this.$emit('source-task', value)
+      this.haveSourceValue = true
     },
     removeSource() {
-      this.selectedSource = null;
+      this.$emit('remove-Source')
       this.haveSourceValue = false;
+    },
+    closeDialogSouceTask() {
+      this.isShowDialogSource = false
     },
     selectSourceType(value) {
       this.sourceValue = value;
-      this.getAssociations();
     },
     formatDateView(date) {
       return formatDate(date, FORMAT_DATE_TIME_TICKET);
@@ -285,6 +271,13 @@ export default {
     },
     renderAvatarText(customer) {
       return this.genAvatar(customer)
+    },
+    getTextTruncate(val, size) {
+      if (val.length > size) {
+        return val.substring(0, size) + "...";
+      } else {
+        return val;
+      }
     },
     genAvatar(name) {
       if (!name) return ''

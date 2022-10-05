@@ -61,9 +61,9 @@
           dense
           height="40px"
           outlined
+          @change="trimSpace"
           @keyup.enter="search()"
           @click:clear="clearKeyword"
-          @change="trimSpace"
         >
           <template v-slot:append>
             <v-img
@@ -106,9 +106,9 @@
                     </v-avatar>
                     <v-list-item-content class="py-0">
                       <v-list-item-title class="ml-4 width-100">
-                        <v-tooltip content-class="tooltip-top" top>
+                        <v-tooltip :nudge-left="item.name.length > 100 ? 500 : 0 " content-class="tooltip-top" top>
                           <template v-slot:activator="{ on }">
-                            <div style="display: inline" class="text-name-hover text-ellipsis" v-on="on">{{ item.name }}</div>
+                            <div class="text-name-hover text-ellipsis" style="display: inline" v-on="on">{{ item.name }}</div>
                           </template>
                           <div>{{ (item.name) }}</div>
                         </v-tooltip>
